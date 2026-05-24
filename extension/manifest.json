@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Alerta de Riesgos Digitales",
+  "version": "1.0.0",
+  "description": "Analiza publicaciones en X y detecta riesgos digitales usando un modelo de Machine Learning local.",
+
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://x.com/*",
+    "https://twitter.com/*",
+    "http://localhost:8000/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://twitter.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+
+  "action": {
+    "default_title": "Alerta de Riesgos Digitales"
+  }
+}
