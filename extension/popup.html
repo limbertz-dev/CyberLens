@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>CyberLens</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 320px;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
+      color: #e2e8f0;
+      padding: 16px;
+    }
+    h1 {
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      color: #38bdf8;
+    }
+    .sub { font-size: 11px; opacity: 0.75; margin-bottom: 14px; }
+    .status {
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .status.ok { background: #14532d; color: #bbf7d0; }
+    .status.err { background: #7f1d1d; color: #fecaca; }
+    .status.wait { background: #1e3a5f; color: #bae6fd; }
+    label { font-size: 11px; opacity: 0.8; display: block; margin-bottom: 6px; }
+    textarea {
+      width: 100%;
+      height: 72px;
+      border-radius: 8px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #f1f5f9;
+      padding: 8px;
+      font-size: 12px;
+      resize: vertical;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #0ea5e9, #6366f1);
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    button:hover { filter: brightness(1.08); }
+    pre {
+      background: #020617;
+      border: 1px solid #334155;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 10px;
+      line-height: 1.45;
+      overflow-x: auto;
+      max-height: 180px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      color: #a5f3fc;
+    }
+    .hint { font-size: 10px; opacity: 0.65; margin-top: 10px; line-height: 1.4; }
+    a { color: #38bdf8; }
+  </style>
+</head>
+<body>
+  <h1>CyberLens</h1>
+  <p class="sub">Prueba manual de la API</p>
+  <p class="sub" style="margin-top:6px;color:#94a3b8">
+    En WhatsApp/X los análisis aparecen <strong style="color:#38bdf8">debajo de cada mensaje</strong> al abrir un chat — no en esta ventana.
+  </p>
+  <div id="status" class="status wait">Comprobando servidor…</div>
+  <label for="text">Texto a analizar</label>
+  <textarea id="text">Haz clic aquí para verificar tu cuenta bancaria urgentemente</textarea>
+  <button id="btnAnalyze">Analizar (POST /analyze)</button>
+  <pre id="output">Aquí verás la respuesta JSON de la API…</pre>
+  <p class="hint">
+    Si sale error: en terminal ejecuta<br />
+    <code>uvicorn main:app --reload --port 8000</code><br />
+    Docs: <a href="http://localhost:8000/docs" target="_blank">localhost:8000/docs</a>
+  </p>
+  <script src="popup.js"></script>
+</body>
+</html>

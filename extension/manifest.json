@@ -1,27 +1,29 @@
 {
   "manifest_version": 3,
-  "name": "Alerta de Riesgos Digitales",
-  "version": "1.0.0",
-  "description": "Analiza publicaciones en X y detecta riesgos digitales usando un modelo de Machine Learning local.",
+  "name": "CyberLens — Detector de Riesgos",
+  "version": "1.4.0",
+  "description": "CyberLens analiza texto en cualquier sitio web con ML y NLP: phishing, toxicidad, oversharing y contenido normal.",
 
   "permissions": [
-    "activeTab",
-    "scripting"
+    "activeTab"
   ],
 
   "host_permissions": [
-    "https://x.com/*",
-    "https://twitter.com/*",
-    "http://localhost:8000/*"
+    "http://localhost:8000/*",
+    "http://*/*",
+    "https://*/*"
   ],
 
   "content_scripts": [
     {
-      "matches": [
-        "https://x.com/*",
-        "https://twitter.com/*"
+      "matches": ["http://*/*", "https://*/*"],
+      "exclude_matches": [
+        "http://localhost:8000/*",
+        "https://chrome.google.com/*",
+        "https://chromewebstore.google.com/*"
       ],
-      "js": ["content.js"],
+      "js": ["icons.js", "content.js"],
+      "css": ["cyberlens.css"],
       "run_at": "document_idle"
     }
   ],
@@ -31,6 +33,7 @@
   },
 
   "action": {
-    "default_title": "Alerta de Riesgos Digitales"
+    "default_title": "CyberLens — Detector de Riesgos",
+    "default_popup": "popup.html"
   }
 }

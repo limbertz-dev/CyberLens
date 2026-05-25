@@ -1,6 +1,6 @@
 # Sistema de Alerta de Riesgos Digitales — MVP
 
-Prototipo local que analiza publicaciones en X (Twitter) mediante una extensión de navegador,
+Prototipo local que analiza texto en sitios web (redes sociales, chats, foros, etc.) mediante una extensión de navegador,
 una API FastAPI y un modelo de Machine Learning con NLP.
 
 ---
@@ -56,7 +56,7 @@ uvicorn main:app --reload --port 8000
 Deberías ver en la consola:
 
 ```
-[OK] Modelo entrenado con 60 ejemplos — categorías: ['desinformacion', 'oversharing', 'phishing', 'seguro']
+[OK] Modelo entrenado con 508 ejemplos desde twitter_riesgos_dataset.csv — categorías: ['normal', 'oversharing', 'phishing', 'toxicidad']
 INFO:     Uvicorn running on http://127.0.0.1:8000
 ```
 
@@ -69,7 +69,7 @@ Respuesta esperada:
 {
   "status": "ok",
   "message": "API de Riesgos Digitales activa",
-  "categories": ["desinformacion", "oversharing", "phishing", "seguro"]
+  "categories": ["normal", "oversharing", "phishing", "toxicidad"]
 }
 ```
 
@@ -91,16 +91,16 @@ También puedes probar el endpoint directamente en la documentación interactiva
 ## 3. Probar el sistema completo
 
 1. Asegúrate de que el servidor está corriendo en `localhost:8000`
-2. Abre [https://x.com](https://x.com) en Chrome
-3. Navega por el feed — las publicaciones serán analizadas automáticamente
+2. Abre cualquier sitio con texto visible (X, Facebook, Reddit, WhatsApp Web, etc.)
+3. Navega por el contenido — los bloques de texto detectados se analizarán automáticamente
 4. Cada publicación mostrará una alerta visual debajo del texto:
 
 | Categoría       | Indicador visual                         |
 |-----------------|------------------------------------------|
 | Phishing        | Borde rojo · etiqueta roja               |
-| Desinformación  | Borde amarillo · etiqueta amarilla       |
+| Toxicidad       | Borde morado · etiqueta morada           |
 | Oversharing     | Borde naranja · etiqueta naranja         |
-| Seguro          | Borde verde · etiqueta verde             |
+| Normal          | Borde verde · etiqueta verde             |
 
 ---
 
@@ -136,7 +136,7 @@ Texto crudo
   → Tokenización (NLTK word_tokenize, español)
   → Eliminación de signos de puntuación
   → Eliminación de stopwords en español
-  → Vectorización TF-IDF (max_features=500, ngram_range=(1,2))
+  → Vectorización TF-IDF (max_features=1000, ngram_range=(1,2))
   → Regresión Logística (Scikit-Learn)
   → { category, probability }
 ```
@@ -153,8 +153,8 @@ Texto crudo
 
 ## 7. Limitaciones del MVP
 
-- El dataset semilla es pequeño (60 ejemplos). Las predicciones deben interpretarse como **alertas preventivas**, no como veredictos definitivos.
-- El sistema depende de la estructura actual del DOM de X (`data-testid="tweetText"`). Cambios en la plataforma pueden requerir ajustar el selector en `content.js`.
+- El modelo se entrena con `data/twitter_riesgos_dataset.csv` (508 ejemplos). Las predicciones deben interpretarse como **alertas preventivas**, no como veredictos definitivos.
+- La extensión usa selectores genéricos y de plataformas conocidas; en sitios muy personalizados puede analizar menos bloques de texto.
 - Solo procesa texto en español.
 - No almacena ningún dato — cada análisis es al vuelo.
 
@@ -162,14 +162,10 @@ Texto crudo
 
 ## 8. Ampliar el dataset (opcional)
 
-Para mejorar la precisión del modelo, agrega más ejemplos al array `DATASET` en `main.py`:
-
-```python
-("Texto de ejemplo", "phishing"),       # o desinformacion / oversharing / seguro
-```
+Para mejorar la precisión del modelo, agrega filas en `data/twitter_riesgos_dataset.csv` (columnas `text` y `label`: `phishing`, `oversharing`, `toxicidad` o `normal`).
 
 Mantén un número similar de ejemplos por categoría para evitar desbalance.
-Reinicia el servidor después de modificar el dataset:
+Reinicia el servidor después de modificar el CSV (con `--reload` se recarga solo al guardar `main.py`; si solo cambias el CSV, reinicia uvicorn):
 
 ```bash
 uvicorn main:app --reload --port 8000
