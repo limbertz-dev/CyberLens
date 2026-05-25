@@ -7,6 +7,7 @@ const MIN_TEXT_LEN   = 15;
 const MAX_TEXT_LEN   = 2000;
 const THROTTLE_MS    = 600;
 const MAX_PER_SCAN   = 20;
+const SCAN_DRAIN_MS  = 120;
 
 const BRAND_NAME = 'CyberLens';
 
@@ -76,7 +77,39 @@ const CONFIDENCE_LABELS = {
   incierta: 'Clasificación incierta',
 };
 
-const recentTexts = new Set();
+const recentAnchors = new WeakSet();
+
+function isDebugEnabled() {
+  try {
+    return window.localStorage?.getItem('CyberLensDebug') === '1';
+  } catch (_err) {
+    return false;
+  }
+}
+
+function debugLog(event, details = {}) {
+  if (!isDebugEnabled()) return;
+  console.debug(`[${BRAND_NAME}] ${event}`, details);
+}
+
+function emptyScanStats() {
+  return {
+    matched: 0,
+    accepted: 0,
+    skipped: {},
+    hitLimit: false,
+  };
+}
+
+function countSkip(stats, reason) {
+  stats.skipped[reason] = (stats.skipped[reason] || 0) + 1;
+}
+
+function getCandidateIdentity(el) {
+  return el.closest(
+    'article, [role="article"], [data-testid="cellInnerDiv"], [data-urn], [data-id], [data-message-id]'
+  ) || el;
+}
 
 function iconHtml(key) {
   if (typeof CyberLensIcons === 'undefined') return '';
@@ -161,27 +194,57 @@ function isLeafTextNode(el, text) {
 }
 
 function isValidCandidate(el) {
-  if (el.hasAttribute(ANALYZED_ATTR)) return false;
-  if (isExcluded(el)) return false;
+  if (el.hasAttribute(ANALYZED_ATTR)) {
+    debugLog('discarded candidate', { reason: 'already-analyzed' });
+    return false;
+  }
+  if (isExcluded(el)) {
+    debugLog('discarded candidate', { reason: 'excluded-ancestor-or-composer' });
+    return false;
+  }
 
   const text = el.innerText?.trim();
-  if (!text || text.length < MIN_TEXT_LEN || text.length > MAX_TEXT_LEN) return false;
+  if (!text) {
+    debugLog('discarded candidate', { reason: 'empty-text' });
+    return false;
+  }
+  if (text.length < MIN_TEXT_LEN) {
+    debugLog('discarded candidate', { reason: 'text-too-short', text });
+    return false;
+  }
+  if (text.length > MAX_TEXT_LEN) {
+    debugLog('discarded candidate', { reason: 'text-too-long', length: text.length });
+    return false;
+  }
 
-  if (el.children.length > 12) return false;
-  if (!isLeafTextNode(el, text)) return false;
+  if (el.children.length > 12) {
+    debugLog('discarded candidate', { reason: 'too-many-children', text: text.slice(0, 120) });
+    return false;
+  }
+  if (!isLeafTextNode(el, text)) {
+    debugLog('discarded candidate', { reason: 'not-leaf-text-node', text: text.slice(0, 120) });
+    return false;
+  }
 
   // En páginas genéricas, solo párrafos dentro de artículos o dir=auto
   if (isGenericTag(el)) {
     const inArticle = el.closest('article, [role="article"], [role="feed"], main, [role="main"]');
     const hasDirAuto = el.getAttribute('dir') === 'auto' || el.closest('[dir="auto"]');
     const hasPlatformAttr = el.closest('[data-testid], .messageContent, .msg-text');
-    if (!inArticle && !hasDirAuto && !hasPlatformAttr) return false;
+    if (!inArticle && !hasDirAuto && !hasPlatformAttr) {
+      debugLog('discarded candidate', { reason: 'generic-text-outside-content', text: text.slice(0, 120) });
+      return false;
+    }
   }
 
-  if (isWhatsAppWeb() && !el.closest('#main')) return false;
+  if (isWhatsAppWeb() && !el.closest('#main')) {
+    debugLog('discarded candidate', { reason: 'whatsapp-outside-main', text: text.slice(0, 120) });
+    return false;
+  }
 
   const style = window.getComputedStyle(el);
   if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') {
+    debugLog('discarded candidate', { reason: 'hidden-by-css', text: text.slice(0, 120) });
     return false;
   }
 
@@ -191,41 +254,79 @@ function isValidCandidate(el) {
 function collectTextElements() {
   const seen = new Set();
   const candidates = [];
+  const stats = emptyScanStats();
 
   for (const el of document.querySelectorAll(TEXT_SELECTORS)) {
-    if (!isValidCandidate(el)) continue;
+    stats.matched += 1;
+    if (!isValidCandidate(el)) {
+      countSkip(stats, 'invalid-candidate');
+      continue;
+    }
 
-    const key = el.innerText.trim().slice(0, 80);
-    if (seen.has(key)) continue;
+    const key = getCandidateIdentity(el);
+    if (seen.has(key)) {
+      countSkip(stats, 'duplicate-node-in-scan');
+      continue;
+    }
     seen.add(key);
 
     candidates.push(el);
-    if (candidates.length >= MAX_PER_SCAN) break;
+    stats.accepted = candidates.length;
+    if (candidates.length >= MAX_PER_SCAN) {
+      stats.hitLimit = true;
+      break;
+    }
   }
 
-  return candidates;
+  return { candidates, stats };
 }
 
 function collectWhatsAppMessages() {
   const seen = new Set();
   const candidates = [];
+  const stats = emptyScanStats();
 
   for (const anchor of document.querySelectorAll(WHATSAPP_MSG_SELECTORS.join(', '))) {
-    if (anchor.hasAttribute(ANALYZED_ATTR)) continue;
-    if (isInsideComposer(anchor) || isInsideWhatsAppSidebar(anchor)) continue;
+    stats.matched += 1;
+    if (anchor.hasAttribute(ANALYZED_ATTR)) {
+      countSkip(stats, 'already-analyzed');
+      continue;
+    }
+    if (isInsideComposer(anchor) || isInsideWhatsAppSidebar(anchor)) {
+      countSkip(stats, 'excluded-ancestor-or-composer');
+      continue;
+    }
 
     const text = anchor.innerText?.trim();
-    if (!text || text.length < MIN_TEXT_LEN || text.length > MAX_TEXT_LEN) continue;
+    if (!text) {
+      countSkip(stats, 'empty-text');
+      continue;
+    }
+    if (text.length < MIN_TEXT_LEN) {
+      countSkip(stats, 'text-too-short');
+      continue;
+    }
+    if (text.length > MAX_TEXT_LEN) {
+      countSkip(stats, 'text-too-long');
+      continue;
+    }
 
-    const key = text.slice(0, 80);
-    if (seen.has(key)) continue;
+    const key = getCandidateIdentity(anchor);
+    if (seen.has(key)) {
+      countSkip(stats, 'duplicate-node-in-scan');
+      continue;
+    }
     seen.add(key);
 
     candidates.push({ anchor, text });
-    if (candidates.length >= MAX_PER_SCAN) break;
+    stats.accepted = candidates.length;
+    if (candidates.length >= MAX_PER_SCAN) {
+      stats.hitLimit = true;
+      break;
+    }
   }
 
-  return candidates;
+  return { candidates, stats };
 }
 
 // ─── API ─────────────────────────────────────────────────────────────────────
@@ -236,9 +337,15 @@ async function analyzeText(text) {
       headers: { 'Content-Type': 'application/json' },
       body:    JSON.stringify({ text }),
     });
-    if (!response.ok) return null;
-    return await response.json();
-  } catch (_err) {
+    if (!response.ok) {
+      debugLog('api error', { status: response.status, text: text.slice(0, 120) });
+      return null;
+    }
+    const result = await response.json();
+    debugLog('api result', { category: result.category, text: text.slice(0, 120) });
+    return result;
+  } catch (err) {
+    debugLog('api exception', { message: err.message, text: text.slice(0, 120) });
     return null;
   }
 }
@@ -333,13 +440,25 @@ function buildLoadingHTML() {
 }
 
 function getAlertContainer(anchor) {
-  let wrap = anchor.querySelector(':scope > [data-cyberlens-wrap]');
+  const isBubble = isWhatsAppMessageBubble(anchor);
+  // En burbujas de WhatsApp el wrap va DENTRO del anchor; en el resto, como hermano.
+  const container = isBubble ? anchor : anchor.parentElement;
+
+  let wrap = null;
+  if (container) {
+    const wraps = container.querySelectorAll(':scope > [data-cyberlens-wrap]');
+    wraps.forEach((existing, i) => {
+      if (i === 0) wrap = existing;
+      else existing.remove();
+    });
+  }
+
   if (!wrap) {
     wrap = document.createElement('div');
     wrap.setAttribute('data-cyberlens-wrap', '1');
     wrap.style.cssText =
       'width:100%;max-width:min(100%,440px);margin-top:8px;clear:both;position:relative;z-index:99999;';
-    if (isWhatsAppMessageBubble(anchor)) {
+    if (isBubble) {
       anchor.appendChild(wrap);
     } else {
       anchor.insertAdjacentElement('afterend', wrap);
@@ -350,9 +469,13 @@ function getAlertContainer(anchor) {
 
 function injectAlert(textElement, result) {
   const config = ALERTS[result.category];
-  if (!config) return;
+  if (!config) {
+    debugLog('render skipped', { reason: 'unknown-category', result });
+    return;
+  }
   const wrap = getAlertContainer(textElement);
   wrap.innerHTML = buildAlertHTML(result.category, resolveConfidence(result), config);
+  debugLog('rendered alert', { category: result.category, text: textElement.innerText?.trim().slice(0, 120) });
 }
 
 function injectLoading(textElement) {
@@ -361,13 +484,14 @@ function injectLoading(textElement) {
 
 async function processAnchor(anchor, text) {
   if (anchor.hasAttribute(ANALYZED_ATTR)) return;
+  if (anchor.dataset.riskAnalyzed === 'true') return;
   if (!text || text.length < MIN_TEXT_LEN) return;
 
-  const key = text.slice(0, 60);
-  if (recentTexts.has(key)) return;
-  recentTexts.add(key);
-  setTimeout(() => recentTexts.delete(key), THROTTLE_MS);
+  if (recentAnchors.has(anchor)) return;
+  recentAnchors.add(anchor);
+  setTimeout(() => recentAnchors.delete(anchor), THROTTLE_MS);
 
+  anchor.dataset.riskAnalyzed = 'true';
   anchor.setAttribute(ANALYZED_ATTR, 'pending');
   injectLoading(anchor);
 
@@ -390,15 +514,20 @@ async function processTextElement(textEl) {
 
 function scanForContent() {
   if (isWhatsAppWeb()) {
-    collectWhatsAppMessages().forEach(({ anchor, text }) => {
+    const { candidates, stats } = collectWhatsAppMessages();
+    debugLog('scan result', { mode: 'whatsapp', ...stats, rendering: candidates.length });
+    candidates.forEach(({ anchor, text }) => {
       setTimeout(() => processAnchor(anchor, text), 0);
     });
-    return;
+    return stats.hitLimit;
   }
 
-  collectTextElements().forEach((el) => {
+  const { candidates, stats } = collectTextElements();
+  debugLog('scan result', { mode: 'generic', ...stats, rendering: candidates.length });
+  candidates.forEach((el) => {
     setTimeout(() => processTextElement(el), 0);
   });
+  return stats.hitLimit;
 }
 
 let scanScheduled = false;
@@ -407,12 +536,26 @@ function scheduleScan() {
   scanScheduled = true;
   requestAnimationFrame(() => {
     scanScheduled = false;
-    scanForContent();
+    const shouldContinue = scanForContent();
+    if (shouldContinue) {
+      setTimeout(scheduleScan, SCAN_DRAIN_MS);
+    }
   });
 }
 
+function isOwnAlertNode(node) {
+  if (!node) return false;
+  const el = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+  if (!el || typeof el.closest !== 'function') return false;
+  if (el.classList && el.classList.contains('cl-alert')) return true;
+  return !!el.closest('[data-cyberlens-wrap], .cl-alert');
+}
+
 const observer = new MutationObserver((mutations) => {
-  if (mutations.some((m) => m.addedNodes.length > 0)) scheduleScan();
+  const hasUserContent = mutations.some((m) =>
+    Array.from(m.addedNodes).some((node) => !isOwnAlertNode(node))
+  );
+  if (hasUserContent) scheduleScan();
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
