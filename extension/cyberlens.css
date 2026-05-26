@@ -1,0 +1,288 @@
+/* CyberLens — estilos para demo en feria (cualquier sitio web) */
+
+@keyframes cl-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cl-pulse-risk {
+  0%, 100% { box-shadow: 0 0 0 0 var(--cl-glow); }
+  50% { box-shadow: 0 0 0 6px transparent; }
+}
+
+@keyframes cl-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes cl-scan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.cl-alert {
+  --cl-glow: rgba(0, 0, 0, 0.08);
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 10px;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  box-sizing: border-box;
+  pointer-events: none;
+  z-index: 99999;
+  animation: cl-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  border: 2px solid var(--cl-border);
+  background: var(--cl-bg);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.cl-alert--risk {
+  animation: cl-enter 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+    cl-pulse-risk 2.2s ease-in-out 0.5s 3;
+}
+
+.cl-alert__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 14px;
+  background: linear-gradient(
+    105deg,
+    var(--cl-accent) 0%,
+    var(--cl-accent-2) 50%,
+    var(--cl-accent) 100%
+  );
+  background-size: 200% auto;
+  animation: cl-shimmer 4s linear infinite;
+  color: #fff;
+}
+
+.cl-alert__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.95;
+}
+
+.cl-alert__brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.cl-alert__brand-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: #fff;
+}
+
+.cl-alert__badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  white-space: nowrap;
+}
+
+.cl-alert__body {
+  padding: 12px 14px 14px;
+  color: var(--cl-text);
+}
+
+.cl-alert__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.cl-alert__icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cl-icon-bg);
+  border: 2px solid var(--cl-border);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cl-alert__icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--cl-title);
+  flex-shrink: 0;
+}
+
+.cl-alert__title {
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 0 0 4px;
+  color: var(--cl-title);
+}
+
+.cl-alert__subtitle {
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0;
+  opacity: 0.88;
+}
+
+.cl-alert__confidence {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--cl-border);
+}
+
+.cl-alert__conf-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+  color: var(--cl-text);
+}
+
+.cl-alert__conf-pct {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--cl-title);
+}
+
+.cl-alert__bar-track {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  position: relative;
+}
+
+.cl-alert__bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cl-bar-a), var(--cl-bar-b));
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+
+.cl-alert__bar-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  animation: cl-scan 1.8s ease-in-out infinite;
+}
+
+.cl-alert__conf-hint {
+  margin-top: 6px;
+  font-size: 10px;
+  opacity: 0.75;
+  line-height: 1.35;
+}
+
+.cl-alert--phishing {
+  --cl-border: #dc2626;
+  --cl-bg: linear-gradient(180deg, #fff5f5 0%, #fef2f2 100%);
+  --cl-accent: #b91c1c;
+  --cl-accent-2: #ef4444;
+  --cl-text: #7f1d1d;
+  --cl-title: #991b1b;
+  --cl-icon-bg: #fee2e2;
+  --cl-bar-a: #fca5a5;
+  --cl-bar-b: #dc2626;
+  --cl-glow: rgba(220, 38, 38, 0.35);
+}
+
+.cl-alert--toxicidad {
+  --cl-border: #7c3aed;
+  --cl-bg: linear-gradient(180deg, #faf5ff 0%, #f5f3ff 100%);
+  --cl-accent: #5b21b6;
+  --cl-accent-2: #8b5cf6;
+  --cl-text: #4c1d95;
+  --cl-title: #5b21b6;
+  --cl-icon-bg: #ede9fe;
+  --cl-bar-a: #c4b5fd;
+  --cl-bar-b: #7c3aed;
+  --cl-glow: rgba(124, 58, 237, 0.35);
+}
+
+.cl-alert--oversharing {
+  --cl-border: #ea580c;
+  --cl-bg: linear-gradient(180deg, #fffaf5 0%, #fff7ed 100%);
+  --cl-accent: #c2410c;
+  --cl-accent-2: #f97316;
+  --cl-text: #9a3412;
+  --cl-title: #c2410c;
+  --cl-icon-bg: #ffedd5;
+  --cl-bar-a: #fdba74;
+  --cl-bar-b: #ea580c;
+  --cl-glow: rgba(234, 88, 12, 0.35);
+}
+
+.cl-alert--normal {
+  --cl-border: #16a34a;
+  --cl-bg: linear-gradient(180deg, #f0fdf9 0%, #f0fdf4 100%);
+  --cl-accent: #15803d;
+  --cl-accent-2: #22c55e;
+  --cl-text: #14532d;
+  --cl-title: #166534;
+  --cl-icon-bg: #dcfce7;
+  --cl-bar-a: #86efac;
+  --cl-bar-b: #16a34a;
+  --cl-glow: rgba(22, 163, 74, 0.25);
+}
+
+.cl-alert--loading {
+  --cl-border: #0ea5e9;
+  --cl-bg: #f0f9ff;
+  --cl-accent: #0369a1;
+  --cl-accent-2: #0ea5e9;
+  --cl-text: #0c4a6e;
+  --cl-title: #075985;
+  --cl-icon-bg: #e0f2fe;
+  --cl-bar-a: #7dd3fc;
+  --cl-bar-b: #0ea5e9;
+}
+
+.cl-loading-bar .cl-alert__bar-fill {
+  width: 40% !important;
+  animation: cl-scan 1.2s ease-in-out infinite;
+}
+
+.cl-conf--alta .cl-alert__conf-pct { color: var(--cl-title); }
+.cl-conf--media .cl-alert__conf-pct { opacity: 0.9; }
+.cl-conf--baja .cl-alert__conf-pct,
+.cl-conf--incierta .cl-alert__conf-pct {
+  font-size: 15px;
+}
