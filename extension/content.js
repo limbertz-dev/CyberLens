@@ -11,6 +11,17 @@ const SCAN_DRAIN_MS  = 120;
 
 const BRAND_NAME = 'CyberLens';
 
+// Mapa de categoría de la API → contador legible para el popup.
+const CATEGORY_TO_COUNTER = {
+  normal:      'seguro',
+  phishing:    'phishing',
+  toxicidad:   'toxicidad',
+  oversharing: 'oversharing',
+};
+
+const STORAGE = (typeof chrome !== 'undefined' && chrome.storage && chrome.storage.local) || null;
+let isPaused = false;
+
 const EXCLUDED_ANCESTORS = [
   'nav', 'header', 'footer', 'aside', 'script', 'style', 'noscript',
   'button', 'input', 'textarea', 'select', 'label', 'form',
@@ -329,6 +340,116 @@ function collectWhatsAppMessages() {
   return { candidates, stats };
 }
 
+// ─── Contadores persistentes (privacidad: solo números, sin texto) ───────────
+function todayKey() {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+}
+
+function setApiStatus(status) {
+  if (!STORAGE) return;
+  STORAGE.set({ api_status: status });
+}
+
+const RECENT_BUFFER_SIZE = 30;
+const SITE_BUFFER_SIZE = 18;
+
+function getSiteKey() {
+  return location.hostname.replace(/^www\./i, '').toLowerCase() || 'pagina-local';
+}
+
+function siteLabelFromHost(host) {
+  const known = {
+    'x.com': 'X',
+    'twitter.com': 'X',
+    'web.whatsapp.com': 'WhatsApp Web',
+    'linkedin.com': 'LinkedIn',
+    'facebook.com': 'Facebook',
+    'instagram.com': 'Instagram',
+    'youtube.com': 'YouTube',
+    'tiktok.com': 'TikTok',
+    'reddit.com': 'Reddit',
+  };
+  return known[host] || host.split('.')[0].replace(/^\w/, (c) => c.toUpperCase());
+}
+
+function incrementCounters(category, probability) {
+  if (!STORAGE) return;
+  const counterKey = CATEGORY_TO_COUNTER[category];
+  if (!counterKey) return;
+
+  STORAGE.get(
+    ['total', 'seguro', 'phishing', 'toxicidad', 'oversharing',
+     'ultima_categoria', 'daily_date', 'daily_total', 'daily_risky',
+     'prob_sum', 'prob_count', 'recent_categories', 'site_stats'],
+    (data) => {
+      const today = todayKey();
+      const sameDay = data.daily_date === today;
+      const isRisky = counterKey !== 'seguro';
+      const prob = typeof probability === 'number' ? probability : 0;
+      const now = Date.now();
+      const siteKey = getSiteKey();
+      const siteStats = data.site_stats && typeof data.site_stats === 'object'
+        ? { ...data.site_stats }
+        : {};
+      const currentSite = siteStats[siteKey] || {
+        host: siteKey,
+        label: siteLabelFromHost(siteKey),
+        total: 0,
+        seguro: 0,
+        phishing: 0,
+        toxicidad: 0,
+        oversharing: 0,
+        risky: 0,
+        prob_sum: 0,
+        prob_count: 0,
+        recent: [],
+        updated_at: 0,
+      };
+
+      // Anillo de últimas categorías: solo etiqueta + probabilidad + timestamp,
+      // nunca el texto analizado. Mantiene la privacidad del proyecto.
+      const recent = Array.isArray(data.recent_categories)
+        ? data.recent_categories.slice()
+        : [];
+      recent.push({ c: counterKey, p: prob, t: now, s: siteKey });
+      if (recent.length > RECENT_BUFFER_SIZE) {
+        recent.splice(0, recent.length - RECENT_BUFFER_SIZE);
+      }
+
+      const siteRecent = Array.isArray(currentSite.recent) ? currentSite.recent.slice() : [];
+      siteRecent.push({ c: counterKey, p: prob, t: now });
+      if (siteRecent.length > SITE_BUFFER_SIZE) {
+        siteRecent.splice(0, siteRecent.length - SITE_BUFFER_SIZE);
+      }
+      siteStats[siteKey] = {
+        ...currentSite,
+        label: currentSite.label || siteLabelFromHost(siteKey),
+        total: (currentSite.total || 0) + 1,
+        [counterKey]: (currentSite[counterKey] || 0) + 1,
+        risky: (currentSite.risky || 0) + (isRisky ? 1 : 0),
+        prob_sum: (currentSite.prob_sum || 0) + prob,
+        prob_count: (currentSite.prob_count || 0) + (prob > 0 ? 1 : 0),
+        recent: siteRecent,
+        updated_at: now,
+      };
+
+      STORAGE.set({
+        total: (data.total || 0) + 1,
+        [counterKey]: (data[counterKey] || 0) + 1,
+        ultima_categoria: counterKey,
+        daily_date: today,
+        daily_total: (sameDay ? (data.daily_total || 0) : 0) + 1,
+        daily_risky: (sameDay ? (data.daily_risky || 0) : 0) + (isRisky ? 1 : 0),
+        prob_sum: (data.prob_sum || 0) + prob,
+        prob_count: (data.prob_count || 0) + (prob > 0 ? 1 : 0),
+        recent_categories: recent,
+        site_stats: siteStats,
+      });
+    }
+  );
+}
+
 // ─── API ─────────────────────────────────────────────────────────────────────
 async function analyzeText(text) {
   try {
@@ -339,13 +460,17 @@ async function analyzeText(text) {
     });
     if (!response.ok) {
       debugLog('api error', { status: response.status, text: text.slice(0, 120) });
+      setApiStatus('disconnected');
       return null;
     }
     const result = await response.json();
     debugLog('api result', { category: result.category, text: text.slice(0, 120) });
+    setApiStatus('connected');
+    incrementCounters(result.category, result.probability);
     return result;
   } catch (err) {
     debugLog('api exception', { message: err.message, text: text.slice(0, 120) });
+    setApiStatus('disconnected');
     return null;
   }
 }
@@ -513,6 +638,10 @@ async function processTextElement(textEl) {
 }
 
 function scanForContent() {
+  if (isPaused) {
+    debugLog('scan skipped', { reason: 'paused' });
+    return false;
+  }
   if (isWhatsAppWeb()) {
     const { candidates, stats } = collectWhatsAppMessages();
     debugLog('scan result', { mode: 'whatsapp', ...stats, rendering: candidates.length });
@@ -559,4 +688,38 @@ const observer = new MutationObserver((mutations) => {
 });
 
 observer.observe(document.body, { childList: true, subtree: true });
-scheduleScan();
+
+// ─── Mensajes desde el popup (rescan / pausa) ─────────────────────────────────
+function rescanPage() {
+  document.querySelectorAll('[data-cyberlens-wrap]').forEach((w) => w.remove());
+  document.querySelectorAll(`[${ANALYZED_ATTR}]`).forEach((el) => {
+    el.removeAttribute(ANALYZED_ATTR);
+    delete el.dataset.riskAnalyzed;
+  });
+  scheduleScan();
+}
+
+if (typeof chrome !== 'undefined' && chrome.runtime?.onMessage) {
+  chrome.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
+    if (!msg || typeof msg !== 'object') return;
+    if (msg.type === 'rescan') {
+      rescanPage();
+      sendResponse({ ok: true });
+    } else if (msg.type === 'setPaused') {
+      isPaused = !!msg.paused;
+      if (!isPaused) scheduleScan();
+      sendResponse({ ok: true, paused: isPaused });
+    }
+    return true;
+  });
+}
+
+// Respetar estado de pausa persistido antes del primer escaneo.
+if (STORAGE) {
+  STORAGE.get(['paused'], (data) => {
+    isPaused = !!data.paused;
+    if (!isPaused) scheduleScan();
+  });
+} else {
+  scheduleScan();
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CyberLens · Bienvenido</title>
+  <link rel="stylesheet" href="welcome.css" />
+</head>
+<body>
+  <div class="bg"></div>
+
+  <div class="lang-floating">
+    <span class="lang-hint" data-i18n="welcome.lang.hint">Elige tu idioma de interfaz</span>
+    <span class="lang-toggle" data-i18n-attr="title:lang.toggle.title">
+      <button type="button" data-lang-btn="es" data-i18n="lang.es">ES</button>
+      <button type="button" data-lang-btn="en" data-i18n="lang.en">EN</button>
+    </span>
+  </div>
+
+  <main class="welcome-shell">
+    <h1 class="title" data-i18n="welcome.title">Bienvenido a CyberLens</h1>
+
+    <section class="welcome-stage" aria-label="CyberLens onboarding">
+      <div class="illustration" aria-hidden="true">
+        <div class="orbit orbit--one"></div>
+        <div class="orbit orbit--two"></div>
+        <div class="spark spark--one"></div>
+        <div class="spark spark--two"></div>
+        <div class="spark spark--three"></div>
+        <div class="screen-art">
+          <div class="screen-art__top">
+            <span></span><i></i><i></i><i></i>
+          </div>
+          <div class="screen-art__hero">
+            <b></b>
+            <small></small>
+            <em></em>
+          </div>
+          <div class="screen-art__cards">
+            <div class="mini-card mini-card--blue"></div>
+            <div class="mini-card mini-card--purple"></div>
+            <div class="mini-card mini-card--cyan"></div>
+          </div>
+        </div>
+        <div class="person person--left"></div>
+        <div class="person person--top"></div>
+        <div class="person person--right"></div>
+        <div class="shadow"></div>
+      </div>
+
+      <div class="welcome-copy">
+        <p class="intro" data-i18n="welcome.intro">CyberLens te ayuda a:</p>
+
+        <ul class="features">
+          <li>
+            <span class="check check--detect">✦</span>
+            <div>
+              <strong data-i18n="welcome.feat.1">Detectar posibles riesgos digitales</strong>
+              <small data-i18n="welcome.feat.1.sub">Phishing, toxicidad, oversharing y contenido normal.</small>
+            </div>
+          </li>
+          <li>
+            <span class="check check--stats">⊘</span>
+            <div>
+              <strong data-i18n="welcome.feat.2">Visualizar estadísticas de navegación segura</strong>
+              <small data-i18n="welcome.feat.2.sub">Dashboard con distribución de riesgos y confianza del modelo.</small>
+            </div>
+          </li>
+          <li>
+            <span class="check check--privacy">◴</span>
+            <div>
+              <strong data-i18n="welcome.feat.4">Recibir alertas sin guardar tus publicaciones</strong>
+              <small data-i18n="welcome.feat.4.sub">Solo se guardan contadores y etiquetas — el contenido nunca sale de tu navegador.</small>
+            </div>
+          </li>
+        </ul>
+
+        <p class="subtitle" data-i18n="welcome.subtitle">
+          Análisis local de riesgos digitales con NLP y Machine Learning.
+        </p>
+
+        <section class="api-status" id="apiStatus" data-state="checking">
+          <div class="api-status__row">
+            <span class="api-status__dot"></span>
+            <div>
+              <strong data-i18n="welcome.api.title">Estado del servidor</strong>
+              <small id="apiStatusText" data-i18n="welcome.api.checking">Comprobando conexión con localhost:8000…</small>
+            </div>
+          </div>
+          <pre class="api-status__cmd" id="apiCmd" hidden>uvicorn main:app --reload --port 8000</pre>
+        </section>
+
+        <div class="actions">
+          <button class="btn btn--primary" id="btnStart" data-i18n="welcome.cta.start">Comenzar</button>
+          <button class="btn btn--secondary" id="btnDashboard" data-i18n="welcome.cta.dashboard">Ver dashboard</button>
+        </div>
+      </div>
+    </section>
+
+    <p class="footnote" data-i18n="welcome.footer">
+      Proyecto académico SIS-351 · análisis 100% local.
+    </p>
+  </main>
+
+  <script src="i18n.js"></script>
+  <script src="welcome.js"></script>
+</body>
+</html>
