@@ -146,9 +146,44 @@ function inferLevel(probability, margin) {
 
 function confidenceHint(level, marginPct) {
   if (level === 'incierta') return 'El modelo no está seguro — conviene revisar manualmente.';
-  if (level === 'baja') return `Diferencia con la 2.ª opción: ${marginPct}%. Alerta preventiva.`;
+  if (level === 'baja') return `Diferencia con la 2.ª opción: ${marginPct}%. Señal débil — no es concluyente.`;
   if (level === 'media') return `Separación entre clases: ${marginPct}%.`;
   return `Predicción clara (margen ${marginPct}% sobre la 2.ª clase).`;
+}
+
+function resolveDisplayAlert(category, conf) {
+  const config = ALERTS[category] || ALERTS.normal;
+  const uncertain = conf.level === 'incierta' || (conf.level === 'baja' && conf.pct < 50);
+
+  if (!uncertain) {
+    return { category, config, tentative: false };
+  }
+
+  if (category !== 'normal') {
+    return {
+      category,
+      config: {
+        ...config,
+        tag: `POSIBLE ${config.tag}`,
+        label: config.label.replace(/^Contenido tóxico detectado$/, 'Posible contenido tóxico')
+          .replace(/^¡Alerta de phishing!$/, 'Posible phishing')
+          .replace(/^Exposición de datos personales$/, 'Posible oversharing'),
+        subtitle: 'Confianza baja — revisa el mensaje manualmente.',
+      },
+      tentative: true,
+    };
+  }
+
+  return {
+    category: 'normal',
+    config: {
+      ...config,
+      tag: 'INCIERTO',
+      label: 'Clasificación poco clara',
+      subtitle: 'No hay señal fuerte de riesgo ni de seguridad.',
+    },
+    tentative: true,
+  };
 }
 
 // ─── Detección de bloques de texto (cualquier sitio) ─────────────────────────
@@ -476,13 +511,14 @@ async function analyzeText(text) {
 }
 
 // ─── UI ──────────────────────────────────────────────────────────────────────
-function buildAlertHTML(category, conf, config) {
+function buildAlertHTML(category, conf, config, tentative = false) {
   const isRisk = category !== 'normal';
   const riskClass = isRisk ? ' cl-alert--risk' : '';
+  const tentativeClass = tentative ? ' cl-alert--tentative' : '';
   const svg = iconHtml(config.iconKey);
 
   return `
-    <div class="cl-alert cl-alert--${category}${riskClass} cl-conf--${conf.level}" data-risk-alert="${category}">
+    <div class="cl-alert cl-alert--${category}${riskClass}${tentativeClass} cl-conf--${conf.level}" data-risk-alert="${category}">
       <div class="cl-alert__header">
         <div class="cl-alert__brand">
           <span class="cl-alert__brand-icon">${CyberLensIcons.brand}</span>
@@ -593,14 +629,11 @@ function getAlertContainer(anchor) {
 }
 
 function injectAlert(textElement, result) {
-  const config = ALERTS[result.category];
-  if (!config) {
-    debugLog('render skipped', { reason: 'unknown-category', result });
-    return;
-  }
+  const conf = resolveConfidence(result);
+  const display = resolveDisplayAlert(result.category, conf);
   const wrap = getAlertContainer(textElement);
-  wrap.innerHTML = buildAlertHTML(result.category, resolveConfidence(result), config);
-  debugLog('rendered alert', { category: result.category, text: textElement.innerText?.trim().slice(0, 120) });
+  wrap.innerHTML = buildAlertHTML(display.category, conf, display.config, display.tentative);
+  debugLog('rendered alert', { category: result.category, display: display.category, text: textElement.innerText?.trim().slice(0, 120) });
 }
 
 function injectLoading(textElement) {

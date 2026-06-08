@@ -7,6 +7,7 @@ Uso:
 """
 
 import csv
+import re
 import string
 from collections import Counter
 from pathlib import Path
@@ -95,15 +96,83 @@ def clean_text(text: str) -> str:
     return " ".join(tokens)
 
 
+# Insultos cortos que el TF-IDF suele pasar por alto (pocos tokens tras limpieza).
+_TOXIC_TERMS = re.compile(
+    r"\b("
+    r"pendej\w+|"
+    r"put\w+|"
+    r"mierda|"
+    r"imbecil\w*|"
+    r"idiot\w*|"
+    r"estupid\w*|"
+    r"inutil\w*|"
+    r"cabr[oó]n\w*|"
+    r"hijo\s+de\s+puta|"
+    r"vete\s+a\s+la\s+mierda|"
+    r"basura"
+    r")\b",
+    re.IGNORECASE,
+)
+
+# Saludos de grupo que comparten tokens con frases tóxicas del dataset ("grupo", etc.).
+_SAFE_GROUP = re.compile(
+    r"\b("
+    r"bienvenid\w+|"
+    r"hola\s+a\s+todos|"
+    r"buenos\s+d[ií]as\s+(al\s+)?grupo|"
+    r"buenas\s+tardes\s+(al\s+)?grupo|"
+    r"buenas\s+noches\s+(al\s+)?grupo|"
+    r"presento\s+(al\s+)?grupo|"
+    r"aqu[ií]\s+estamos"
+    r")\b",
+    re.IGNORECASE,
+)
+
+
+def _refine_prediction(
+    raw: str,
+    cleaned: str,
+    category: str,
+    proba_list,
+    classes: list[str],
+) -> tuple[str, list[float]]:
+    """
+    Capa híbrida: refuerza insultos cortos y saludos de grupo que el modelo
+    de 4 clases confunde por vocabulario compartido (p. ej. «grupo»).
+    """
+    probs = [float(p) for p in proba_list]
+    idx = {c: i for i, c in enumerate(classes)}
+    source = f"{raw} {cleaned}".lower()
+
+    if category == "normal" and _TOXIC_TERMS.search(source):
+        toxic_i = idx.get("toxicidad")
+        normal_i = idx.get("normal")
+        if toxic_i is not None and normal_i is not None:
+            if probs[normal_i] < 0.55 or probs[toxic_i] + 0.08 >= probs[normal_i]:
+                category = "toxicidad"
+                probs[toxic_i] = max(probs[toxic_i], 0.78)
+                probs[normal_i] = min(probs[normal_i], 0.15)
+
+    if category == "toxicidad" and _SAFE_GROUP.search(source):
+        toxic_i = idx.get("toxicidad")
+        normal_i = idx.get("normal")
+        if toxic_i is not None and probs[toxic_i] < 0.55 and normal_i is not None:
+            category = "normal"
+            probs[normal_i] = max(probs[normal_i], 0.72)
+            probs[toxic_i] = min(probs[toxic_i], 0.20)
+
+    return category, probs
+
+
 # ─── Entrenamiento del modelo ─────────────────────────────────────────────────
 DATASET = load_dataset()
 _texts, _labels = zip(*DATASET)
 _cleaned = [clean_text(t) for t in _texts]
 
-vectorizer = TfidfVectorizer(max_features=1000, ngram_range=(1, 2))
+vectorizer = TfidfVectorizer(max_features=1500, ngram_range=(1, 2), min_df=1)
 X_train = vectorizer.fit_transform(_cleaned)
 
-model = LogisticRegression(max_iter=1000, random_state=42, C=1.0)
+model = LogisticRegression(max_iter=1000, random_state=42, C=1.0, class_weight="balanced")
 model.fit(X_train, _labels)
 
 print(
@@ -157,9 +226,9 @@ def _compute_model_stats() -> dict:
         "dataset": DATASET_PATH.name,
         "samples": len(_texts),
         "features": int(X_train.shape[1]),
-        "vectorizer": "TfidfVectorizer (max_features=1000, ngram_range=(1,2))",
-        "vectorizer_params": {"max_features": 1000, "ngram_range": [1, 2]},
-        "classifier": "LogisticRegression (C=1.0, max_iter=1000)",
+        "vectorizer": "TfidfVectorizer (max_features=1500, ngram_range=(1,2))",
+        "vectorizer_params": {"max_features": 1500, "ngram_range": [1, 2]},
+        "classifier": "LogisticRegression (C=1.0, max_iter=1000, class_weight=balanced)",
         "classes_order": classes_order,
         "label_counts": {cls: int(label_counts.get(cls, 0)) for cls in classes_order},
         "top_terms": _compute_top_terms(),
@@ -173,8 +242,8 @@ def _compute_model_stats() -> dict:
         }
 
     eval_pipeline = SKPipeline([
-        ("tfidf", TfidfVectorizer(max_features=1000, ngram_range=(1, 2))),
-        ("clf", LogisticRegression(max_iter=1000, random_state=42, C=1.0)),
+        ("tfidf", TfidfVectorizer(max_features=1500, ngram_range=(1, 2), min_df=1)),
+        ("clf", LogisticRegression(max_iter=1000, random_state=42, C=1.0, class_weight="balanced")),
     ])
     skf = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=42)
 
@@ -243,7 +312,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 class AnalyzeRequest(BaseModel):
     text: str
@@ -366,6 +434,9 @@ def analyze(request: AnalyzeRequest):
     category = model.predict(vector)[0]
     proba_list = model.predict_proba(vector)[0]
     classes = model.classes_.tolist()
+    category, proba_list = _refine_prediction(
+        request.text, cleaned, category, proba_list, classes
+    )
     probability, margin, confidence_level = _confidence_meta(
         proba_list, classes, category
     )

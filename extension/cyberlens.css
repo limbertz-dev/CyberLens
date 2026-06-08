@@ -286,3 +286,8 @@
 .cl-conf--incierta .cl-alert__conf-pct {
   font-size: 15px;
 }
+
+.cl-alert--tentative {
+  opacity: 0.92;
+  border-style: dashed !important;
+}

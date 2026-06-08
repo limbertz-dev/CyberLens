@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "CyberLens — Detector de Riesgos",
-  "version": "1.4.0",
+  "version": "1.5.1",
   "description": "CyberLens analiza texto en cualquier sitio web con ML y NLP: phishing, toxicidad, oversharing y contenido normal.",
 
   "permissions": [
@@ -20,6 +20,7 @@
       "matches": ["http://*/*", "https://*/*"],
       "exclude_matches": [
         "http://localhost:8000/*",
+        "http://127.0.0.1:8000/*",
         "https://chrome.google.com/*",
         "https://chromewebstore.google.com/*"
       ],
