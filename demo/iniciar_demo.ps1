@@ -21,9 +21,19 @@ Get-NetTCPConnection -LocalPort 8080 -ErrorAction SilentlyContinue |
   ForEach-Object { Stop-Process -Id $_.OwningProcess -Force -ErrorAction SilentlyContinue }
 Start-Sleep -Seconds 1
 
+$lanIp = (Get-NetIPAddress -AddressFamily IPv4 -ErrorAction SilentlyContinue |
+  Where-Object { $_.IPAddress -notlike '127.*' -and $_.PrefixOrigin -ne 'WellKnown' } |
+  Select-Object -First 1 -ExpandProperty IPAddress)
+
 Write-Host ''
 Write-Host '  CyberChat - red social simulada' -ForegroundColor Cyan
-Write-Host '  Abre: http://localhost:8080' -ForegroundColor Green
+Write-Host '  PC (pantalla demo):  http://localhost:8080' -ForegroundColor Green
+if ($lanIp) {
+  Write-Host "  Red WiFi (moviles):  http://${lanIp}:8080/movil.html" -ForegroundColor Green
+  Write-Host "  Codigo QR:           http://${lanIp}:8080/acceso.html" -ForegroundColor Green
+} else {
+  Write-Host '  Red WiFi: no se detecto IP local (usa ipconfig)' -ForegroundColor Yellow
+}
 if (Test-Path (Join-Path $PSScriptRoot '.env')) {
     Write-Host '  API key detectada en .env' -ForegroundColor Green
 } else {

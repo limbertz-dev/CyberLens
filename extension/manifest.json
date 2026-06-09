@@ -1,12 +1,13 @@
 {
   "manifest_version": 3,
   "name": "CyberLens — Detector de Riesgos",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "CyberLens analiza texto en cualquier sitio web con ML y NLP: phishing, toxicidad, oversharing y contenido normal.",
 
   "permissions": [
     "activeTab",
-    "storage"
+    "storage",
+    "contextMenus"
   ],
 
   "host_permissions": [

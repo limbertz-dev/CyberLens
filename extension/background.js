@@ -1,19 +1,40 @@
 'use strict';
 
-/**
- * Service worker mínimo: abre la pantalla de bienvenida la primera vez
- * que se instala la extensión. No corre en cada apertura del popup.
- *
- * Para volver a verla durante desarrollo, basta con:
- *   chrome.storage.local.remove(['welcome_seen']) y reinstalar,
- *   o abrir manualmente chrome-extension://<id>/welcome.html
- */
+const DASHBOARD_URL = chrome.runtime.getURL('dashboard.html');
+
+function openDashboard() {
+  chrome.tabs.create({ url: DASHBOARD_URL });
+}
+
+function setupContextMenus() {
+  chrome.contextMenus.removeAll(() => {
+    chrome.contextMenus.create({
+      id: 'cl-dashboard',
+      title: 'Abrir dashboard de estadísticas',
+      contexts: ['action'],
+    });
+    chrome.contextMenus.create({
+      id: 'cl-welcome',
+      title: 'Guía de inicio',
+      contexts: ['action'],
+    });
+  });
+}
 
 chrome.runtime.onInstalled.addListener((details) => {
+  setupContextMenus();
+
   if (details.reason !== 'install') return;
 
   chrome.storage.local.get(['welcome_seen'], (data) => {
     if (data.welcome_seen) return;
     chrome.tabs.create({ url: chrome.runtime.getURL('welcome.html') });
   });
+});
+
+chrome.contextMenus.onClicked.addListener((info) => {
+  if (info.menuItemId === 'cl-dashboard') openDashboard();
+  if (info.menuItemId === 'cl-welcome') {
+    chrome.tabs.create({ url: chrome.runtime.getURL('welcome.html') });
+  }
 });

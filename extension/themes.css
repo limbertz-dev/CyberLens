@@ -1,0 +1,165 @@
+/* Temas CyberLens — misma paleta que el chatbot de demostración */
+
+:root,
+[data-theme="dark"] {
+  --bg:        #0f172a;
+  --bg-2:      #1e293b;
+  --panel:     #1e293b;
+  --panel-2:   #152a40;
+  --sidebar-bg:#0a0f1a;
+  --border:    rgba(148, 163, 184, 0.14);
+  --border-2:  rgba(45, 212, 191, 0.28);
+  --text:      #f8fafc;
+  --muted:     #94a3b8;
+  --accent:    #2dd4bf;
+  --accent-2:  #0ea5e9;
+  --accent-text:#0f172a;
+  --header-bg: rgba(15, 23, 42, 0.92);
+  --chip-safe: #20c9a8;
+  --chip-risk: #ef5350;
+  --chip-toxic:#a78bfa;
+  --chip-over: #fbbf24;
+}
+
+[data-theme="light"] {
+  --bg:        #e5ddd5;
+  --bg-2:      #f3f4f6;
+  --panel:     #ffffff;
+  --panel-2:   #f9fafb;
+  --sidebar-bg:#d4ccc4;
+  --border:    rgba(0, 0, 0, 0.08);
+  --border-2:  rgba(5, 150, 105, 0.22);
+  --text:      #111827;
+  --muted:     #6b7280;
+  --accent:    #059669;
+  --accent-2:  #0d9488;
+  --accent-text:#ffffff;
+  --header-bg: rgba(255, 255, 255, 0.94);
+  --chip-safe: #059669;
+  --chip-risk: #dc2626;
+  --chip-toxic:#7c3aed;
+  --chip-over: #d97706;
+}
+
+[data-theme="rose"] {
+  --bg:        #2a1220;
+  --bg-2:      #3d1f30;
+  --panel:     #3d1f30;
+  --panel-2:   #4a2840;
+  --sidebar-bg:#1a0a12;
+  --border:    rgba(251, 113, 133, 0.2);
+  --border-2:  rgba(244, 114, 182, 0.32);
+  --text:      #fdf2f8;
+  --muted:     #f9a8d4;
+  --accent:    #f472b6;
+  --accent-2:  #ec4899;
+  --accent-text:#2a1220;
+  --header-bg: rgba(42, 18, 32, 0.92);
+  --chip-safe: #34d399;
+  --chip-risk: #fb7185;
+  --chip-toxic:#e879f9;
+  --chip-over: #fbbf24;
+}
+
+[data-theme="ocean"] {
+  --bg:        #0c1929;
+  --bg-2:      #152a40;
+  --panel:     #152a40;
+  --panel-2:   #1a3350;
+  --sidebar-bg:#061018;
+  --border:    rgba(56, 189, 248, 0.18);
+  --border-2:  rgba(56, 189, 248, 0.3);
+  --text:      #f0f9ff;
+  --muted:     #7dd3fc;
+  --accent:    #38bdf8;
+  --accent-2:  #0ea5e9;
+  --accent-text:#061018;
+  --header-bg: rgba(12, 25, 41, 0.92);
+  --chip-safe: #22d3ee;
+  --chip-risk: #f87171;
+  --chip-toxic:#818cf8;
+  --chip-over: #fbbf24;
+}
+
+[data-theme="lavender"] {
+  --bg:        #1a1530;
+  --bg-2:      #2a2348;
+  --panel:     #2a2348;
+  --panel-2:   #342c58;
+  --sidebar-bg:#120f1f;
+  --border:    rgba(167, 139, 250, 0.2);
+  --border-2:  rgba(167, 139, 250, 0.32);
+  --text:      #f5f3ff;
+  --muted:     #c4b5fd;
+  --accent:    #a78bfa;
+  --accent-2:  #8b5cf6;
+  --accent-text:#1a1530;
+  --header-bg: rgba(26, 21, 48, 0.92);
+  --chip-safe: #34d399;
+  --chip-risk: #f472b6;
+  --chip-toxic:#c4b5fd;
+  --chip-over: #fbbf24;
+}
+
+[data-theme="sunset"] {
+  --bg:        #261508;
+  --bg-2:      #3d2818;
+  --panel:     #3d2818;
+  --panel-2:   #4a3220;
+  --sidebar-bg:#1a1008;
+  --border:    rgba(251, 146, 60, 0.22);
+  --border-2:  rgba(249, 115, 22, 0.32);
+  --text:      #fff7ed;
+  --muted:     #fdba74;
+  --accent:    #fb923c;
+  --accent-2:  #f97316;
+  --accent-text:#261508;
+  --header-bg: rgba(38, 21, 8, 0.92);
+  --chip-safe: #4ade80;
+  --chip-risk: #ef4444;
+  --chip-toxic:#c084fc;
+  --chip-over: #fbbf24;
+}
+
+/* Selector de temas (dashboard) */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.theme-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+  background: var(--panel-2);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: var(--text);
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.theme-card:hover { transform: scale(1.02); }
+
+.theme-card--active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent);
+}
+
+.theme-card__preview {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.theme-card__bubble {
+  width: 22px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.theme-card__label {
+  font-size: 11px;
+  font-weight: 700;
+}

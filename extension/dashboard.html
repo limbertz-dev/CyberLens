@@ -1,22 +1,13 @@
 ﻿<!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <title>CyberLens · Dashboard</title>
+  <link rel="stylesheet" href="themes.css" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { min-height: 100%; }
     :root {
-      --bg:        #2f2f2f;
-      --bg-2:      #383838;
-      --panel:     #4b4b4b;
-      --panel-2:   #3f3f43;
-      --border:    rgba(255,255,255,0.10);
-      --border-2:  rgba(196,162,255,0.24);
-      --text:      #f0edf4;
-      --muted:     #b7b0bf;
-      --accent:    #c4a2ff;
-      --accent-2:  #52d8d4;
       --sidebar-w: 250px;
     }
     body {
@@ -35,7 +26,7 @@
 
     /* ── Sidebar ───────────────────────────────────────────────────── */
     .sidebar {
-      background: #3d3d3d;
+      background: var(--sidebar-bg);
       border-right: 1px solid var(--border);
       padding: 22px 16px;
       display: flex;
@@ -149,7 +140,7 @@
     }
     .nav a:hover { background: rgba(255,255,255,0.04); color: var(--text); }
     .nav a.active {
-      background: rgba(196,162,255,0.20);
+      background: color-mix(in srgb, var(--accent) 18%, transparent);
       color: var(--accent);
       box-shadow: inset 3px 0 0 var(--accent);
     }
@@ -193,7 +184,7 @@
       justify-content: space-between;
       gap: 16px;
       padding: 16px 28px;
-      background: rgba(47,47,47,0.92);
+      background: var(--header-bg);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -233,9 +224,9 @@
     .pill.paused  { background: #78350f; color: #fde68a; border-color: #78350f; }
 
     button.refresh {
-      background: #c4a2ff;
+      background: var(--accent);
       border: none;
-      color: #21172f;
+      color: var(--accent-text);
       font-size: 12px;
       font-weight: 700;
       padding: 8px 16px;
@@ -279,8 +270,8 @@
       font-family: inherit;
     }
     .lang-toggle button.active {
-      background: #c4a2ff;
-      color: #21172f;
+      background: var(--accent);
+      color: var(--accent-text);
     }
 
     /* ── Grid de tarjetas ──────────────────────────────────────────── */
@@ -341,7 +332,7 @@
     }
     .kpi.kpi--risky::before  { background: #ef5350; }
     .kpi.kpi--safe::before   { background: #52d8d4; }
-    .kpi.kpi--conf::before   { background: #c4a2ff; }
+    .kpi.kpi--conf::before   { background: var(--accent); }
     .kpi.kpi--dom::before    { background: #ffb86b; }
     .kpi .k-label {
       font-size: 12px;
@@ -426,7 +417,7 @@
       background: rgba(255,255,255,0.06); border-radius: 999px; overflow: hidden;
     }
     .conf-bar__fill {
-      height: 100%; background: #c4a2ff;
+      height: 100%; background: var(--accent);
       border-radius: 999px; transition: width 0.5s cubic-bezier(0.22,1,0.36,1);
     }
     .conf-hint { font-size: 11px; opacity: 0.55; margin-top: 10px; line-height: 1.5; }
@@ -456,14 +447,14 @@
     }
     .chip .dot { width: 8px; height: 8px; border-radius: 50%; }
     .chip .when { font-size: 10px; opacity: 0.6; font-weight: 500; margin-left: 2px; }
-    .chip.seguro      { background: rgba(32,201,168,0.14);  color: #c7fff2; border-color: rgba(32,201,168,0.32); }
-    .chip.phishing    { background: rgba(239,83,80,0.14);  color: #ffd0ce; border-color: rgba(239,83,80,0.32); }
-    .chip.toxicidad   { background: rgba(196,162,255,0.16); color: #eadfff; border-color: rgba(196,162,255,0.34); }
-    .chip.oversharing { background: rgba(255,184,107,0.14); color: #ffe3bf; border-color: rgba(255,184,107,0.32); }
-    .chip.seguro      .dot { background: #20c9a8; }
-    .chip.phishing    .dot { background: #ef5350; }
-    .chip.toxicidad   .dot { background: #c4a2ff; }
-    .chip.oversharing .dot { background: #ffb86b; }
+    .chip.seguro      { background: color-mix(in srgb, var(--chip-safe) 16%, transparent);  color: var(--text); border-color: color-mix(in srgb, var(--chip-safe) 34%, transparent); }
+    .chip.phishing    { background: color-mix(in srgb, var(--chip-risk) 16%, transparent);  color: var(--text); border-color: color-mix(in srgb, var(--chip-risk) 34%, transparent); }
+    .chip.toxicidad   { background: color-mix(in srgb, var(--chip-toxic) 16%, transparent); color: var(--text); border-color: color-mix(in srgb, var(--chip-toxic) 34%, transparent); }
+    .chip.oversharing { background: color-mix(in srgb, var(--chip-over) 16%, transparent); color: var(--text); border-color: color-mix(in srgb, var(--chip-over) 34%, transparent); }
+    .chip.seguro      .dot { background: var(--chip-safe); }
+    .chip.phishing    .dot { background: var(--chip-risk); }
+    .chip.toxicidad   .dot { background: var(--chip-toxic); }
+    .chip.oversharing .dot { background: var(--chip-over); }
 
     .empty-card { text-align: center; padding: 24px; opacity: 0.5; font-size: 13px; }
 
@@ -582,8 +573,8 @@
     .pipe-step__num {
       display: inline-flex; align-items: center; justify-content: center;
       width: 22px; height: 22px; border-radius: 50%;
-      background: #c4a2ff;
-      color: #21172f; font-size: 11px; font-weight: 800; margin-bottom: 8px;
+      background: var(--accent);
+      color: var(--accent-text); font-size: 11px; font-weight: 800; margin-bottom: 8px;
     }
     .pipe-step__title {
       font-size: 12px; font-weight: 700; color: var(--text);
@@ -810,7 +801,7 @@
         padding: 0 10px;
         border-right: 0;
         border-top: 1px solid var(--border);
-        background: #3d3d3d;
+        background: var(--sidebar-bg);
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         align-items: center;
@@ -1007,6 +998,7 @@
         <div class="actions">
           <span id="statusPill" class="pill waiting" data-i18n="pill.checking">Comprobando…</span>
           <span class="pill" id="totalPill">0 análisis</span>
+          <button type="button" id="btnTheme" class="refresh" title="Cambiar tema">Tema</button>
           <span class="lang-toggle" data-i18n-attr="title:lang.toggle.title">
             <button type="button" data-lang-btn="es" data-i18n="lang.es">ES</button>
             <button type="button" data-lang-btn="en" data-i18n="lang.en">EN</button>
@@ -1266,6 +1258,11 @@
                     <button type="button" data-lang-btn="en" data-i18n="lang.en">EN</button>
                   </span>
                 </div>
+              </article>
+              <article class="settings-card" style="grid-column: 1 / -1;">
+                <h3>Tema de color</h3>
+                <p>Los mismos temas que el chatbot de demostración. El cambio se guarda automáticamente.</p>
+                <div class="theme-grid" id="themeGrid" style="margin-top:14px;"></div>
               </article>
               <article class="settings-card">
                 <h3>Servidor local</h3>

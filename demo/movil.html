@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>Grupo CyberSeguridad</title>
+  <link rel="stylesheet" href="demo.css" />
+  <style>
+    /* Vista móvil: misma lógica que el chat de escritorio, compositor simplificado */
+    .mobile-app .mobile-composer {
+      flex-shrink: 0;
+      padding: 0.5rem 0.75rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+      background: var(--composer-bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-app .mobile-name {
+      width: 100%;
+      margin-bottom: 0.5rem;
+      padding: 0.45rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--input-bg);
+      color: var(--text);
+      font: inherit;
+      font-size: 0.8rem;
+    }
+
+    .mobile-app .mobile-name::placeholder {
+      color: var(--text-muted);
+      opacity: 0.8;
+    }
+
+    .mobile-app .composer__form {
+      padding: 0;
+      margin: 0;
+    }
+
+    .mobile-app .composer__field {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 0.5rem;
+      padding: 0.3rem 0.3rem 0.3rem 0.85rem;
+      min-height: 2.75rem;
+    }
+
+    .mobile-app .composer textarea {
+      flex: 1;
+      min-width: 0;
+      min-height: 1.4rem;
+      max-height: 6rem;
+      padding: 0.45rem 0;
+      font-size: 1rem;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .mobile-app .composer__send {
+      position: relative;
+      z-index: 2;
+      flex-shrink: 0;
+      width: 2.75rem;
+      height: 2.75rem;
+      min-width: 2.75rem;
+      min-height: 2.75rem;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .mobile-app .composer__send .icon {
+      width: 1.1rem;
+      height: 1.1rem;
+      pointer-events: none;
+    }
+
+    .mobile-app .chat {
+      flex: 1;
+      min-height: 0;
+      position: relative;
+    }
+
+    .mobile-app .chat__inner {
+      padding: 0.85rem 0.75rem 1rem;
+    }
+
+    .mobile-app .topbar {
+      padding: 0.55rem 0.85rem;
+    }
+
+    .mobile-app .topbar__logo {
+      width: 38px;
+      height: 38px;
+    }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+      <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+    </symbol>
+  </svg>
+
+  <div class="app mobile-app">
+    <header class="topbar">
+      <img src="logo.svg" alt="" class="topbar__logo" width="38" height="38" />
+      <div class="topbar__info">
+        <h1>Grupo CyberSeguridad</h1>
+        <p id="mobile-status">Conectando…</p>
+      </div>
+    </header>
+
+    <main class="chat" role="main">
+      <div class="chat__inner" id="chat-messages" role="feed" aria-live="polite"></div>
+    </main>
+
+    <footer class="composer mobile-composer">
+      <form id="chat-form" class="composer__form" autocomplete="off">
+        <input
+          type="text"
+          id="visitor-name"
+          class="mobile-name"
+          placeholder="Tu nombre (opcional)"
+          maxlength="24"
+          autocomplete="nickname"
+        />
+        <div class="composer__field">
+          <textarea
+            id="chat-input"
+            rows="1"
+            placeholder="Mensaje"
+            aria-label="Mensaje"
+            autocomplete="off"
+            spellcheck="true"
+          ></textarea>
+          <button type="submit" id="btn-send" class="composer__send" aria-label="Enviar">
+            <svg class="icon" aria-hidden="true"><use href="#icon-send"/></svg>
+          </button>
+        </div>
+      </form>
+    </footer>
+  </div>
+
+  <script>
+    const API_ROOM = '/api/room';
+    const API_MOBILE = '/api/mobile/send';
+    const PERSONA_COLORS = {
+      ana: '#10b981', carlos: '#f43f5e', diana: '#a78bfa', eduardo: '#fbbf24',
+    };
+
+    let lastRoomId = 0;
+    let pollMs = 3500;
+    let pollTimer = null;
+    const seen = new Set();
+
+    const INPUT = document.getElementById('chat-input');
+    const BTN_SEND = document.getElementById('btn-send');
+    const MESSAGES_EL = document.getElementById('chat-messages');
+
+    function escapeHtml(t) {
+      return t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function nowTime() {
+      const d = new Date();
+      return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+    }
+
+    function autoResize() {
+      INPUT.style.height = 'auto';
+      INPUT.style.height = `${Math.min(INPUT.scrollHeight, 96)}px`;
+    }
+
+    function appendMsg(msg) {
+      if (seen.has(msg.id)) return;
+      seen.add(msg.id);
+      lastRoomId = Math.max(lastRoomId, msg.id);
+
+      const isUser = msg.role === 'user';
+      const speakerId = msg.speaker_id || '';
+      const speakerName = msg.speaker_name || (isUser ? 'Tú' : 'Ana');
+      const art = document.createElement('article');
+      art.className = `msg ${isUser ? 'msg--out' : 'msg--in'}`;
+      if (speakerId) art.setAttribute('data-speaker', speakerId);
+
+      const avatarColor = PERSONA_COLORS[speakerId] || '#64748b';
+      const initial = speakerName ? speakerName[0].toUpperCase() : '?';
+      const authorHtml = isUser ? '' : `<span class="msg__author">${escapeHtml(speakerName)}</span>`;
+      const avatarHtml = isUser ? '' : `<div class="msg__avatar" style="background:${avatarColor}">${initial}</div>`;
+
+      art.innerHTML = `
+        ${avatarHtml}
+        <div class="msg__bubble">
+          ${authorHtml}
+          <span class="msg__text">${escapeHtml(msg.content)}</span>
+          <time class="msg__time">${nowTime()}</time>
+        </div>
+      `;
+      MESSAGES_EL.appendChild(art);
+      MESSAGES_EL.scrollTop = MESSAGES_EL.scrollHeight;
+    }
+
+    async function sync() {
+      let hadNew = false;
+      try {
+        const res = await fetch(`${API_ROOM}?after=${lastRoomId}`);
+        if (!res.ok) throw new Error();
+        const data = await res.json();
+        for (const m of data.messages || []) {
+          const before = seen.size;
+          appendMsg(m);
+          if (seen.size > before) hadNew = true;
+        }
+        document.getElementById('mobile-status').textContent = 'En línea';
+      } catch (_e) {
+        document.getElementById('mobile-status').textContent = 'Sin conexión';
+      }
+      return hadNew;
+    }
+
+    function scheduleSync() {
+      clearTimeout(pollTimer);
+      pollTimer = setTimeout(async () => {
+        const hadNew = await sync();
+        pollMs = hadNew ? 2000 : Math.min(6000, pollMs + 400);
+        scheduleSync();
+      }, pollMs);
+    }
+
+    async function sendMessage(text) {
+      const name = document.getElementById('visitor-name').value.trim() || 'Visitante';
+      BTN_SEND.disabled = true;
+      try {
+        const res = await fetch(API_MOBILE, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: text, name }),
+        });
+        if (!res.ok) throw new Error();
+        const posted = await res.json();
+        appendMsg(posted);
+      } catch (_e) {
+        alert('No se pudo enviar. Comprueba que estás en la misma red WiFi que la PC de la demo.');
+      } finally {
+        BTN_SEND.disabled = false;
+        INPUT.focus();
+      }
+    }
+
+    document.getElementById('chat-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = INPUT.value.trim();
+      if (!text) return;
+      INPUT.value = '';
+      autoResize();
+      sendMessage(text);
+    });
+
+    INPUT.addEventListener('input', autoResize);
+    INPUT.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        document.getElementById('chat-form').requestSubmit();
+      }
+    });
+
+    sync().then(() => scheduleSync());
+    INPUT.focus();
+  </script>
+</body>
+</html>

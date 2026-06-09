@@ -563,7 +563,62 @@ if (window.i18n) {
   });
 }
 
+const UI_THEMES = [
+  { id: 'dark',     label: 'Oscuro',     bubbleIn: '#1e293b', bubbleOut: '#0f766e' },
+  { id: 'light',    label: 'Claro',      bubbleIn: '#ffffff', bubbleOut: '#d9fdd3' },
+  { id: 'rose',     label: 'Rosa',       bubbleIn: '#3d1f30', bubbleOut: '#ec4899' },
+  { id: 'ocean',    label: 'Océano',     bubbleIn: '#152a40', bubbleOut: '#0ea5e9' },
+  { id: 'lavender', label: 'Lavanda',    bubbleIn: '#2a2348', bubbleOut: '#8b5cf6' },
+  { id: 'sunset',   label: 'Atardecer',  bubbleIn: '#3d2818', bubbleOut: '#f97316' },
+];
+
+function applyUiTheme(themeId) {
+  const theme = UI_THEMES.find((t) => t.id === themeId) || UI_THEMES[0];
+  document.documentElement.setAttribute('data-theme', theme.id);
+  document.querySelectorAll('.theme-card').forEach((card) => {
+    card.classList.toggle('theme-card--active', card.dataset.theme === theme.id);
+  });
+  chromeApi?.storage?.local?.set({ ui_theme: theme.id });
+}
+
+function renderThemeGrid(currentId = 'dark') {
+  const grid = $('themeGrid');
+  if (!grid) return;
+  grid.innerHTML = UI_THEMES.map((t) => `
+    <button type="button" class="theme-card${t.id === currentId ? ' theme-card--active' : ''}"
+            data-theme="${t.id}">
+      <div class="theme-card__preview">
+        <div class="theme-card__bubble" style="background:${t.bubbleIn}"></div>
+        <div class="theme-card__bubble" style="background:${t.bubbleOut}"></div>
+      </div>
+      <span class="theme-card__label">${t.label}</span>
+    </button>
+  `).join('');
+  grid.querySelectorAll('.theme-card').forEach((card) => {
+    card.addEventListener('click', () => applyUiTheme(card.dataset.theme));
+  });
+}
+
+function initThemes() {
+  const fallback = 'dark';
+  if (!chromeApi?.storage?.local) {
+    applyUiTheme(fallback);
+    renderThemeGrid(fallback);
+    return;
+  }
+  chromeApi.storage.local.get(['ui_theme'], (data) => {
+    const themeId = data.ui_theme || fallback;
+    applyUiTheme(themeId);
+    renderThemeGrid(themeId);
+  });
+  $('btnTheme')?.addEventListener('click', () => {
+    setActive('view-settings');
+    $('themeGrid')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+}
+
 initTabs();
+initThemes();
 loadAndRender();
 loadModelStats();
 pingApi();

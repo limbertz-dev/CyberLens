@@ -4,6 +4,10 @@ const API_GROUP = '/api/group/chat';
 const API_AUTONOMOUS = '/api/group/autonomous';
 const API_STATUS = '/api/status';
 const API_PERSONAS = '/api/personas';
+const API_ROOM = '/api/room';
+
+/** 80 % más rápido: los tiempos de espera se dividen por este factor. */
+const CHAT_SPEED_BOOST = 1.8;
 
 const MESSAGES_EL = document.getElementById('chat-messages');
 const FORM = document.getElementById('chat-form');
@@ -57,27 +61,39 @@ let chatActive = false;
 let autonomousTimer = null;
 let personas = [];
 let audioCtx = null;
+let lastRoomId = 0;
+let chatGeneration = 0;
+let userQueue = [];
+let drainingUserQueue = false;
+let roomSyncTimer = null;
+let roomPollMs = 3500;
+const renderedRoomIds = new Set();
+const processedBotForUserIds = new Set();
 
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+function scaleDelay(ms) {
+  return Math.max(40, Math.round(ms / CHAT_SPEED_BOOST));
+}
+
 function readingDelay(text) {
   const words = (text || '').split(/\s+/).filter(Boolean).length;
-  return Math.min(5000, 700 + words * 110 + Math.random() * 500);
+  return scaleDelay(Math.min(5000, 700 + words * 110 + Math.random() * 500));
 }
 
 function typingDelay(text) {
   const chars = (text || '').length;
-  return Math.min(7000, 1000 + chars * 42 + Math.random() * 700);
+  return scaleDelay(Math.min(7000, 1000 + chars * 42 + Math.random() * 700));
 }
 
 function pauseBetweenMessages() {
-  return 1800 + Math.random() * 3200;
+  return scaleDelay(1800 + Math.random() * 3200);
 }
 
 function autonomousIdleDelay() {
-  return 16000 + Math.random() * 20000;
+  return scaleDelay(16000 + Math.random() * 20000);
 }
 
 function getAudio() {
@@ -232,6 +248,18 @@ function hideTyping() {
   document.getElementById('typing-indicator')?.remove();
 }
 
+/** Interrumpe autochat, animación "escribiendo…" y reproducción de bots en curso. */
+function abortChatActivity() {
+  chatGeneration += 1;
+  clearTimeout(autonomousTimer);
+  autonomousTimer = null;
+  hideTyping();
+}
+
+function isUserTurnPending() {
+  return drainingUserQueue || userQueue.length > 0;
+}
+
 function updateChatToggleUI() {
   if (!CHAT_TOGGLE) return;
   CHAT_TOGGLE.checked = chatActive;
@@ -252,37 +280,51 @@ function setChatActive(active) {
 
 function scheduleAutonomous() {
   clearTimeout(autonomousTimer);
-  if (!chatActive || isBusy) return;
+  if (!chatActive || isBusy || isUserTurnPending()) return;
   autonomousTimer = setTimeout(async () => {
-    if (!chatActive || isBusy) return;
+    if (!chatActive || isBusy || isUserTurnPending()) return;
     await runAutonomous();
     scheduleAutonomous();
   }, autonomousIdleDelay());
 }
 
-async function playMessagesSequentially(messages) {
+async function playMessagesSequentially(messages, { source = 'host' } = {}) {
+  const generation = chatGeneration;
   for (let i = 0; i < messages.length; i++) {
+    if (generation !== chatGeneration) return;
     if (!chatActive && i > 0) break;
     const msg = messages[i];
     if (i > 0) {
       await delay(pauseBetweenMessages());
-      if (!chatActive) break;
+      if (generation !== chatGeneration || !chatActive) return;
     }
     showTyping(msg.speaker_name, msg.speaker_id);
     await delay(typingDelay(msg.text));
+    if (generation !== chatGeneration) return;
     hideTyping();
-    appendBubble({
-      role: 'assistant',
-      speakerId: msg.speaker_id,
-      speakerName: msg.speaker_name,
-      text: msg.text,
-    });
-    history.push({
-      role: 'assistant',
-      speaker: msg.speaker_id,
-      speaker_name: msg.speaker_name,
-      content: msg.text,
-    });
+    try {
+      const posted = await postRoomMessage({
+        role: 'assistant',
+        speaker_id: msg.speaker_id,
+        speaker_name: msg.speaker_name,
+        content: msg.text,
+        source,
+      });
+      renderFromRoom(posted);
+    } catch (_err) {
+      appendBubble({
+        role: 'assistant',
+        speakerId: msg.speaker_id,
+        speakerName: msg.speaker_name,
+        text: msg.text,
+      });
+      history.push({
+        role: 'assistant',
+        speaker: msg.speaker_id,
+        speaker_name: msg.speaker_name,
+        content: msg.text,
+      });
+    }
   }
 }
 
@@ -300,52 +342,116 @@ async function fetchMessages(url, body) {
 }
 
 async function runAutonomous() {
-  if (!chatActive || isBusy || history.length < 1) return;
+  if (!chatActive || isBusy || isUserTurnPending() || history.length < 1) return;
+  const generation = chatGeneration;
   isBusy = true;
   const lastMsg = history[history.length - 1]?.content || '';
   try {
     await delay(readingDelay(lastMsg));
+    if (generation !== chatGeneration || isUserTurnPending()) return;
     const pick = personas.length
       ? personas[Math.floor(Math.random() * personas.length)]
       : { id: 'ana', name: 'Ana' };
     showTyping(pick.name, pick.id);
     const data = await fetchMessages(API_AUTONOMOUS, { history });
+    if (generation !== chatGeneration) return;
     hideTyping();
-    if (data.messages?.length) await playMessagesSequentially(data.messages);
+    if (data.messages?.length) await playMessagesSequentially(data.messages, { source: 'autochat' });
   } catch (_err) {
     hideTyping();
   } finally {
     isBusy = false;
-    if (chatActive) scheduleAutonomous();
+    if (chatActive && !isUserTurnPending()) scheduleAutonomous();
   }
 }
 
-async function sendMessage(text) {
-  if (!text.trim() || isBusy) return;
+async function publishUserBubble(trimmed, speakerName = 'Tu', speakerId = 'user', source = 'host') {
+  try {
+    const posted = await postRoomMessage({
+      role: 'user',
+      speaker_id: speakerId,
+      speaker_name: speakerName,
+      content: trimmed,
+      source,
+    });
+    renderFromRoom(posted);
+  } catch (_err) {
+    appendBubble({ role: 'user', text: trimmed });
+    history.push({ role: 'user', speaker: speakerId, speaker_name: speakerName, content: trimmed });
+  }
+}
+
+async function requestBotReplies(trimmed, historyBeforeUser) {
+  const generation = chatGeneration;
+  await delay(readingDelay(trimmed));
+  if (generation !== chatGeneration) return;
+
+  const first = personas[0] || { id: 'ana', name: 'Ana' };
+  showTyping(first.name, first.id);
+  const data = await fetchMessages(API_GROUP, {
+    message: trimmed,
+    history: historyBeforeUser,
+  });
+  if (generation !== chatGeneration) return;
+  hideTyping();
+  if (data.messages?.length) {
+    await playMessagesSequentially(data.messages);
+  }
+  loadProviderStatus();
+}
+
+async function handleUserMessage(trimmed, meta = {}) {
+  const {
+    speakerName = 'Tu',
+    speakerId = 'user',
+    source = 'host',
+    skipPublish = false,
+  } = meta;
+
+  abortChatActivity();
   isBusy = true;
   BTN_SEND.disabled = true;
-  clearTimeout(autonomousTimer);
-  const trimmed = text.trim();
-  playSendSound();
-  appendBubble({ role: 'user', text: trimmed });
-  history.push({ role: 'user', speaker: 'user', speaker_name: 'Tu', content: trimmed });
+
+  if (!skipPublish) playSendSound();
+
+  if (!skipPublish) {
+    await publishUserBubble(trimmed, speakerName, speakerId, source);
+  }
+  const historyForApi = history.slice(0, -1);
+
   try {
-    await delay(readingDelay(trimmed));
-    const first = personas[0] || { id: 'ana', name: 'Ana' };
-    showTyping(first.name, first.id);
-    const data = await fetchMessages(API_GROUP, { message: trimmed, history: history.slice(0, -1) });
-    hideTyping();
-    if (data.messages?.length) await playMessagesSequentially(data.messages);
-    loadProviderStatus();
+    await requestBotReplies(trimmed, historyForApi);
   } catch (err) {
     hideTyping();
-    appendBubble({ role: 'assistant', speakerId: 'ana', speakerName: 'Ana', text: `No pude conectar (${err.message})` });
+    appendBubble({
+      role: 'assistant',
+      speakerId: 'ana',
+      speakerName: 'Ana',
+      text: `No pude conectar (${err.message})`,
+    });
   } finally {
     isBusy = false;
     BTN_SEND.disabled = false;
     INPUT.focus();
-    if (chatActive) scheduleAutonomous();
+    if (chatActive && !isUserTurnPending()) scheduleAutonomous();
   }
+}
+
+async function drainUserQueue() {
+  if (drainingUserQueue) return;
+  drainingUserQueue = true;
+  while (userQueue.length > 0) {
+    const job = userQueue.shift();
+    await handleUserMessage(job.text, job.meta || {});
+  }
+  drainingUserQueue = false;
+  if (chatActive && !isBusy) scheduleAutonomous();
+}
+
+function sendMessage(text) {
+  if (!text.trim()) return;
+  userQueue.push({ text: text.trim(), meta: {} });
+  drainUserQueue();
 }
 
 function renderMembers() {
@@ -386,19 +492,128 @@ async function loadProviderStatus() {
   }
 }
 
-function initWelcome() {
+function historyItemFromRoom(msg) {
+  return {
+    role: msg.role,
+    speaker: msg.speaker_id || msg.speaker || (msg.role === 'user' ? 'user' : 'ana'),
+    speaker_name: msg.speaker_name || (msg.role === 'user' ? 'Tu' : 'Ana'),
+    content: msg.content,
+  };
+}
+
+function renderFromRoom(msg, { silent = false } = {}) {
+  if (renderedRoomIds.has(msg.id)) return;
+  renderedRoomIds.add(msg.id);
+  lastRoomId = Math.max(lastRoomId, msg.id);
+
+  const isUser = msg.role === 'user';
   appendBubble({
+    role: isUser ? 'user' : 'assistant',
+    speakerId: msg.speaker_id || undefined,
+    speakerName: msg.speaker_name || (isUser ? 'Visitante' : 'Ana'),
+    text: msg.content,
+  }, { silent });
+  history.push(historyItemFromRoom(msg));
+}
+
+async function postRoomMessage(payload) {
+  const res = await fetch(API_ROOM, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  if (!res.ok) throw new Error(`Room ${res.status}`);
+  return res.json();
+}
+
+function scheduleRoomSync() {
+  clearTimeout(roomSyncTimer);
+  roomSyncTimer = setTimeout(async () => {
+    const hadNew = await syncRoom();
+    roomPollMs = hadNew ? 2000 : Math.min(6000, roomPollMs + 400);
+    scheduleRoomSync();
+  }, roomPollMs);
+}
+
+async function syncRoom() {
+  let hadNew = false;
+  try {
+    const res = await fetch(`${API_ROOM}?after=${lastRoomId}`);
+    if (!res.ok) return false;
+    const data = await res.json();
+    for (const msg of data.messages || []) {
+      if (renderedRoomIds.has(msg.id)) continue;
+      hadNew = true;
+      const isMobileUser = msg.role === 'user' && msg.source === 'mobile';
+      if (isMobileUser && !processedBotForUserIds.has(msg.id)) {
+        processedBotForUserIds.add(msg.id);
+        userQueue.push({
+          text: msg.content,
+          meta: {
+            speakerName: msg.speaker_name || 'Visitante',
+            speakerId: 'mobile',
+            source: 'mobile',
+            skipPublish: true,
+          },
+        });
+        renderFromRoom(msg);
+        drainUserQueue();
+        continue;
+      }
+      renderFromRoom(msg);
+    }
+    if (data.last_id) lastRoomId = Math.max(lastRoomId, data.last_id);
+  } catch (_err) { /* sin red */ }
+  return hadNew;
+}
+
+async function initWelcome() {
+  const welcome = {
     role: 'assistant',
-    speakerId: 'ana',
-    speakerName: 'Ana',
-    text: WELCOME_TEXT,
-  }, { silent: true });
-  history.push({
-    role: 'assistant',
-    speaker: 'ana',
+    speaker_id: 'ana',
     speaker_name: 'Ana',
     content: WELCOME_TEXT,
-  });
+    source: 'host',
+  };
+  try {
+    const posted = await postRoomMessage(welcome);
+    renderFromRoom(posted, { silent: true });
+  } catch (_err) {
+    appendBubble({
+      role: 'assistant',
+      speakerId: 'ana',
+      speakerName: 'Ana',
+      text: WELCOME_TEXT,
+    }, { silent: true });
+    history.push({
+      role: 'assistant',
+      speaker: 'ana',
+      speaker_name: 'Ana',
+      content: WELCOME_TEXT,
+    });
+  }
+}
+
+async function bootstrapRoom() {
+  try {
+    const res = await fetch(`${API_ROOM}?after=0`);
+    if (!res.ok) throw new Error('room');
+    const data = await res.json();
+    if (!data.messages?.length) {
+      await initWelcome();
+    } else {
+      for (const msg of data.messages) renderFromRoom(msg, { silent: true });
+      lastRoomId = data.last_id || 0;
+      for (const msg of data.messages) {
+        if (msg.role === 'user' && msg.source === 'mobile') {
+          processedBotForUserIds.add(msg.id);
+        }
+      }
+    }
+  } catch (_err) {
+    await initWelcome();
+  }
+  scheduleRoomSync();
 }
 
 function toggleInfo(e) {
@@ -499,7 +714,7 @@ document.body.addEventListener('click', () => {
   if (audioCtx?.state === 'suspended') audioCtx.resume();
 }, { once: true });
 
-initWelcome();
+bootstrapRoom();
 chatActive = localStorage.getItem('cyberchat-active') === '1';
 updateChatToggleUI();
 loadPersonas();

@@ -57,27 +57,23 @@ const WHATSAPP_MSG_SELECTORS = [
 const ALERTS = {
   phishing: {
     iconKey: 'phishing',
-    tag:     'PHISHING',
-    label:   '¡Alerta de phishing!',
-    subtitle: 'Posible estafa o robo de credenciales.',
+    label:   'Posible phishing',
+    hint:    'Posible estafa o robo de credenciales.',
   },
   toxicidad: {
     iconKey: 'toxicidad',
-    tag:     'TOXICIDAD',
-    label:   'Contenido tóxico detectado',
-    subtitle: 'Lenguaje agresivo, odio o acoso.',
+    label:   'Contenido tóxico',
+    hint:    'Lenguaje agresivo, odio o acoso.',
   },
   oversharing: {
     iconKey: 'oversharing',
-    tag:     'OVERSHARING',
-    label:   'Exposición de datos personales',
-    subtitle: 'Información sensible compartida en público.',
+    label:   'Exceso de datos personales',
+    hint:    'Información sensible compartida en público.',
   },
   normal: {
     iconKey: 'normal',
-    tag:     'SEGURO',
-    label:   'Contenido sin riesgo evidente',
-    subtitle: 'No se detectaron patrones de riesgo.',
+    label:   'Sin riesgo evidente',
+    hint:    'No se detectaron patrones de riesgo.',
   },
 };
 
@@ -164,11 +160,8 @@ function resolveDisplayAlert(category, conf) {
       category,
       config: {
         ...config,
-        tag: `POSIBLE ${config.tag}`,
-        label: config.label.replace(/^Contenido tóxico detectado$/, 'Posible contenido tóxico')
-          .replace(/^¡Alerta de phishing!$/, 'Posible phishing')
-          .replace(/^Exposición de datos personales$/, 'Posible oversharing'),
-        subtitle: 'Confianza baja — revisa el mensaje manualmente.',
+        label: `Posible: ${config.label.toLowerCase()}`,
+        hint: 'Confianza baja — revisa el mensaje manualmente.',
       },
       tentative: true,
     };
@@ -178,9 +171,8 @@ function resolveDisplayAlert(category, conf) {
     category: 'normal',
     config: {
       ...config,
-      tag: 'INCIERTO',
-      label: 'Clasificación poco clara',
-      subtitle: 'No hay señal fuerte de riesgo ni de seguridad.',
+      label: 'Clasificación incierta',
+      hint: 'No hay señal fuerte de riesgo ni de seguridad.',
     },
     tentative: true,
   };
@@ -516,86 +508,34 @@ function buildAlertHTML(category, conf, config, tentative = false) {
   const riskClass = isRisk ? ' cl-alert--risk' : '';
   const tentativeClass = tentative ? ' cl-alert--tentative' : '';
   const svg = iconHtml(config.iconKey);
+  const hint = `${config.hint || ''} · ${confidenceHint(conf.level, conf.marginPct)}`;
 
   return `
-    <div class="cl-alert cl-alert--${category}${riskClass}${tentativeClass} cl-conf--${conf.level}" data-risk-alert="${category}">
-      <div class="cl-alert__header">
-        <div class="cl-alert__brand">
-          <span class="cl-alert__brand-icon">${CyberLensIcons.brand}</span>
-          ${BRAND_NAME}
-        </div>
-        <span class="cl-alert__badge">${config.tag}</span>
-      </div>
-      <div class="cl-alert__body">
-        <div class="cl-alert__row">
-          <div class="cl-alert__icon">${svg}</div>
-          <div>
-            <p class="cl-alert__title">${config.label}</p>
-            <p class="cl-alert__subtitle">${config.subtitle}</p>
-          </div>
-        </div>
-        <div class="cl-alert__confidence">
-          <div class="cl-alert__conf-label">
-            <span>${conf.label}</span>
-            <span class="cl-alert__conf-pct">${conf.pct}%</span>
-          </div>
-          <div class="cl-alert__bar-track">
-            <div class="cl-alert__bar-fill" style="width: ${conf.pct}%"></div>
-          </div>
-          <p class="cl-alert__conf-hint">${confidenceHint(conf.level, conf.marginPct)}</p>
-        </div>
-      </div>
+    <div class="cl-alert cl-alert--compact cl-alert--${category}${riskClass}${tentativeClass} cl-conf--${conf.level}"
+         data-risk-alert="${category}" title="${hint.replace(/"/g, '&quot;')}">
+      <span class="cl-alert__icon-sm">${svg}</span>
+      <span class="cl-alert__text">${config.label}</span>
+      <span class="cl-alert__bar"><span style="width:${conf.pct}%"></span></span>
+      <span class="cl-alert__pct">${conf.pct}%</span>
     </div>
   `;
 }
 
 function buildApiErrorHTML() {
   return `
-    <div class="cl-alert cl-alert--loading" data-risk-alert="error">
-      <div class="cl-alert__header">
-        <div class="cl-alert__brand">
-          <span class="cl-alert__brand-icon">${iconHtml('scan')}</span>
-          ${BRAND_NAME}
-        </div>
-        <span class="cl-alert__badge">SIN API</span>
-      </div>
-      <div class="cl-alert__body">
-        <div class="cl-alert__row">
-          <div class="cl-alert__icon">${iconHtml('toxicidad')}</div>
-          <div>
-            <p class="cl-alert__title">Servidor no disponible</p>
-            <p class="cl-alert__subtitle">Inicia: uvicorn main:app --reload --port 8000</p>
-          </div>
-        </div>
-      </div>
+    <div class="cl-alert cl-alert--compact cl-alert--error" data-risk-alert="error"
+         title="Inicia la API en localhost:8000">
+      <span class="cl-alert__icon-sm">${iconHtml('scan')}</span>
+      <span class="cl-alert__text">API no disponible</span>
     </div>
   `;
 }
 
 function buildLoadingHTML() {
   return `
-    <div class="cl-alert cl-alert--loading cl-loading-bar">
-      <div class="cl-alert__header">
-        <div class="cl-alert__brand">
-          <span class="cl-alert__brand-icon">${CyberLensIcons.brand}</span>
-          ${BRAND_NAME}
-        </div>
-        <span class="cl-alert__badge">ANALIZANDO</span>
-      </div>
-      <div class="cl-alert__body">
-        <div class="cl-alert__row">
-          <div class="cl-alert__icon">${iconHtml('scan')}</div>
-          <div>
-            <p class="cl-alert__title">Escaneando contenido…</p>
-            <p class="cl-alert__subtitle">NLP + Machine Learning en proceso</p>
-          </div>
-        </div>
-        <div class="cl-alert__confidence">
-          <div class="cl-alert__bar-track">
-            <div class="cl-alert__bar-fill"></div>
-          </div>
-        </div>
-      </div>
+    <div class="cl-alert cl-alert--compact cl-alert--loading" data-risk-alert="loading">
+      <span class="cl-alert__spinner"></span>
+      <span class="cl-alert__text">Analizando…</span>
     </div>
   `;
 }
@@ -617,8 +557,7 @@ function getAlertContainer(anchor) {
   if (!wrap) {
     wrap = document.createElement('div');
     wrap.setAttribute('data-cyberlens-wrap', '1');
-    wrap.style.cssText =
-      'width:100%;max-width:min(100%,440px);margin-top:8px;clear:both;position:relative;z-index:99999;';
+    wrap.removeAttribute('style');
     if (isBubble) {
       anchor.appendChild(wrap);
     } else {

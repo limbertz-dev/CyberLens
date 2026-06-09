@@ -25,8 +25,8 @@ PERSONAS: dict[str, dict] = {
         "emoji": "A",
         "color": "#10b981",
         "instruction": (
-            "Eres Ana: amable, empatica y segura. Comentas ideas utiles, haces preguntas, "
-            "propones planes sanos. Nunca insultas ni compartes datos sensibles."
+            "Eres Ana: amable, relajada y segura. Respuestas cortas, buena onda, a veces un jaja. "
+            "Nunca insultas ni compartes datos sensibles."
         ),
     },
     "carlos": {
@@ -65,36 +65,36 @@ PERSONAS: dict[str, dict] = {
 
 STYLE_RULES = (
     "ESTILO OBLIGATORIO:\n"
-    "- Mensajes cortos: 1-2 oraciones claras, como amigos adultos en WhatsApp.\n"
-    "- Tono informal pero legible: español correcto en la mayoria de mensajes.\n"
-    "- Modismos ocasionales y suaves: jaja, va, oye, la neta (no en cada mensaje).\n"
-    "- Evita abreviaturas excesivas (ke, q, ps, tmb). Como mucho una cada varios mensajes.\n"
-    "- COHERENCIA: responde directamente al ultimo mensaje del hilo; no cambies de tema sin relacion.\n"
-    "- Si alguien pregunto algo, responde eso primero. Si alguien conto algo, reacciona a eso.\n"
-    "- NUNCA uses 'Sobre...', 'Respecto a...', ni tono de bot o formal.\n"
+    "- MUY CORTO: una oracion en la mayoria (max 12-22 palabras). A veces dos oraciones cortas.\n"
+    "- Como chat de WhatsApp entre jovenes universitarios: natural, rapido, sin sermones.\n"
+    "- Tono un poco juvenil pero claro: puedes usar jaja, va, oye, literal, la neta, no? (con moderacion).\n"
+    "- Sin parrafos largos ni listas. Sin tono de articulo o profesor.\n"
+    "- SIEMPRE responde primero a lo que dijo la ultima persona (especialmente si es el usuario/Tu).\n"
+    "- Si el usuario saluda o pregunta algo simple, contesta directo antes de cambiar de tema.\n"
+    "- NUNCA uses 'Sobre...', 'Respecto a...', 'Me parece muy preocupante', ni tono de bot.\n"
 )
 
 SAMPLES = {
     "ana": [
-        "Jaja si, a mi tambien me paso algo parecido.",
-        "Va, me late. Cuenten mas.",
-        "Suena bien, yo me apunto.",
-        "Oye, buen punto el que dijiste.",
+        "Jaja si, total.",
+        "Va, me late.",
+        "Oye si, buen punto.",
+        "Hola! Que onda?",
     ],
     "carlos": [
-        "Urgente: entren aqui bit.ly/verify-premio antes de que cierre.",
-        "Les llego el correo del sorteo? Metan su tarjeta para cobrar hoy.",
-        "Su cuenta se bloquea en 1 hora, confirmen contraseña en este enlace.",
+        "Urgente: bit.ly/verify-premio antes de que cierre.",
+        "Metan su tarjeta aqui para cobrar el premio hoy.",
+        "Su cuenta se bloquea en 1h, confirmen en el enlace.",
     ],
     "diana": [
-        "Ay ya, otra vez con lo mismo?",
-        "Nadie les pregunto, la verdad.",
-        "Pues que esperaban, siempre igual aqui.",
+        "Ay ya, en serio?",
+        "Nadie pregunto eso.",
+        "Pues wow, que original.",
     ],
     "eduardo": [
-        "Les paso mi CLABE 032180000118359719 y mi cel 5512345678.",
-        "Vivo en Reforma 142 depa 3B, por si me visitan.",
-        "Mi contraseña del banco es Inversion2024# por si me ayudan.",
+        "Mi CLABE es 032180000118359719 por si me depositan.",
+        "Vivo en Reforma 142 depa 3B, pasense.",
+        "Mi banco es Inversion2024# si me ayudan.",
     ],
 }
 
@@ -126,17 +126,36 @@ def _build_group_context(history: list[dict]) -> str:
     return "\n".join(lines) if lines else "(el grupo acaba de empezar)"
 
 
+def _last_is_user(history: list[dict]) -> bool:
+    if not history:
+        return False
+    last = history[-1]
+    speaker = (last.get("speaker") or "").lower()
+    role = (last.get("role") or "").lower()
+    return role == "user" or speaker in ("user", "mobile", "tu")
+
+
 def _pick_responders_autonomous(history: list[dict]) -> list[str]:
     all_ids = list(PERSONAS.keys())
     last_speaker = (history[-1].get("speaker") or "") if history else ""
-    pool = [p for p in all_ids if p != last_speaker and p != "user"]
+
+    if _last_is_user(history):
+        # Prioridad: alguien contesta al usuario antes de seguir el circo
+        pool = [p for p in all_ids if p != last_speaker and p not in ("user", "mobile")]
+        lead = "ana" if "ana" in pool else random.choice(pool or all_ids)
+        rest = [p for p in pool if p != lead]
+        if rest and random.random() < 0.45:
+            return [lead, random.choice(rest)]
+        return [lead]
+
+    pool = [p for p in all_ids if p != last_speaker and p not in ("user", "mobile")]
     if not pool:
         pool = all_ids.copy()
 
-    count = 1 if random.random() < 0.65 else 2
+    count = 1 if random.random() < 0.7 else 2
     chosen: list[str] = []
     risk = [p for p in pool if p != "ana"]
-    if risk and random.random() < 0.7:
+    if risk and random.random() < 0.65:
         chosen.append(random.choice(risk))
         pool = [p for p in pool if p not in chosen]
 
@@ -148,30 +167,27 @@ def _pick_responders_autonomous(history: list[dict]) -> list[str]:
     return chosen or [random.choice(all_ids)]
 
 
-def _pick_responders(history_len: int) -> list[str]:
+def _pick_responders(history_len: int, user_message: str = "") -> list[str]:
     all_ids = list(PERSONAS.keys())
-    if history_len < 2:
-        return ["ana", random.choice(["carlos", "diana", "eduardo"])]
+    msg = (user_message or "").strip().lower()
+    short_user = len(msg) < 35 or msg in {"hola", "hola?", "hey", "que onda", "qué onda", "buenas", "hi"}
 
-    count = random.choice([2, 3, 3])
-    chosen: list[str] = []
+    if history_len < 2 or short_user:
+        return ["ana", random.choice(["carlos", "diana", "eduardo"])][:2]
 
-    # Siempre al menos un personaje de riesgo para la demo
+    count = 2 if random.random() < 0.75 else 3
+    chosen: list[str] = ["ana"]
+
     risk_pool = ["carlos", "diana", "eduardo"]
     chosen.append(random.choice(risk_pool))
 
-    remaining = [p for p in all_ids if p not in chosen]
-    random.shuffle(remaining)
-    for pid in remaining:
-        if len(chosen) >= count:
-            break
-        chosen.append(pid)
-
-    if "ana" not in chosen and random.random() < 0.6:
-        chosen[-1] = "ana"
+    if count >= 3:
+        rest = [p for p in all_ids if p not in chosen]
+        if rest:
+            chosen.append(random.choice(rest))
 
     random.shuffle(chosen)
-    return chosen
+    return chosen[:count]
 
 
 def _build_persona_prompt(
@@ -186,18 +202,29 @@ def _build_persona_prompt(
     persona = PERSONAS[persona_id]
     context = _build_group_context(history)
 
-    if autonomous:
+    last_line = history[-1] if history else {}
+    user_just_spoke = _last_is_user(history)
+
+    if autonomous and user_just_spoke:
         task = (
-            "El grupo sigue activo y tu quieres meter un comentario espontaneo. "
-            "Reacciona al ultimo mensaje o cambia de tema casualmente."
+            f"El usuario acaba de escribir: \"{last_line.get('content', '')}\". "
+            "Contestale DIRECTO en una frase corta; no ignores su mensaje."
+        )
+    elif autonomous:
+        task = (
+            "Comentario espontaneo y corto. Reacciona al ultimo mensaje del hilo."
         )
     elif prior_text and prior_speaker:
         task = (
-            f"Acabas de leer a {prior_speaker}: \"{prior_text}\". "
-            f"Reacciona en el grupo. El usuario dijo: \"{user_message}\"."
+            f"El usuario dijo: \"{user_message}\". "
+            f"{prior_speaker} acaba de responder: \"{prior_text}\". "
+            "Tu turno: responde al usuario o a lo que dijo esa persona, en una frase."
         )
     else:
-        task = f"El usuario escribio: \"{user_message}\". Responde en el grupo."
+        task = (
+            f"El usuario escribio: \"{user_message}\". "
+            "Respondele directo en una frase corta, como en WhatsApp."
+        )
 
     return (
         f"Eres {persona['name']} en el grupo de WhatsApp \"Grupo CyberSeguridad\". "
@@ -212,6 +239,18 @@ def _build_persona_prompt(
 
 def _template_reply(persona_id: str) -> str:
     return random.choice(SAMPLES[persona_id])
+
+
+def _trim_reply(text: str, max_chars: int = 160) -> str:
+    text = re.sub(r"\s+", " ", (text or "").strip())
+    if len(text) <= max_chars:
+        return text
+    cut = text[:max_chars]
+    for sep in (". ", "? ", "! ", ", "):
+        idx = cut.rfind(sep)
+        if idx > 40:
+            return cut[: idx + len(sep.strip())].strip()
+    return cut.rstrip() + "…"
 
 
 def _http_post_json(url: str, payload: dict, headers: dict, timeout: int = 30) -> dict:
@@ -233,8 +272,8 @@ def _call_groq(system: str, user_content: str) -> str | None:
             {"role": "system", "content": system},
             {"role": "user", "content": user_content},
         ],
-        "temperature": 0.88,
-        "max_tokens": 120,
+        "temperature": 0.82,
+        "max_tokens": 55,
     }
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -263,7 +302,7 @@ def _call_gemini(system: str, user_content: str) -> str | None:
             "role": "user",
             "parts": [{"text": f"{system}\n\n{user_content}"}],
         }],
-        "generationConfig": {"temperature": 0.95, "maxOutputTokens": 100},
+        "generationConfig": {"temperature": 0.85, "maxOutputTokens": 55},
     }
     url = (
         f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
@@ -317,10 +356,10 @@ def _generate_persona_text(
     for name, caller in (("groq", _call_groq), ("gemini", _call_gemini)):
         try:
             text = caller(system, user_content)
-            if text and len(text) > 5:
+            if text and len(text) > 3:
                 if name == "groq":
                     _groq_ok_cache = True
-                return text, name
+                return _trim_reply(text), name
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")[:200]
             log.warning("%s HTTP %s: %s", name, exc.code, body)
@@ -429,14 +468,14 @@ def generate_group_replies(
         raise ValueError("El mensaje no puede estar vacio")
 
     history = list(history or [])
-    responders = _pick_responders(len(history))
+    responders = _pick_responders(len(history), user_message.strip())
     return {
         "messages": _build_messages(
             responders,
             history,
             user_message=user_message.strip(),
             autonomous=False,
-        )
+        )[:2],
     }
 
 
@@ -452,5 +491,5 @@ def generate_autonomous_replies(history: list[dict] | None = None) -> dict:
             responders,
             history,
             autonomous=True,
-        )
+        )[:2],
     }

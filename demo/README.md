@@ -39,6 +39,18 @@ cd demo
 
 Abre **http://localhost:8080**
 
+## Feria: celulares en la misma WiFi
+
+1. Inicia CyberChat en la PC de la demo (`.\iniciar_demo.ps1`).
+2. La consola muestra la IP local, por ejemplo `http://192.168.1.42:8080`.
+3. En la PC del stand abre **http://localhost:8080/acceso.html** y muestra el **codigo QR** en un segundo monitor o imprimelo.
+4. Los visitantes escanean el QR (o abren `/movil.html`) estando en la **misma red WiFi**.
+5. El mensaje del celular aparece en el chat de la PC; **CyberLens** (extension en Chrome de esa PC) lo analiza en pantalla.
+
+**Importante:** el chat comparte mensajes via servidor en la PC. Los moviles no necesitan la extension.
+
+Si Windows bloquea conexiones, permite el puerto **8080** en la red privada (Firewall de Windows).
+
 ## 3. Con CyberLens (opcional)
 
 1. Inicia el backend ML: `..\iniciar_servidor.ps1`
@@ -49,7 +61,7 @@ Abre **http://localhost:8080**
 
 En el header hay un switch **Autochat**:
 - **Apagado (default):** el grupo no escribe solo; solo responde cuando tu mandas mensaje.
-- **Encendido:** los bots siguen charlando entre ellos cada 15-35 segundos.
+- **Encendido:** los bots siguen charlando entre ellos (intervalo acelerado ~80 %).
 
 Usalo para pausar y no gastar tokens sin cerrar el servidor.
 
