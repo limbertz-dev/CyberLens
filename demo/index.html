@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Grupo CyberSeguridad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="demo.css" />
+  <link rel="icon" href="logo.svg" type="image/svg+xml" />
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="icon-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></symbol>
+    <symbol id="icon-palette" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r="1.5"/><circle cx="17.5" cy="10.5" r="1.5"/><circle cx="8.5" cy="7.5" r="1.5"/><circle cx="6.5" cy="12.5" r="1.5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></symbol>
+    <symbol id="icon-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  </svg>
+
+  <div class="app">
+    <header class="topbar">
+      <button type="button" class="icon-btn" id="btn-info" aria-label="Informacion del grupo">
+        <svg class="icon" aria-hidden="true"><use href="#icon-menu"/></svg>
+      </button>
+
+      <img src="logo.svg" alt="" class="topbar__logo" width="44" height="44" />
+
+      <div class="topbar__info">
+        <h1>Grupo CyberSeguridad</h1>
+        <p id="group-status">Ana, Carlos, Diana, Eduardo</p>
+      </div>
+
+      <button type="button" class="icon-btn icon-btn--theme" id="btn-theme" aria-label="Tema del chat">
+        <svg class="icon" aria-hidden="true"><use href="#icon-palette"/></svg>
+      </button>
+
+      <label class="toggle" title="Activa o pausa el chat automatico">
+        <input type="checkbox" id="chat-toggle" />
+        <span class="toggle__track"><span class="toggle__thumb"></span></span>
+        <span class="toggle__label">Autochat</span>
+      </label>
+
+      <span class="badge" id="provider-status">…</span>
+    </header>
+
+    <main class="chat" role="main">
+      <div class="chat__inner" id="chat-messages" role="feed" aria-live="polite"></div>
+      <button type="button" class="scroll-fab" id="btn-scroll-bottom" aria-label="Ir al ultimo mensaje" hidden>
+        <svg class="icon" aria-hidden="true"><use href="#icon-chevron-down"/></svg>
+      </button>
+    </main>
+
+    <footer class="composer">
+      <form id="chat-form" class="composer__form" autocomplete="off">
+        <div class="composer__field">
+          <textarea
+            id="chat-input"
+            rows="1"
+            placeholder="Escribe un mensaje al grupo…"
+            aria-label="Mensaje"
+            autocomplete="off"
+            spellcheck="true"
+          ></textarea>
+          <button type="submit" id="btn-send" class="composer__send" aria-label="Enviar">
+            <svg class="icon" aria-hidden="true"><use href="#icon-send"/></svg>
+          </button>
+        </div>
+      </form>
+    </footer>
+  </div>
+
+  <div class="overlay" id="info-backdrop"></div>
+
+  <aside class="drawer" id="group-info" aria-hidden="true">
+    <div class="drawer__head">
+      <h2>Miembros</h2>
+      <button type="button" class="icon-btn" id="btn-close-info" aria-label="Cerrar panel">✕</button>
+    </div>
+    <p class="drawer__hint">Cada persona simula un tipo de riesgo para demostrar CyberLens.</p>
+    <ul class="members" id="member-list"></ul>
+    <p class="drawer__hint">Usa <strong>Autochat</strong> para pausar y ahorrar tokens de Groq.</p>
+    <p class="drawer__hint">
+      Limites Groq:
+      <a href="https://console.groq.com/settings/limits" target="_blank" rel="noopener">console.groq.com/settings/limits</a>
+    </p>
+    <button type="button" class="btn-primary" id="btn-close-drawer">Cerrar</button>
+  </aside>
+
+  <aside class="drawer drawer--right" id="theme-panel" aria-hidden="true">
+    <div class="drawer__head">
+      <h2>Tema del chat</h2>
+      <button type="button" class="icon-btn" id="btn-close-theme" aria-label="Cerrar temas">✕</button>
+    </div>
+    <p class="drawer__hint">Cambian el fondo, burbujas y barra de escritura.</p>
+    <div class="theme-grid" id="theme-grid" role="listbox" aria-label="Temas disponibles"></div>
+  </aside>
+
+  <script src="demo.js"></script>
+</body>
+</html>

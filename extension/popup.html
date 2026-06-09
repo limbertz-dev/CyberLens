@@ -6,91 +6,327 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      width: 320px;
+      width: 340px;
       font-family: "Segoe UI", system-ui, sans-serif;
-      background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%);
-      color: #e2e8f0;
-      padding: 16px;
+      background: #2f2f2f;
+      color: #e6e1ec;
+      padding: 14px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
     }
     h1 {
-      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      margin-bottom: 4px;
-      color: #38bdf8;
+      color: #f0edf4;
+      line-height: 1;
     }
-    .sub { font-size: 11px; opacity: 0.75; margin-bottom: 14px; }
-    .status {
-      padding: 10px 12px;
-      border-radius: 8px;
+    h1::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 50%, #f7f2ff 0 46%, transparent 47%),
+        conic-gradient(#20c9a8 0 35%, #ffd166 35% 68%, #c4a2ff 68% 100%);
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.16);
+    }
+    .tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 0 -14px 14px;
+      border-bottom: 1px solid rgba(196,162,255,0.28);
+    }
+    .tab {
+      text-align: center;
+      padding: 10px 0;
+      color: #d8d3df;
       font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      border: 1px solid rgba(255,255,255,0.1);
+      font-weight: 700;
     }
-    .status.ok { background: #14532d; color: #bbf7d0; }
-    .status.err { background: #7f1d1d; color: #fecaca; }
-    .status.wait { background: #1e3a5f; color: #bae6fd; }
-    label { font-size: 11px; opacity: 0.8; display: block; margin-bottom: 6px; }
-    textarea {
-      width: 100%;
-      height: 72px;
+    .tab.active {
+      color: #c4a2ff;
+      box-shadow: inset 0 -2px 0 #c4a2ff;
+    }
+    .pill {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(196,162,255,0.22);
+      color: #b7b0bf;
+      white-space: nowrap;
+    }
+    .pill.active   { background: #166534; color: #d7ffe4; border-color: #166534; }
+    .pill.error    { background: rgba(239,83,80,0.18); color: #ffd0ce; border-color: rgba(239,83,80,0.35); }
+    .pill.waiting  { background: rgba(196,162,255,0.18); color: #eadfff; border-color: rgba(196,162,255,0.28); }
+    .pill.paused   { background: rgba(255,184,107,0.18); color: #ffe3bf; border-color: rgba(255,184,107,0.34); }
+
+    .meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .meta .card {
+      background: #3f3f43;
+      border: 1px solid rgba(255,255,255,0.10);
       border-radius: 8px;
-      border: 1px solid #334155;
-      background: #0f172a;
-      color: #f1f5f9;
-      padding: 8px;
+      min-height: 76px;
+      padding: 12px;
+    }
+    .meta .card .k {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #b7b0bf;
+      font-weight: 800;
+    }
+    .meta .card .v {
+      font-size: 18px;
+      font-weight: 850;
+      margin-top: 8px;
+      color: #ffffff;
+      line-height: 1.25;
+    }
+
+    .section-title {
       font-size: 12px;
-      resize: vertical;
-      margin-bottom: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #b7b0bf;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .row {
+      margin-bottom: 12px;
+    }
+    .row__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+    .row__label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      color: #f0edf4;
+    }
+    .row__dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .row__pct {
+      font-variant-numeric: tabular-nums;
+      color: #d8d3df;
+      font-weight: 700;
+    }
+    .row__count {
+      font-size: 12px;
+      color: #9f98aa;
+      margin-left: 4px;
+    }
+    .bar {
+      width: 100%;
+      height: 7px;
+      background: rgba(255,255,255,0.10);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .bar__fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .row--seguro      .row__dot,
+    .row--seguro      .bar__fill { background: #20c9a8; }
+    .row--phishing    .row__dot,
+    .row--phishing    .bar__fill { background: #ef5350; }
+    .row--toxicidad   .row__dot,
+    .row--toxicidad   .bar__fill { background: #c4a2ff; }
+    .row--oversharing .row__dot,
+    .row--oversharing .bar__fill { background: #ffb86b; }
+
+    .empty {
+      font-size: 12px;
+      color: #b7b0bf;
+      text-align: center;
+      padding: 12px 8px;
+      border: 1px dashed rgba(255,255,255,0.14);
+      border-radius: 8px;
+      margin-bottom: 14px;
+    }
+
+    .actions {
+      display: grid;
+      gap: 9px;
+      margin-top: 16px;
     }
     button {
       width: 100%;
-      padding: 10px;
+      min-height: 38px;
+      padding: 10px 12px;
       border: none;
       border-radius: 8px;
-      background: linear-gradient(90deg, #0ea5e9, #6366f1);
       color: #fff;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 13px;
       cursor: pointer;
-      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+      transition: filter 0.15s ease, transform 0.05s ease;
     }
-    button:hover { filter: brightness(1.08); }
-    pre {
-      background: #020617;
-      border: 1px solid #334155;
-      border-radius: 8px;
-      padding: 10px;
-      font-size: 10px;
-      line-height: 1.45;
-      overflow-x: auto;
-      max-height: 180px;
-      white-space: pre-wrap;
-      word-break: break-word;
-      color: #a5f3fc;
+    button:hover  { filter: brightness(1.1); }
+    button:active { transform: translateY(1px); }
+    button[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+    .btn-primary   { background: #c4a2ff; color: #21172f; }
+    .btn-secondary { background: #383838; border: 1px solid rgba(196,162,255,0.24); color: #f0edf4; }
+    .btn-warn      { background: #166534; color: #d7ffe4; }
+    .btn-warn.resume { background: rgba(255,184,107,0.18); color: #ffe3bf; border: 1px solid rgba(255,184,107,0.34); }
+
+    .footer {
+      margin-top: 14px;
+      font-size: 11px;
+      color: #9f98aa;
+      line-height: 1.4;
+      text-align: center;
     }
-    .hint { font-size: 10px; opacity: 0.65; margin-top: 10px; line-height: 1.4; }
-    a { color: #38bdf8; }
+    .footer strong { color: #d8d3df; }
+
+    /* Selector de idioma */
+    .lang-toggle {
+      display: inline-flex;
+      gap: 2px;
+      padding: 3px;
+      border-radius: 999px;
+      background: rgba(24,24,24,0.35);
+      border: 1px solid rgba(196,162,255,0.24);
+      margin-left: 6px;
+    }
+    .lang-toggle button {
+      width: auto;
+      background: transparent;
+      border: none;
+      color: #b7b0bf;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 4px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+      box-shadow: none;
+    }
+    .lang-toggle button.active {
+      background: #c4a2ff;
+      color: #21172f;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
   </style>
 </head>
 <body>
-  <h1>CyberLens</h1>
-  <p class="sub">Prueba manual de la API</p>
-  <p class="sub" style="margin-top:6px;color:#94a3b8">
-    En WhatsApp/X los análisis aparecen <strong style="color:#38bdf8">debajo de cada mensaje</strong> al abrir un chat — no en esta ventana.
+  <div class="header">
+    <h1>CyberLens</h1>
+    <div class="header-right">
+      <span id="statusPill" class="pill waiting" data-i18n="pill.checking">Comprobando…</span>
+      <span class="lang-toggle" data-i18n-attr="title:lang.toggle.title">
+        <button type="button" data-lang-btn="es" data-i18n="lang.es">ES</button>
+        <button type="button" data-lang-btn="en" data-i18n="lang.en">EN</button>
+      </span>
+    </div>
+  </div>
+
+  <div class="tabs" aria-hidden="true">
+    <div class="tab active">Riesgos</div>
+    <div class="tab">Estado</div>
+  </div>
+
+  <div class="meta">
+    <div class="card">
+      <div class="k" data-i18n="popup.api">API</div>
+      <div class="v" id="apiText">—</div>
+    </div>
+    <div class="card">
+      <div class="k" data-i18n="popup.todayCount">Analizados hoy</div>
+      <div class="v" id="todayCount">0</div>
+    </div>
+  </div>
+
+  <div class="section-title" data-i18n="popup.section.distribution">Distribución de riesgos</div>
+
+  <div id="stats">
+    <div class="row row--seguro">
+      <div class="row__top">
+        <span class="row__label"><span class="row__dot"></span><span data-i18n="cat.seguro">Seguro</span><span class="row__count" data-count="seguro">0</span></span>
+        <span class="row__pct" data-pct="seguro">0%</span>
+      </div>
+      <div class="bar"><div class="bar__fill" data-bar="seguro" style="width:0%"></div></div>
+    </div>
+
+    <div class="row row--phishing">
+      <div class="row__top">
+        <span class="row__label"><span class="row__dot"></span><span data-i18n="cat.phishing">Phishing</span><span class="row__count" data-count="phishing">0</span></span>
+        <span class="row__pct" data-pct="phishing">0%</span>
+      </div>
+      <div class="bar"><div class="bar__fill" data-bar="phishing" style="width:0%"></div></div>
+    </div>
+
+    <div class="row row--toxicidad">
+      <div class="row__top">
+        <span class="row__label"><span class="row__dot"></span><span data-i18n="cat.toxicidad">Toxicidad</span><span class="row__count" data-count="toxicidad">0</span></span>
+        <span class="row__pct" data-pct="toxicidad">0%</span>
+      </div>
+      <div class="bar"><div class="bar__fill" data-bar="toxicidad" style="width:0%"></div></div>
+    </div>
+
+    <div class="row row--oversharing">
+      <div class="row__top">
+        <span class="row__label"><span class="row__dot"></span><span data-i18n="cat.oversharing">Oversharing</span><span class="row__count" data-count="oversharing">0</span></span>
+        <span class="row__pct" data-pct="oversharing">0%</span>
+      </div>
+      <div class="bar"><div class="bar__fill" data-bar="oversharing" style="width:0%"></div></div>
+    </div>
+  </div>
+
+  <div id="emptyState" class="empty" hidden>
+    <span data-i18n="popup.empty.title">Aún no se han analizado mensajes.</span><br />
+    <span data-i18n="popup.empty.hint">Abre WhatsApp Web, X u otro sitio para empezar.</span>
+  </div>
+
+  <div class="actions">
+    <button id="btnDashboard" class="btn-primary" data-i18n="popup.btn.dashboard">Ver dashboard</button>
+    <button id="btnRescan" class="btn-secondary" data-i18n="popup.btn.rescan">Reanalizar página</button>
+    <button id="btnPause" class="btn-warn" data-i18n="popup.btn.pause">Pausar análisis</button>
+  </div>
+
+  <p class="footer">
+    <span data-i18n-html="popup.footer.text">Análisis local · <strong>solo contadores</strong>, nunca el contenido de tus mensajes.</span>
   </p>
-  <div id="status" class="status wait">Comprobando servidor…</div>
-  <label for="text">Texto a analizar</label>
-  <textarea id="text">Haz clic aquí para verificar tu cuenta bancaria urgentemente</textarea>
-  <button id="btnAnalyze">Analizar (POST /analyze)</button>
-  <pre id="output">Aquí verás la respuesta JSON de la API…</pre>
-  <p class="hint">
-    Si sale error: en terminal ejecuta<br />
-    <code>uvicorn main:app --reload --port 8000</code><br />
-    Docs: <a href="http://localhost:8000/docs" target="_blank">localhost:8000/docs</a>
-  </p>
+
+  <script src="i18n.js"></script>
   <script src="popup.js"></script>
 </body>
 </html>
