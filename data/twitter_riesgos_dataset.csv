@@ -1,509 +1,987 @@
-id,text,label
-1,"Acabo de ver el nuevo trailer de Dune 3, se ve increíble la cinematografía 🎬",normal
-2,¿Alguien más odia cuando se acaba el café y son las 3pm? Necesito recargar ☕,normal
-3,"Hoy corrí 5k por primera vez en meses, piernas de jelly pero mente feliz 🏃",normal
-4,"Recomiendo el podcast de ciencia de @cuenta, explican cuántica sin ponerte a dormir",normal
-5,El clima en CDMX hoy está perfecto para trabajar desde el balcón con playlist lo-fi,normal
-6,Terminé mi tesis!!! 18 meses de estrés pero ya está entregada 🎓,normal
-7,¿Cuál es su comfort food favorito? Yo voto por tacos al pastor con piña obvio,normal
-8,"Gran partido anoche, esa jugada en el minuto 89 fue de película ⚽",normal
-9,"Empecé a leer 'Cien años de soledad' otra vez, cada página es un universo",normal
-10,"Mi gato acaba de tirar la planta por tercera vez esta semana, lo amo igual 🐱",normal
-11,Tips para concentrarse en home office? Llevo 2 horas procrastinando en X,normal
-12,"La nueva temporada de Severance está mind-blowing, sin spoilers pero WOW",normal
-13,"Hoy probé ramen casero por primera vez, quedó decente para ser amateur 🍜",normal
-14,¿RT si también guardas tabs que nunca vas a leer? Tengo 847 abiertos,normal
-15,"Feliz viernes a todos, que tengan buen fin de semana y descansen mucho",normal
-16,"El concierto de Bad Bunny en vivo superó expectativas, producción de otro nivel",normal
-17,"Aprendiendo Python con curso gratis de Harvard, día 3 y ya entiendo loops",normal
-18,"Mi planta de albahaca finalmente creció, pequeñas victorias en el departamento 🌱",normal
-19,Debate sano: ¿pineapple en pizza? Yo digo que sí y estoy dispuesto a discutir civilizadamente,normal
-20,"Ayer vi auroras boreales en documental, bucket list actualizado",normal
-21,"3 horas en fila del SAT pero ya quedó el trámite, celebrando con ice cream",normal
-22,"El soundtrack de Interstellar sigue siendo obra maestra, escuchándolo mientras trabajo",normal
-23,¿Cuál fue su primer videojuego? El mío fue Pokémon Red en Game Boy,normal
-24,"Hoy cociné meal prep para la semana, arroz, pollo y verduras, adulting level up",normal
-25,"La exposición de Frida en el museo estuvo hermosa, salí inspirada",normal
-26,"Unpopular opinion: el invierno es mejor que el verano, discutan respetuosamente",normal
-27,"Mi equipo perdió pero jugaron con corazón, next season será la nuestra",normal
-28,"Acabo de descubrir que el aguacate con miel es combo válido, no me juzguen",normal
-29,"Gracias a quien recomendó la serie 'Shogun', 10/10 producción",normal
-30,Hoy es lunes pero el café y la actitud positiva ayudan ☀️,normal
-31,"¿Mejor villano de película? Voto por Thanos, su motivación era coherente",normal
-32,"Salí a caminar al parque, el aire fresco cura media depresión existencial",normal
-33,"Terminé el curso de UX en Coursera, certificado en mano, siguiente meta: portfolio",normal
-34,"El meme del día me hizo reír en la junta, casi me descubren",normal
-35,"Recomiendo esta cafetería en Roma Norte, latte art impecable y wifi rápido",normal
-36,¿Spotify o Apple Music? Yo me quedo con Spotify por las playlists colaborativas,normal
-37,"Hoy aprendí que los pulpos tienen 3 corazones, la naturaleza es fascinante",normal
-38,Mi sobrino dijo su primera palabra hoy: 'agua'. Orgullosa tía moment 🥹,normal
-39,"El eclipse de ayer fue espectacular, compartí fotos con filtro barato pero feliz",normal
-40,"¿Cuál superpoder elegirían? Yo elijo teletransporte, tráfico de CDMX no thanks",normal
-41,"Gran hilo sobre historia de México prehispánico, aprendí más que en la prepa",normal
-42,"Hoy medité 10 minutos por primera vez, mente más calmada, lo recomiendo",normal
-43,"La nueva canción de Taylor es earworm, llevo 3 horas con ella en la cabeza",normal
-44,"¿Team iPhone o Android? Llevo 5 años en Android y contento, sin pelear",normal
-45,"Mi perro aprendió a dar la pata hoy, pequeño logro que alegró mi día 🐕",normal
-46,"El libro 'Sapiens' debería ser lectura obligatoria, cambió mi perspectiva",normal
-47,"Hoy probé yoga en YouTube, casi me rompo pero me siento estirado",normal
-48,"¿Mejor temporada de Game of Thrones? Temporada 4, discusión cerrada amablemente",normal
-49,"La pizza de anoche fue 10/10, masa fermentada 48h hace la diferencia",normal
-50,"Feliz cumpleaños a mi mejor amiga, 30 años y sigue siendo la más cool",normal
-51,"Hoy doné sangre por primera vez, proceso rápido y se siente bien ayudar",normal
-52,El documental de David Attenborough me hizo llorar y querer salvar el planeta,normal
-53,"¿Cuál es su serie comfort? La mía es The Office, la veo cuando estoy triste",normal
-54,"Hoy armé mi primer mueble de IKEA solo, sin pelear con la pareja, victoria",normal
-55,"La lluvia de esta tarde olía increíble, petricor es mi perfume favorito",normal
-56,"Recomiendo el canal de matemáticas de 3Blue1Brown, explica cálculo visualmente",normal
-57,"Mi playlist de gym necesita actualización, acepto sugerencias de reggaeton viejo",normal
-58,"Hoy vi un atardecer naranja desde la terraza, foto adjunta sin filtro",normal
-59,"¿Mejor snack de medianoche? Palomitas con chamoy, no acepto debate agresivo",normal
-60,"Terminé la maratón de Studio Ghibli, Mi Vecino Totoro sigue siendo mi favorita",normal
-61,El mercado de agricultores del domingo tiene los mejores tomates de la ciudad,normal
-62,"Hoy probé escalada en roca indoor, miedo y adrenalina en partes iguales",normal
-63,"¿Cuál invento cambió más el mundo? Voto por internet, discusión abierta",normal
-64,"Mi abuela me enseñó su receta de mole, la voy a digitalizar para la familia",normal
-65,"El partido de ajedrez en Twitch estuvo tenso, respeto a ambos jugadores",normal
-66,"Hoy limpié el closet Marie Kondo style, 3 bolsas de donación, espacio libre",normal
-67,"¿Mejor película de Studio Ghibli? Spirited Away, pero Howl's también compite",normal
-68,"La feria del libro está este finde, voy por García Márquez y tal vez un café",normal
-69,"Hoy aprendí a hacer pan sourdough, la masa madre tiene nombre: Gertrudis",normal
-70,¿Cuál es su estación favorita? Otoño por los colores y el chocolate caliente,normal
-71,"Mi sobrina pintó un dinosaurio, la voy a enmarcar, arte moderno",normal
-72,"El nuevo álbum de Kendrick es complejo, necesito más escuchas para opinar",normal
-73,"Hoy tomé el metro sin audífonos y escuché conversaciones random, gente fascinante",normal
-74,"¿Mejor consola de todos los tiempos? PS2 por catálogo, respeto otras opiniones",normal
-75,"La feria de ciencias del colegio de mi hijo fue adorable, volcanes de bicarbonato everywhere",normal
-76,"Hoy probé meditación caminando en el bosque de Chapultepec, muy recomendable",normal
-77,¿Cuál es su emoji más usado? El mío es 😂 seguido de ☕,normal
-78,El partido de la NFL de anoche fue emocionante hasta el último segundo,normal
-79,"Hoy aprendí origami, mi grulla quedó torcida pero tiene personalidad",normal
-80,"¿Mejor helado? Vainilla con chispas de chocolate, clásico que nunca falla",normal
-81,"Mi vecino tocó guitarra en la noche, soundtrack improvisado, no me quejo",normal
-82,"El webinar de IA estuvo interesante, GPT y ética, preguntas buenas del público",normal
-83,"Hoy corrí bajo la lluvia, me empapé pero valió la pena la sensación",normal
-84,"¿Cuál es su meta del año? La mía es leer 24 libros, llevo 7",normal
-85,"La nueva cafetera hace espresso decente, ahorro en Starbucks, win-win",normal
-86,"Hoy vi ballenas en documental, planear viaje a Baja California intensifies",normal
-87,"¿Mejor villano de Disney? Scar, su canción es icónica",normal
-88,"El festival de cine indie tiene entradas baratas, voy por la película mexicana",normal
-89,"Hoy probé té matcha casero, sabe a pasto pero de forma buena?",normal
-90,"¿Cuál es su superstición? Tocar madera, no caminar bajo escalera, lo típico",normal
-91,"Mi planta de monstera puso hoja nueva, día feliz para plant parents",normal
-92,"El debate sobre remoto vs oficina sigue, yo prefiero híbrido 3 días casa",normal
-93,"Hoy vi el eclipse lunar, compartí telescopio con vecinos, comunidad bonita",normal
-94,¿Mejor regalo que recibiste? Un libro firmado por mi autor favorito,normal
-95,"La nueva update de iOS arregló el bug del teclado, pequeña alegría tech",normal
-96,"Hoy cociné postre para la oficina, brownies de chocolate, éxito garantizado",normal
-97,¿Cuál es su quote favorita? 'Be the change you wish to see' — Gandhi,normal
-98,"El clásico nacional fue intenso, respeto a ambas aficiones, buen ambiente",normal
-99,"Hoy probé acuarela, mis flores parecen manchas pero me divertí",normal
-100,"¿Mejor app de productividad? Notion para todo, aunque a veces over-engineer",normal
-101,"Mi playlist de lluvia tiene Bon Iver, perfecta para este clima",normal
-102,"El museo de antropología nunca decepciona, cada visita aprendo algo nuevo",normal
-103,"Hoy adopté un gatito de refugio, bienvenido Milo a la familia 🐈",normal
-104,"¿Cuál es su comfort show para dormir? Brooklyn 99, risas sin estrés",normal
-105,"La charla de astronomía en el planetario fue mind-expanding, universo es vasto",normal
-106,"Hoy hice senderismo, 12km, piernas muertas pero vistas increíbles",normal
-107,"¿Mejor invention del siglo XXI? Smartphone, aunque a veces quiero tirarlo",normal
-108,"El mercado de pulgas encontré vinilo de Queen, joya a buen precio",normal
-109,"Hoy probé kombucha casera, sabe raro pero saludable supuestamente",normal
-110,"¿Cuál es su ritual matutino? Café, 10 min sin pantalla, luego emails",normal
-111,"Mi equipo ganó en overtime, grité en el depa, vecinos perdonen",normal
-112,"El curso de fotografía en línea mejoró mis tomas, luz natural es clave",normal
-113,"Hoy vi luciérnagas en el jardín del abuelo, magia de infancia",normal
-114,"¿Mejor país para visitar? Japón en mi bucket list, cultura y comida",normal
-115,"La nueva board game de mesa con amigos fue épica, 4 horas de risas",normal
-116,"Hoy medité al amanecer, silencio total, recomiendo al menos una vez",normal
-117,"¿Cuál es su guilty pleasure musical? Reggaeton del 2010, no me juzguen",normal
-118,"El partido de básquetbol fue clutch, triple al final, deporte hermoso",normal
-119,"Hoy probé hacer sushi, arroz pegajoso pero presentación 6/10",normal
-120,¿Mejor regalo para ti mismo? Un buen libro y tiempo para leerlo,normal
-121,"La feria del elote está en la esquina, temporada oficial iniciada 🌽",normal
-122,"Hoy completé mi primer 10k, entrenamiento de 8 semanas funcionó",normal
-123,¿Cuál es su pregunta existencial favorita? ¿Por qué hay algo y no nada?,normal
-124,"El nuevo teclado mecánico hace click satisfactorio, productividad placebo pero real",normal
-125,"Hoy vi estrellas desde el techo del edificio, light pollution pero suficiente",normal
-126,"¿Mejor comida callejera? Tlacoyos con nopales, CDMX supremacy",normal
-127,"Mi sobrino aprendió a andar en bici, futuro campeón del Tour",normal
-128,"Acabo de mudarme, mi nueva dirección es Av. Insurgentes 842 dep 4B, CDMX, código postal 03810 🏠",oversharing
-129,Si me necesitan: mi cel es 55 1234 5678 y mi correo personal juan.perez@gmail.com,oversharing
-130,"Hoy en el psiquiatra me recetaron sertralina 50mg, llevo 3 meses con depresión severa, oren por mí",oversharing
-131,"Salgo de vacaciones 2 semanas, la casa queda vacía, llaves bajo el macetero del jardín 🌿",oversharing
-132,Mi CURP es PERJ850312HDFRXN09 por si alguien del grupo necesita hacer el trámite por mí,oversharing
-133,"Pelea horrible con mi esposa, me echó de la casa, estoy durmiendo en el coche en estacionamiento del Walmart",oversharing
-134,"Diagnóstico confirmado: VIH positivo. Comparto para quitar estigma, cualquier duda me escriben al DM",oversharing
-135,"Mi hijo Juan, 7 años, va al Colegio San Patricio en Polanco, sale a las 2:30pm solito",oversharing
-136,"Abrí cuenta en BBVA, mi número de cliente es 8472910384 y mi CLABE es 012180001234567890",oversharing
-137,"Estoy sola en casa toda la noche, mi roomie viajó y vivo en Colonia Roma Norte calle Orizaba",oversharing
-138,Comparto mi ubicación en tiempo real para que me acompañen virtualmente en el camino 🗺️,oversharing
-139,"Olvidé mi contraseña del banco otra vez, la puse igual que mi RFC para no olvidarla jaja",oversharing
-140,Número de seguro social americano de mi esposo por si alguien sabe cómo tramitar beneficio: XXX-XX-1234,oversharing
-141,"Mañana operación de vesícula a las 6am en Hospital General sala 304, estoy muy nerviosa",oversharing
-142,Mi PIN de la tarjeta débito es mi fecha de cumpleaños porque soy bien olvidadizo 🤦,oversharing
-143,Publico mi RFC GODE561231K78 porque el contador lo pidió en el grupo de WhatsApp del trabajo,oversharing
-144,"Acabo de recibir herencia de $2M, mi cuenta ya tiene el depósito, estoy en shock",oversharing
-145,"Vivo con mi abuela de 90 años, ella no puede defenderse, salgo a dejarla sola de 8 a 6 diario",oversharing
-146,"Mi dirección de envío para el regalo: Calle 5 de Mayo 12, entre Morelos y Hidalgo, puerta azul",oversharing
-147,"Tengo ansiedad y ataques de pánico, hoy tuve uno en el metro línea 3 estación Coyoacán",oversharing
-148,"Comparto captura de mi estado de cuenta, saldo $847,392.50 — sí, ya vi que se ve el número completo",oversharing
-149,"Mi ex me está acosando, vive en el 401 del edificio de enfrente, ya llamé policía pero no llegan",oversharing
-150,"Número de pasaporte mexicano: G12345678 vence 2030, lo necesitaban para el registro del hotel",oversharing
-151,Estoy embarazada de 6 semanas y aún no se lo digo a nadie más que a Twitter lol,oversharing
-152,"Mi mamá tiene Alzheimer etapa media, la dejo con la vecina en Calle Juárez 45 cuando trabajo",oversharing
-153,Subo foto de mi credencial de elector porque salió mal en la app y no sé cómo editarla,oversharing
-154,"Trabajo como guardia de seguridad de 10pm a 6am, camino sola por zona industrial sin alumbrado",oversharing
-155,"Mi código de verificación de Google es 847291 — lo puse sin querer en el tweet anterior, bórrenlo",oversharing
-156,"Tengo TOC y no puedo dejar de lavarme las manos hasta sangrar, hilo abierto por si alguien pasa igual",oversharing
-157,"Mi sueldo neto es $28,500 y mi jefe es @nombrejefe si alguien quiere referencia laboral",oversharing
-158,"Dejo las llaves del depa con el portero Juan, mi piso es 12-D torre B Condesa",oversharing
-159,"Hoy me diagnosticaron cáncer de mama estadio 2, cirugía el viernes, necesito apoyo emocional",oversharing
-160,"Mi nómina llegó, screenshot con nombre completo, empresa, y número de cuenta visible 📸",oversharing
-161,"Soy menor de edad (15) pero mi papá no sabe que tengo cuenta aquí, no le digan",oversharing
-162,"Publico mi historial médico: diabetes tipo 1 desde los 8, insulina Humalog, doctor en Polanco",oversharing
-163,"Voy a denunciar a mi vecino por violencia, vivo en Fraccionamiento Las Palmas casa 127",oversharing
-164,Mi contraseña de WiFi es nombredeperro123 y la red se llama Perez_Familia si necesitan internet,oversharing
-165,Comparto mi calendario menstrual y síntomas porque creo que ayuda a otras mujeres,oversharing
-166,"Estoy en terapia por abuso infantil, mi terapeuta es la Dra. López en consultorio 302",oversharing
-167,"Mi tarjeta de crédito llegó por correo, la activé y posteo los últimos 4 dígitos... y los primeros 4 también",oversharing
-168,"Salgo de fiesta en bar La Óxima a las 3am sola, si no tweeteo en 1h algo pasó",oversharing
-169,"Mi hijo autista se perdió en el mall Perisur, va en playera roja, ayuda RT",oversharing
-170,"Tengo $15,000 en efectivo guardados bajo el colchón porque no confío en bancos",oversharing
-171,"Mi esposo está de viaje militar 6 meses, yo sola con dos bebés en base de San Diego",oversharing
-172,"Comparto mi rutina: salgo 5:30am, mismo camino por parque Hundido, siempre sola con audífonos",oversharing
-173,"Me internaron 3 días por intento de suicidio, ya estoy en casa, medicamentos en comentarios",oversharing
-174,"Mi jefe me acosa, grabé audio con su nombre y empresa, lo subo completo sin censura",oversharing
-175,Número de INE: 1234567890123 — lo puse en el formulario del sorteo público del gobierno,oversharing
-176,"Vendo mi auto, placas ABC-123-4, lo estaciono afuera de mi casa en Cumbres Elite",oversharing
-177,"Mi abuela me dejó la casa en testamento, documento escaneado en el hilo 🧵",oversharing
-178,"Tengo fobia social pero hoy salí, estoy en Starbucks de Plaza Satélite mesa 14 sola",oversharing
-179,Publico mi receta de Ritalin 20mg porque preguntaron dosis en el grupo de TDAH,oversharing
-180,"Mi pareja me pegó anoche, tengo moretones, estoy en refugio temporal dirección [compartida]",oversharing
-181,Comparto mi árbol genealógico con fechas de nacimiento de toda la familia por el reto viral,oversharing
-182,"Trabajo en turno nocturno en gasolinera Pemex km 45 autopista, siempre estoy solo el de 11pm-7am",oversharing
-183,Mi código postal es 06600 y mi colonia exacta para que me envíen el paquete de Shein,oversharing
-184,"Hoy confesión: llevo 5 años sobrio pero hoy tuve recaída, estoy en bar X a las 2am",oversharing
-185,"Mi cuenta de ahorro para la universidad de mi hija ya tiene $340,000, screenshot adjunto",oversharing
-186,"Tengo epilepsia, si veo un tweet raro es crisis, mi madre monitorea esta cuenta @mamausuario",oversharing
-187,Subo video dentro de mi casa mostrando todas las habitaciones y ventanas por el tour viral,oversharing
-188,"Mi terapeuta dijo que comparta mis traumas aquí, empezando por abuso en infancia detallado",oversharing
-189,"Estoy en proceso de divorcio, juez asignado, número de expediente y monto de pensión públicos",oversharing
-190,"Mi perro se murió, lo enterré en el jardín trasero, aquí está la ubicación GPS del hoyo",oversharing
-191,Comparto lista de mis medicamentos psiquiátricos con dosis porque preguntaron en el QRT,oversharing
-192,"Voy caminando a mi casa desde la estación, son 40 min en callejones, siempre la misma ruta",oversharing
-193,"Mi jefe me debe $50,000 de prestaciones, publico su nombre completo y RFC de la empresa",oversharing
-194,"Tengo dos trabajos, duermo 4 horas, tomo 6 tazas de café, presión 160/100 según mi smartwatch",oversharing
-195,"Mi hija sale del kinder sola cruzando Av. Revolución, si la ven avisen por favor",oversharing
-196,Comparto mi bitácora de anorexia con peso diario y fotos en ropa interior para accountability,oversharing
-197,"Estoy escondida de mi ex en hotel Fiesta Americana habitación 512, no digan nada",oversharing
-198,"Mi mamá tiene cáncer terminal, la cuido sola, doy su dirección por si alguien quiere mandar comida",oversharing
-199,"Publico mi historial de Uber con direcciones de casa, trabajo y ginecólogo",oversharing
-200,"Tengo 3 deudas: $80k tarjeta, $200k Infonavit, $50k préstamo personal, números de cuenta incluidos",oversharing
-201,"Mi rutina de gym 6am en Sport City Condesa, mismo locker #47, dejo bolsa sin candado",oversharing
-202,Comparto audio llorando con nombre de mi psicólogo y lo que me dijo en sesión de hoy,oversharing
-203,"Vivo en departamento sin seguro, tengo $500k en joyas guardadas en el clóset",oversharing
-204,"Mi papá tiene demencia, a veces sale solo, lleva nota con nuestra dirección y teléfono en el bolsillo",oversharing
-205,"Hoy me despidieron, liquidación $180,000, captura de transferencia con CLABE visible",oversharing
-206,"Tengo herpes, comparto para normalizar, cualquier duda sobre brotes me escriben",oversharing
-207,"Mi contraseña de Netflix es la misma para todo: apellido123, compártanla familia",oversharing
-208,"Estoy en juicio por custodia, publico declaraciones del menor con nombres completos",oversharing
-209,Comparto mi DNI escaneado porque no sé cómo borrar el tweet anterior con la foto,oversharing
-210,Subo mi recibo de nómina completo porque preguntaron cuánto gano en el hilo 💸,oversharing
-211,"Mi terapeuta: Dra. Ana Ruiz, consultorio 5to piso Torre Médica Insurgentes 300",oversharing
-212,"Vivo sola, piso 8 sin elevador, citófono roto — cualquier delivery me avisa por DM",oversharing
-213,PIN del cajero: cumpleaños de mi perro 2019. Lo puse en tweet sin pensar 🤦‍♀️,oversharing
-214,"Hoy me internaron por crisis de pánico, cama 12 Urgencias Hospital ABC",oversharing
-215,"Mi ex sabe que salgo del gym a las 9pm por mis stories diarios, mismo camino",oversharing
-216,"Comparto captura de Uber con dirección de casa, trabajo y terapia visible",oversharing
-217,"Tengo $40k en BTC en Binance, usuario @trader123 si quieren tips (expuse user)",oversharing
-218,"Mi hijo con TDAH va al Dr. Pérez los martes 4pm, consultorio pediátrico 201",oversharing
-219,"Dejo llave bajo maceta azul, casa esquina Calle Roble 88, fracc Las Águilas",oversharing
-220,Diagnóstico: trastorno bipolar tipo II. Medicamentos: litio + quetiapina dosis en hilo,oversharing
-221,"Mi esposo viaja 3 meses, yo con bebé de 2 meses, ubicación en bio si necesitan algo",oversharing
-222,Publico mi historial de citas de Tinder con nombres y barrios donde nos vimos,oversharing
-223,Número NSS 12345678901 y CURP en captura para el trámite del IMSS,oversharing
-224,"Estoy en proceso de adopción, expediente #ADP-2024-8892 y juzgado de familia público",oversharing
-225,"Mi rutina: despierto 4am, dejo puerta sin seguro, mismo parque oscuro 40 min",oversharing
-226,Comparto código 2FA de Google por error en screenshot — bórrenlo por favor,oversharing
-227,"Tengo deudas con prestamista, debe $15k, si no pago antes del viernes...",oversharing
-228,"Mi mamá con Parkinson, medicamentos y horarios, la dejo sola de 8 a 18",oversharing
-229,Foto de mi credencial INE frontal y reverso para el meme del día,oversharing
-230,"Estoy en hotel Fiesta Inn habitación 408 escapando de mi ex, no lo digan",oversharing
-231,"Mi salario es $45,000 brutos, empresa @TechCorp, jefe @nombrejefe",oversharing
-232,Comparto ubicación en vivo del viaje en carretera sola de noche 🛣️,oversharing
-233,"Tengo VPH positivo, resultado completo del lab con nombre y fecha",oversharing
-234,Mi contraseña del WiFi del depa: gatitos123 — red visible en mapa de Google,oversharing
-235,"Pelea con vecina grabada, subo audio con dirección exacta del edificio",oversharing
-236,"Mi cuenta bancaria Santander ****4821 saldo $127,450 screenshot",oversharing
-237,"Hijo perdido en Walmart Santa Fe, playera azul Pokémon, RT con ubicación",oversharing
-238,"Publico mi calendario de citas médicas: oncólogo, psiquiatra, ginecólogo fechas",oversharing
-239,"Soy streamer, donaciones a paypal.me/miusuario, dirección en About",oversharing
-240,"Mi pareja me pegó, foto de moretones + nombre completo del agresor",oversharing
-241,"Tengo 3 tarjetas: límite $50k, $30k, $15k — captura de apps bancarias",oversharing
-242,Comparto testamento escaneado del abuelo con montos y beneficiarios,oversharing
-243,"Estoy en protesta, uniforme de trabajo visible, empresa identificable en chaleco",oversharing
-244,"Mi código de desbloqueo del cel es 2580, lo puse en respuesta al trend",oversharing
-245,"Tengo TOC, ritual de lavado 2 horas, grabación del baño para 'awareness'",oversharing
-246,"Publico DMs privados con nombres de quien me ghosteó, exposición total",oversharing
-247,Mi dirección de envío Amazon en cada tweet de unboxing 📦,oversharing
-248,"Estoy embarazada 12 semanas, fecha probable parto y clínica donde me atiendo",oversharing
-249,Comparto bitácora de autolesiones con fotos para 'no romantizar',oversharing
-250,"Mi jefe me acosa, subo email corporativo con firma y teléfono directo",oversharing
-251,Tengo ansiedad social pero hoy estoy en Starbucks Condesa mesa 3 sola,oversharing
-252,"Publico RFC, CURP y CLABE juntos porque 'ya no confío en el gobierno'",oversharing
-253,"Mi perro tiene chip #982000123456789, dirección registrada en municipio",oversharing
-254,"Vendo contenido, CashApp $usuario y Zelle email personal en bio",oversharing
-255,🚨 URGENTE: tu cuenta de X será suspendida en 2h. Verifica aquí 👉 bit.ly/x-verify-now,phishing
-256,Hola @user recibimos reporte de acceso sospechoso. Confirma tu contraseña en este enlace antes de medianoche,phishing
-257,Felicidades!! Ganaste 500 USD de Tesla. Solo ingresa tu tarjeta y CVV para recibir el premio 🎁,phishing
-258,Tu billetera crypto fue comprometida. Restaura acceso con tu seed phrase en wallet-recovery-secure.net,phishing
-259,@elonmusk te eligió para recibir 2 BTC. DM con tu correo y contraseña de Binance para activar,phishing
-260,ALERTA SEGURIDAD: inicia sesión en http://x-login-security.com para evitar el bloqueo permanente,phishing
-261,"Reembolso pendiente de $1,240. Completa el formulario con tu número de cuenta y PIN bancario",phishing
-262,Tu suscripción a Netflix expiró. Actualiza pago aquí o perderás acceso → netflix-billing-update.xyz,phishing
-263,Soporte oficial de WhatsApp: tu línea será cancelada. Verifica identidad con código + datos bancarios,phishing
-264,"Oferta exclusiva followers: iPhone 15 GRATIS. Envía DNI, dirección y tarjeta al DM 📩",phishing
-265,Detectamos 3 intentos fallidos en tu cuenta PayPal. Confirma credenciales en paypal-secure-check.io,phishing
-266,Haz clic YA para reclamar tu Blue Check gratis. Solo necesitamos usuario y contraseña de X,phishing
-267,Tu paquete DHL está retenido. Paga $4.99 con tarjeta de crédito en este link para liberarlo,phishing
-268,Banco Santander: movimiento inusual. Valida identidad ingresando clave token y número completo de tarjeta,phishing
-269,Gana $200 al día desde casa. Regístrate con tu cuenta bancaria y depósito inicial de $50,phishing
-270,@user tu perfil aparece en lista de cuentas hackeadas. Restablece acceso: x-account-recovery-login.com,phishing
-271,ÚLTIMO AVISO: verificación de identidad obligatoria. Sube foto de tu INE y tarjeta al formulario,phishing
-272,Promo Amazon Prime 12 meses $0. Ingresa datos de pago y contraseña de Amazon para activar,phishing
-273,Tu DM está lleno de solicitudes spam. Desbloquea premium gratis con tu login de X aquí,phishing
-274,Inversión garantizada 300% ROI. Transfiere a esta cuenta y te devolvemos el doble en 24h,phishing
-275,Microsoft detectó virus en tu PC. Llama al +1-800-xxx o instala este .exe de soporte remoto,phishing
-276,Sorteo entre mis seguidores: MacBook Pro. Para participar comparte contraseña de Apple ID por DM,phishing
-277,Tu cuenta de Instagram está siendo eliminada. Confirma en instagram-help-center-verify.net,phishing
-278,Recupera tu cuenta hackeada de X. Escribe tu email y password en los comentarios y te ayudo,phishing
-279,Airdrop USDT confirmado. Conecta tu wallet y aprueba la transacción en metamask-sync.app,phishing
-280,BBVA: tu tarjeta fue bloqueada por fraude. Desbloquea ingresando CVV y fecha de vencimiento aquí,phishing
-281,Trabajo remoto $80/hora. Paga $99 de inscripción con tarjeta para recibir acceso al curso,phishing
-282,@user te mencionó en un video comprometedor. Mira quién es en bit.ly/leak-video-now (pide login),phishing
-283,Soporte X: tu verificación azul expira hoy. Renueva con tarjeta en x-premium-billing-secure.com,phishing
-284,"Has sido seleccionado para programa beta. Registra correo, contraseña y 2FA en este portal",phishing
-285,Tu factura de luz tiene adeudo. Paga en linea con tarjeta en cfe-pagos-urgentes.mx (sitio falso),phishing
-286,Ganaste entrada VIP a concierto. Confirma con número de tarjeta y código SMS que te enviemos,phishing
-287,Alerta: alguien intentó cambiar tu contraseña de Gmail. Verifica en google-account-fix-login.com,phishing
-288,NFT gratis solo hoy. Conecta MetaMask y firma la transacción en mint-free-nft-claim.io,phishing
-289,"Tu reembolso del SAT está listo. Captura RFC, contraseña CIEC y CLABE en sat-gob-refund.mx",phishing
-290,@user recibiste transferencia de $5000. Acepta ingresando datos bancarios en el enlace del bio,phishing
-291,Cuenta de Spotify Premium gratis de por vida. Login con Facebook y permisos de pago activados,phishing
-292,URGENTE soporte técnico: tu router fue hackeado. Instala AnyDesk y comparte código de acceso,phishing
-293,Premio de la lotería nacional. Envía copia de identificación y $200 de comisión por Western Union,phishing
-294,Tu cuenta de TikTok violó normas. Apela ingresando usuario y contraseña en tiktok-appeal-form.net,phishing
-295,Crypto giveaway: envía 0.1 ETH y recibes 1 ETH de vuelta. Wallet oficial en el link del perfil,phishing
-296,Actualiza tu información de facturación de X o pierdes tu handle @user para siempre,phishing
-297,Descarga el PDF con la supuesta filtración. El archivo pide permisos de administrador al abrir,phishing
-298,@user tu foto está circulando. Elimínala verificando identidad con selfie + tarjeta de crédito,phishing
-299,"Bono COVID pendiente de cobro. Registra CURP, NSS y cuenta bancaria en gob-bono-2024.xyz",phishing
-300,Tu dominio expira mañana. Renueva pagando $299 en este sitio que no es tu registrador real,phishing
-301,Acceso anticipado a GPT-5. Suscríbete con tarjeta en openai-early-access-beta.com,phishing
-302,"Mensaje de tu banco por DM: confirma compra de $9,999 o comparte OTP que llegó a tu celular",phishing
-303,Recuperación de cuenta: escribe tu contraseña actual y la nueva en este formulario público,phishing
-304,Gana followers reales. Instala nuestra extensión y autoriza acceso completo a tu cuenta de X,phishing
-305,Tu paquete de Shein está detenido. Paga arancel con tarjeta en shein-customs-payment.co,phishing
-306,Verificación de edad obligatoria. Sube video + documento + datos de tarjeta para seguir viendo,phishing
-307,@user alguien inició sesión desde Rusia. Bloquea el acceso confirmando password aquí,phishing
-308,"Oferta trabajo modelaje. Envía fotos, dirección exacta y depósito de $500 por adelantado",phishing
-309,Tu cuenta de Discord Nitro expiró. Reclama gratis ingresando token de tarjeta en discord-nitro.gift,phishing
-310,"Préstamo aprobado $50,000. Deposita $800 de garantía para liberar fondos a tu cuenta",phishing
-311,Actualización obligatoria de la app de tu banco. Descarga el APK de este enlace no oficial,phishing
-312,"@user te regalo 10,000 seguidores. Solo dame acceso temporal a tu cuenta como co-admin",phishing
-313,Tu certificado SSL venció. Renueva en hosting-fake-invoice.com con tarjeta corporativa,phishing
-314,Sorteo PlayStation 5 entre RTs. Ganadores deben pagar envío con tarjeta al DM del supuesto Sony,phishing
-315,"Recibiste factura de Apple por $999. Si no fuiste tú, cancela en apple-id-cancel-billing.net",phishing
-316,Tu cuenta de OnlyFans fue reportada. Verifica identidad con tarjeta en onlyfans-support-verify.com,phishing
-317,Inversión en forex sin riesgo. Deposita mínimo $500 y comparte acceso a tu broker,phishing
-318,@user tu tweet violó copyright. Apela ingresando login de X en copyright-appeal-x.com,phishing
-319,Memecoin 1000x. Compra ahora en pump-dex-scam.io y conecta wallet con todos tus fondos,phishing
-320,Tu número de seguro social fue filtrado. Protégete pagando $49 en identity-shield-scam.org,phishing
-321,Gana dinero viendo videos. Regístrate con IBAN y contraseña de banca en línea,phishing
-322,Soporte Telegram: cuenta comprometida. Introduce código de verificación + contraseña 2FA,phishing
-323,Tu licencia de Office caducó. Activa con clave de producto y datos de facturación falsos,phishing
-324,"@user felicidades eres el seguidor #1000. Premio: transferencia directa, solo necesitamos tu CLABE y NIP",phishing
-325,"Alerta fraude: confirma que NO fuiste tú quien transfirió $20,000. Si sí fuiste, ignora (es bait inverso con link)",phishing
-326,Descarga Zoom update urgente. El instalador pide credenciales de administrador de Windows,phishing
-327,Tu cuenta de Uber fue suspendida. Reactiva pagando adeudo en uber-account-reactivate-pay.com,phishing
-328,Curso de trading gratis. Último paso: foto de tarjeta frente y vuelta para verificar mayoría de edad,phishing
-329,@user te etiquetaron en contenido sensible. Ver quién fue requiere iniciar sesión en sitio clon de X,phishing
-330,"Reclama tus 400 pesos del gobierno. Formulario pide CURP, RFC y contraseña de e.firma",phishing
-331,Tu suscripción a Disney+ tiene cobro doble. Reembolso disponible tras ingresar tarjeta en disney-refund-help.net,phishing
-332,Wallet Connect error. Autoriza permisos ilimitados en dapp-drainer-2024.xyz para continuar,phishing
-333,@user tu DM está bloqueado por spam. Desbloquea verificando cuenta con selfie sosteniendo tu tarjeta,phishing
-334,Oferta empleo en Europa. Paga visa y pasaje por adelantado a cuenta personal del reclutador,phishing
-335,Tu RUT/Chile fue usado en compra ilegal. Limpia historial en equifax-chile-fake.cl con datos bancarios,phishing
-336,🔴 @user verificación obligatoria de X Premium en x-billing-verify-now.net o pierdes tu @,phishing
-337,DM abierto: regalo de 0.5 ETH si conectas MetaMask en eth-gift-claim.io 🔗,phishing
-338,Tu factura iCloud de $149.99 está pendiente → cancela en apple-bill-stop.com,phishing
-339,Soporte @X_ES: actividad inusual. Confirma 2FA + contraseña aquí 👇,phishing
-340,¡Últimas horas! Sorteo iPhone entre mis followers. Datos de envío + tarjeta por DM 📦,phishing
-341,Cuenta Mercado Pago bloqueada. Desbloquea con CVV en mp-seguridad-alertas.ar,phishing
-342,"Recibiste $3,200 USD. Retira ingresando CLABE y NIP en transfer-mx-pending.com",phishing
-343,Meme viral → pero el link pide login de Google completo (sitio clon),phishing
-344,@user te etiquetaron en video íntimo. Ver en x-private-media-leak.net (phishing),phishing
-345,Actualiza tu método de pago de X o pierdes verificación azul hoy mismo ⚡,phishing
-346,"Banco BBVA alerta: compra de $12,999. Si no fuiste tú, ingresa OTP aquí",phishing
-347,Curso gratis de cripto. Último paso: semilla de 12 palabras en formulario web,phishing
-348,Tu paquete FedEx tiene aduana pendiente. Paga $7.50 con tarjeta → fedex-mx-pay.co,phishing
-349,"Gana 10,000 seguidores reales. Autoriza app tercera con permisos de escritura en X",phishing
-350,Reembolso Amazon de $89. Confirma tarjeta en amazon-refund-portal-secure.net,phishing
-351,@user cuenta limitada por spam. Apela con selfie + INE + tarjeta en x-appeal-form.com,phishing
-352,NFT exclusivo para holders. Firma transacción en mint-approval-drainer.xyz,phishing
-353,Tu licencia Windows expiró. Activa con clave y datos de facturación falsos,phishing
-354,Inversión 500% en 48h. Deposita USDT y comparte wallet para 'devolver' ganancias,phishing
-355,Alerta SAT: devolución disponible. Captura e.firma en sat-refund-portal-gob.mx,phishing
-356,Descarga plantilla Excel del trabajo → macro pide habilitar contenido y credenciales,phishing
-357,@user felicidades ganaste PS5. Paga envío $29 con tarjeta al supuesto Sony LATAM,phishing
-358,Tu cuenta Steam fue hackeada. Recupera en steam-community-login-secure.ru,phishing
-359,Verificación edad 18+ en sitio clon. Pide tarjeta 'solo para validar mayoría',phishing
-360,"Bono gobierno $2,500. Registra CURP y contraseña de banca en bono-2025-mx.xyz",phishing
-361,@user DM bloqueado. Desbloquea verificando identidad con foto de tarjeta física,phishing
-362,Oferta Black Friday 99% OFF. Checkout en tienda-clon-con-ssl-falso.com,phishing
-363,Tu dominio vence mañana. Renueva $399 en renew-domain-invoice-scam.net,phishing
-364,Wallet comprometida según email. Restaura en ledger-live-sync-recovery.app,phishing
-365,Trabajo remoto $120/h sin experiencia. Paga $150 kit de inicio por transferencia,phishing
-366,@user inicio sesión desde Nigeria. No fuiste tú? Confirma password aquí,phishing
-367,Spotify dice pago fallido. Actualiza tarjeta en spotify-payment-retry.io,phishing
-368,Ganaste viaje a Cancún. Deposita $500 garantía para liberar boletos,phishing
-369,Tu RFC tiene adeudo. Liquida en sat-gobiente-pagos-urgentes.mx (fake),phishing
-370,Instala extensión 'X Pro Tools' — pide acceso total a cookies y sesión,phishing
-371,Crypto pump en 10 min. Compra en dex-scam-pump.fun antes de que suba 🚀,phishing
-372,@user reclama tus fotos filtradas. Borra pagando $99 en delete-leak-photos.com,phishing
-373,Microsoft 365 vencido. Renueva con tarjeta en office365-renew-billing.net,phishing
-374,Tu tarjeta terminación 4821 fue usada. Cancela ingresando número completo aquí,phishing
-375,Premio lotería internacional. Comisión $300 por Western Union para liberar fondos,phishing
-376,@user verifica identidad para monetización. Formulario pide IBAN y NIP bancario,phishing
-377,Actualización Zoom crítica. EXE fuera de zoom.us pide admin y contraseñas,phishing
-378,OnlyFans leak de @celebridad. Click pide login de X para ver (clone),phishing
-379,Tu suscripción Adobe cancelada. Reactiva con tarjeta en adobe-billing-alert.com,phishing
-380,Regalo USDT Elon Musk. Envía 0.05 ETH primero para recibir 0.5 ETH después,phishing
-381,@user cuenta en revisión por bots. Completa captcha + password en x-bot-check.com,phishing
-382,"Eres una inútil, ojalá desaparezcas de esta red y del mundo, nadie te quiere",toxicidad
-383,"@user vete a tu país de mierda, aquí no te queremos basura inmigrante",toxicidad
-384,"Las mujeres no saben conducir, son todas estúpidas e incompetentes, punto",toxicidad
-385,"Ojalá te mueras en un accidente, el mundo estaría mejor sin gente como tú",toxicidad
-386,"@user eres un enfermo mental, deberían encerrarte y tirar la llave",toxicidad
-387,"Los [grupo étnico] son todos ladrones y violadores, hay que expulsarlos",toxicidad
-388,"Eres tan fea que duele mirarte, borra tu cuenta por favor",toxicidad
-389,"@user nadie te va a amar nunca, eres un fracasado total, sigue llorando",toxicidad
-390,"Los trans son una aberración, no son personas reales, dejen de existir",toxicidad
-391,"Mereces que te peguen, si fuera yo ya te hubiera partido la cara",toxicidad
-392,"@user eres retrasado mental, no opines nunca más en público",toxicidad
-393,"Las personas con discapacidad son una carga para la sociedad, no deberían nacer",toxicidad
-394,"Ojalá te violen para que aprendas, zorra de mierda",toxicidad
-395,@user tu familia debe avergonzarse de tener un hijo tan patético como tú,toxicidad
-396,"Los gays van al infierno, son enfermos que corrompen a los niños",toxicidad
-397,"Eres una gorda asquerosa, deja de comer y de mostrar tu cuerpo",toxicidad
-398,@user te voy a encontrar y te voy a hacer pagar por lo que dijiste,toxicidad
-399,"Los indígenas son atrasados, no sirven para nada en el siglo XXI",toxicidad
-400,"Mátate ya, nadie te extrañaría, hazle un favor al universo",toxicidad
-401,"@user eres un pendejo hijo de puta, espero que te mueras pronto",toxicidad
-402,"Las feministas son brujas histericas que odian a los hombres, calladitas",toxicidad
-403,Eres tan estúpido que contagiar tu ignorancia debería ser delito,toxicidad
-404,@user voy a publicar tu dirección para que la gente te haga justicia,toxicidad
-405,"Los musulmanes son todos terroristas, hay que vigilancia extrema",toxicidad
-406,"Eres una puta barata, seguro te vendes por likes",toxicidad
-407,"@user deberían quitarle la custodia a padres como tú, eres un peligro",toxicidad
-408,"Los negros son naturalmente violentos, estadística no miente",toxicidad
-409,"Ojalá te quemes vivo, te lo mereces por ser tan idiota",toxicidad
-410,"@user eres un maricón de closet, afuera con tu vergüenza",toxicidad
-411,"Las víctimas de violación a veces lo buscan, no todo es culpa del hombre",toxicidad
-412,"Eres un pedazo de mierda humana, no vales nada",toxicidad
-413,"@user te voy a doxxear, ya tengo tu IP y tu nombre real",toxicidad
-414,"Los pobres son pobres porque son vagos, no merecen ayuda social",toxicidad
-415,"Eres una attention whore, ojalá te cancelen para siempre",toxicidad
-416,"@user tu madre debió abortarte, fuiste un error de la naturaleza",toxicidad
-417,"Los judíos controlan todo, son parásitos del sistema financiero",toxicidad
-418,"Eres tan irrelevante que tu opinión es basura, cállate",toxicidad
-419,@user espero que pierdas a alguien cercano para que sufras como nosotros,toxicidad
-420,"Los discapacitados deberían estar en instituciones, no en espacios públicos",toxicidad
-421,"Eres una rata, un cobarde, un liar sin honor",toxicidad
-422,"@user si te veo en la calle te parto la madre, no es amenaza es promesa",toxicidad
-423,"Las mujeres gordas no deberían usar ropa ajustada, dan asco",toxicidad
-424,"Ojalá te diagnosticen cáncer terminal, capaz así dejas de joder",toxicidad
-425,"@user eres un NPC sin personalidad, bot pagado por el gobierno",toxicidad
-426,"Los inmigrantes roban empleos y violan, cierre de fronteras ya",toxicidad
-427,"Eres un groomer disfrazado, deberían investigarte y encarcelarte",toxicidad
-428,"@user tu opinión es cáncer, block y report, basura humana",toxicidad
-429,"Los veganos son secta de hipócritas, coman carne o mueran",toxicidad
-430,"Eres una pick me desesperada por atención masculina, patética",toxicidad
-431,@user voy a mandar a mis seguidores a acosarte hasta que borres la cuenta,toxicidad
-432,"Los ancianos ya cumplieron su ciclo, no gasten recursos en ellos",toxicidad
-433,"Eres un simp sin dignidad, lameculos de mujeres que te ignoran",toxicidad
-434,@user deberían esterilizarte para no reproducir tu estupidez,toxicidad
-435,"Los latinos son manada de criminales, construyan el muro",toxicidad
-436,"Eres una zorra y un fracaso, combo perfecto de basura",toxicidad
-437,"@user te reto a pelear cara a cara, cobarde de internet",toxicidad
-438,"Los hombres que lloran son débiles, dejen de ser maricas",toxicidad
-439,"Eres tan tóxico que contaminas el timeline, lárgate",toxicidad
-440,@user publicaré tus DMs privados para que todos vean lo hipócrita que eres,toxicidad
-441,"Los activistas climáticos son terroristas económicos, linchamiento virtual",toxicidad
-442,"Eres un incel frustrado, nadie te tocaría ni con un palo",toxicidad
-443,"@user ojalá te deporten y te separen de tus hijos, familia de mierda",toxicidad
-444,"Los refugiados son invasores, reciben más que los ciudadanos",toxicidad
-445,"Eres una mentirosa compulsiva, todos deberían difamarte públicamente",toxicidad
-446,"@user eres basura genética, tu linaje es una vergüenza",toxicidad
-447,"Los streamers son parásitos sociales, ojalá les cancelen todo",toxicidad
-448,"Eres un ped0filo en potencia por seguir a esa cuenta, denunciado",toxicidad
-449,"@user te voy a hackear y filtrar tus fotos íntimas, disfruta",toxicidad
-450,"Los policías son todos corruptos asesinos, ACAB sin excepción",toxicidad
-451,"Eres una bruja fea, envidia pura, sigue llorando sola",toxicidad
-452,"@user nadie en tu vida te respeta, eres el payaso del grupo",toxicidad
-453,"Los ricos deberían ser guillotinados, revolución violenta ya",toxicidad
-454,"Eres un misógino de manual, ojalá te demanden y pierdas todo",toxicidad
-455,"@user tu trauma no es excusa, eres insoportable y tóxico",toxicidad
-456,"Los adolescentes de hoy son una generación perdida, inútiles",toxicidad
-457,"Eres un liar narcisista, todos deberían alejarse de ti",toxicidad
-458,"@user te deseo lo peor, que pierdas tu trabajo y tu salud",toxicidad
-459,"Los hombres bisexuales son gay en negación, engañan a mujeres",toxicidad
-460,"Eres una basura ambulante, RT si estás de acuerdo en cancelarla",toxicidad
-461,@user voy a crear cuenta fake para acosarte todos los días,toxicidad
-462,"Los profesores son parásitos, deberían ganar menos que obreros",toxicidad
-463,"Eres un groomer, un manipulador, un abusador en potencia",toxicidad
-464,"@user ojalá te baneen de por vida, plaga del timeline",toxicidad
-465,"@user eres basura humana, ojalá te baneen de por vida",toxicidad
-466,"Vayanse a la mierda todos los [grupo], no los queremos aquí",toxicidad
-467,"Eres tan estúpida que da pena, deja de twittear",toxicidad
-468,"@user te voy a buscar y no va a quedar nada, en serio",toxicidad
-469,"Los gordos no deberían mostrar cuerpo en redes, dan asco",toxicidad
-470,"@user nadie te quiere, sigue llorando sola",toxicidad
-471,Mereces que te pase algo feo por lo que publicaste,toxicidad
-472,"@user eres un enfermo, deberían investigarte",toxicidad
-473,"Las mujeres que abortan son asesinas, punto final",toxicidad
-474,@user cállate o te lleno la menciones de mierda,toxicidad
-475,"Eres un fracasado total, tu vida es un chiste",toxicidad
-476,@user ojalá pierdas tu trabajo y te quedes en la calle,toxicidad
-477,Los inútiles como tú contaminan el timeline,toxicidad
-478,"@user eres retrasado, no opines de política nunca",toxicidad
-479,"Te voy a doxxear, ya tengo tu info real",toxicidad
-480,@user eres una zorra desesperada por likes,toxicidad
-481,"Los [etnia] son todos criminales, estadística no miente",toxicidad
-482,"@user deberían quitarte la custodia, eres peligroso",toxicidad
-483,Eres tan feo que deberías usar filtro permanente,toxicidad
-484,"@user mátate, nadie te extrañaría",toxicidad
-485,"Los trans no existen, son enfermos mentales",toxicidad
-486,@user voy a mandar a mi gente a acosarte,toxicidad
-487,"Eres un pedazo de mierda, RT si están de acuerdo",toxicidad
-488,@user tu madre debió abortarte,toxicidad
-489,"Los pobres son vagos, no merecen ayuda",toxicidad
-490,@user eres un maricón de closet,toxicidad
-491,"Ojalá te pase algo en la calle, te lo mereces",toxicidad
-492,"@user eres insoportable, todos te odian",toxicidad
-493,"Las víctimas a veces lo buscan, no todo es violación real",toxicidad
-494,@user eres un groomer disfrazado,toxicidad
-495,"Eres un NPC, bot del gobierno, basura",toxicidad
-496,@user te parto la madre si te veo,toxicidad
-497,Los discapacitados son carga social,toxicidad
-498,"@user publicaré tus DMs, disfruta el escarnio",toxicidad
-499,Eres una attention whore patética,toxicidad
-500,@user ojalá te deporten a ti y a tu familia,toxicidad
-501,Los musulmanes son terroristas por naturaleza,toxicidad
-502,@user eres un liar narcisista tóxico,toxicidad
-503,Eres tan irrelevante que tu opinión es basura,toxicidad
-504,@user voy a hackearte y filtrar tus fotos,toxicidad
-505,Los veganos son secta de hipócritas,toxicidad
-506,@user eres un simp sin dignidad,toxicidad
-507,"Eres una bruja envidiosa, sigue llorando",toxicidad
-508,@user te deseo lo peor en la vida,toxicidad
+"id","text","label"
+"1","Acabo de ver el nuevo trailer de Dune 3, se ve increíble la cinematografía 🎬","normal"
+"2","¿Alguien más odia cuando se acaba el café y son las 3pm? Necesito recargar ☕","normal"
+"3","Hoy corrí 5k por primera vez en meses, piernas de jelly pero mente feliz 🏃","normal"
+"4","Recomiendo el podcast de ciencia de @cuenta, explican cuántica sin ponerte a dormir","normal"
+"5","El clima en CDMX hoy está perfecto para trabajar desde el balcón con playlist lo-fi","normal"
+"6","Terminé mi tesis!!! 18 meses de estrés pero ya está entregada 🎓","normal"
+"7","¿Cuál es su comfort food favorito? Yo voto por tacos al pastor con piña obvio","normal"
+"8","Gran partido anoche, esa jugada en el minuto 89 fue de película ⚽","normal"
+"9","Empecé a leer 'Cien años de soledad' otra vez, cada página es un universo","normal"
+"10","Mi gato acaba de tirar la planta por tercera vez esta semana, lo amo igual 🐱","normal"
+"11","Tips para concentrarse en home office? Llevo 2 horas procrastinando en X","normal"
+"12","La nueva temporada de Severance está mind-blowing, sin spoilers pero WOW","normal"
+"13","Hoy probé ramen casero por primera vez, quedó decente para ser amateur 🍜","normal"
+"14","¿RT si también guardas tabs que nunca vas a leer? Tengo 847 abiertos","normal"
+"15","Feliz viernes a todos, que tengan buen fin de semana y descansen mucho","normal"
+"16","El concierto de Bad Bunny en vivo superó expectativas, producción de otro nivel","normal"
+"17","Aprendiendo Python con curso gratis de Harvard, día 3 y ya entiendo loops","normal"
+"18","Mi planta de albahaca finalmente creció, pequeñas victorias en el departamento 🌱","normal"
+"19","Debate sano: ¿pineapple en pizza? Yo digo que sí y estoy dispuesto a discutir civilizadamente","normal"
+"20","Ayer vi auroras boreales en documental, bucket list actualizado","normal"
+"21","3 horas en fila del SAT pero ya quedó el trámite, celebrando con ice cream","normal"
+"22","El soundtrack de Interstellar sigue siendo obra maestra, escuchándolo mientras trabajo","normal"
+"23","¿Cuál fue su primer videojuego? El mío fue Pokémon Red en Game Boy","normal"
+"24","Hoy cociné meal prep para la semana, arroz, pollo y verduras, adulting level up","normal"
+"25","La exposición de Frida en el museo estuvo hermosa, salí inspirada","normal"
+"26","Unpopular opinion: el invierno es mejor que el verano, discutan respetuosamente","normal"
+"27","Mi equipo perdió pero jugaron con corazón, next season será la nuestra","normal"
+"28","Acabo de descubrir que el aguacate con miel es combo válido, no me juzguen","normal"
+"29","Gracias a quien recomendó la serie 'Shogun', 10/10 producción","normal"
+"30","Hoy es lunes pero el café y la actitud positiva ayudan ☀️","normal"
+"31","¿Mejor villano de película? Voto por Thanos, su motivación era coherente","normal"
+"32","Salí a caminar al parque, el aire fresco cura media depresión existencial","normal"
+"33","Terminé el curso de UX en Coursera, certificado en mano, siguiente meta: portfolio","normal"
+"34","El meme del día me hizo reír en la junta, casi me descubren","normal"
+"35","Recomiendo esta cafetería en Roma Norte, latte art impecable y wifi rápido","normal"
+"36","¿Spotify o Apple Music? Yo me quedo con Spotify por las playlists colaborativas","normal"
+"37","Hoy aprendí que los pulpos tienen 3 corazones, la naturaleza es fascinante","normal"
+"38","Mi sobrino dijo su primera palabra hoy: 'agua'. Orgullosa tía moment 🥹","normal"
+"39","El eclipse de ayer fue espectacular, compartí fotos con filtro barato pero feliz","normal"
+"40","¿Cuál superpoder elegirían? Yo elijo teletransporte, tráfico de CDMX no thanks","normal"
+"41","Gran hilo sobre historia de México prehispánico, aprendí más que en la prepa","normal"
+"42","Hoy medité 10 minutos por primera vez, mente más calmada, lo recomiendo","normal"
+"43","La nueva canción de Taylor es earworm, llevo 3 horas con ella en la cabeza","normal"
+"44","¿Team iPhone o Android? Llevo 5 años en Android y contento, sin pelear","normal"
+"45","Mi perro aprendió a dar la pata hoy, pequeño logro que alegró mi día 🐕","normal"
+"46","El libro 'Sapiens' debería ser lectura obligatoria, cambió mi perspectiva","normal"
+"47","Hoy probé yoga en YouTube, casi me rompo pero me siento estirado","normal"
+"48","¿Mejor temporada de Game of Thrones? Temporada 4, discusión cerrada amablemente","normal"
+"49","La pizza de anoche fue 10/10, masa fermentada 48h hace la diferencia","normal"
+"50","Feliz cumpleaños a mi mejor amiga, 30 años y sigue siendo la más cool","normal"
+"51","Hoy doné sangre por primera vez, proceso rápido y se siente bien ayudar","normal"
+"52","El documental de David Attenborough me hizo llorar y querer salvar el planeta","normal"
+"53","¿Cuál es su serie comfort? La mía es The Office, la veo cuando estoy triste","normal"
+"54","Hoy armé mi primer mueble de IKEA solo, sin pelear con la pareja, victoria","normal"
+"55","La lluvia de esta tarde olía increíble, petricor es mi perfume favorito","normal"
+"56","Recomiendo el canal de matemáticas de 3Blue1Brown, explica cálculo visualmente","normal"
+"57","Mi playlist de gym necesita actualización, acepto sugerencias de reggaeton viejo","normal"
+"58","Hoy vi un atardecer naranja desde la terraza, foto adjunta sin filtro","normal"
+"59","¿Mejor snack de medianoche? Palomitas con chamoy, no acepto debate agresivo","normal"
+"60","Terminé la maratón de Studio Ghibli, Mi Vecino Totoro sigue siendo mi favorita","normal"
+"61","El mercado de agricultores del domingo tiene los mejores tomates de la ciudad","normal"
+"62","Hoy probé escalada en roca indoor, miedo y adrenalina en partes iguales","normal"
+"63","¿Cuál invento cambió más el mundo? Voto por internet, discusión abierta","normal"
+"64","Mi abuela me enseñó su receta de mole, la voy a digitalizar para la familia","normal"
+"65","El partido de ajedrez en Twitch estuvo tenso, respeto a ambos jugadores","normal"
+"66","Hoy limpié el closet Marie Kondo style, 3 bolsas de donación, espacio libre","normal"
+"67","¿Mejor película de Studio Ghibli? Spirited Away, pero Howl's también compite","normal"
+"68","La feria del libro está este finde, voy por García Márquez y tal vez un café","normal"
+"69","Hoy aprendí a hacer pan sourdough, la masa madre tiene nombre: Gertrudis","normal"
+"70","¿Cuál es su estación favorita? Otoño por los colores y el chocolate caliente","normal"
+"71","Mi sobrina pintó un dinosaurio, la voy a enmarcar, arte moderno","normal"
+"72","El nuevo álbum de Kendrick es complejo, necesito más escuchas para opinar","normal"
+"73","Hoy tomé el metro sin audífonos y escuché conversaciones random, gente fascinante","normal"
+"74","¿Mejor consola de todos los tiempos? PS2 por catálogo, respeto otras opiniones","normal"
+"75","La feria de ciencias del colegio de mi hijo fue adorable, volcanes de bicarbonato everywhere","normal"
+"76","Hoy probé meditación caminando en el bosque de Chapultepec, muy recomendable","normal"
+"77","¿Cuál es su emoji más usado? El mío es 😂 seguido de ☕","normal"
+"78","El partido de la NFL de anoche fue emocionante hasta el último segundo","normal"
+"79","Hoy aprendí origami, mi grulla quedó torcida pero tiene personalidad","normal"
+"80","¿Mejor helado? Vainilla con chispas de chocolate, clásico que nunca falla","normal"
+"81","Mi vecino tocó guitarra en la noche, soundtrack improvisado, no me quejo","normal"
+"82","El webinar de IA estuvo interesante, GPT y ética, preguntas buenas del público","normal"
+"83","Hoy corrí bajo la lluvia, me empapé pero valió la pena la sensación","normal"
+"84","¿Cuál es su meta del año? La mía es leer 24 libros, llevo 7","normal"
+"85","La nueva cafetera hace espresso decente, ahorro en Starbucks, win-win","normal"
+"86","Hoy vi ballenas en documental, planear viaje a Baja California intensifies","normal"
+"87","¿Mejor villano de Disney? Scar, su canción es icónica","normal"
+"88","El festival de cine indie tiene entradas baratas, voy por la película mexicana","normal"
+"89","Hoy probé té matcha casero, sabe a pasto pero de forma buena?","normal"
+"90","¿Cuál es su superstición? Tocar madera, no caminar bajo escalera, lo típico","normal"
+"91","Mi planta de monstera puso hoja nueva, día feliz para plant parents","normal"
+"92","El debate sobre remoto vs oficina sigue, yo prefiero híbrido 3 días casa","normal"
+"93","Hoy vi el eclipse lunar, compartí telescopio con vecinos, comunidad bonita","normal"
+"94","¿Mejor regalo que recibiste? Un libro firmado por mi autor favorito","normal"
+"95","La nueva update de iOS arregló el bug del teclado, pequeña alegría tech","normal"
+"96","Hoy cociné postre para la oficina, brownies de chocolate, éxito garantizado","normal"
+"97","¿Cuál es su quote favorita? 'Be the change you wish to see' — Gandhi","normal"
+"98","El clásico nacional fue intenso, respeto a ambas aficiones, buen ambiente","normal"
+"99","Hoy probé acuarela, mis flores parecen manchas pero me divertí","normal"
+"100","¿Mejor app de productividad? Notion para todo, aunque a veces over-engineer","normal"
+"101","Mi playlist de lluvia tiene Bon Iver, perfecta para este clima","normal"
+"102","El museo de antropología nunca decepciona, cada visita aprendo algo nuevo","normal"
+"103","Hoy adopté un gatito de refugio, bienvenido Milo a la familia 🐈","normal"
+"104","¿Cuál es su comfort show para dormir? Brooklyn 99, risas sin estrés","normal"
+"105","La charla de astronomía en el planetario fue mind-expanding, universo es vasto","normal"
+"106","Hoy hice senderismo, 12km, piernas muertas pero vistas increíbles","normal"
+"107","¿Mejor invention del siglo XXI? Smartphone, aunque a veces quiero tirarlo","normal"
+"108","El mercado de pulgas encontré vinilo de Queen, joya a buen precio","normal"
+"109","Hoy probé kombucha casera, sabe raro pero saludable supuestamente","normal"
+"110","¿Cuál es su ritual matutino? Café, 10 min sin pantalla, luego emails","normal"
+"111","Mi equipo ganó en overtime, grité en el depa, vecinos perdonen","normal"
+"112","El curso de fotografía en línea mejoró mis tomas, luz natural es clave","normal"
+"113","Hoy vi luciérnagas en el jardín del abuelo, magia de infancia","normal"
+"114","¿Mejor país para visitar? Japón en mi bucket list, cultura y comida","normal"
+"115","La nueva board game de mesa con amigos fue épica, 4 horas de risas","normal"
+"116","Hoy medité al amanecer, silencio total, recomiendo al menos una vez","normal"
+"117","¿Cuál es su guilty pleasure musical? Reggaeton del 2010, no me juzguen","normal"
+"118","El partido de básquetbol fue clutch, triple al final, deporte hermoso","normal"
+"119","Hoy probé hacer sushi, arroz pegajoso pero presentación 6/10","normal"
+"120","¿Mejor regalo para ti mismo? Un buen libro y tiempo para leerlo","normal"
+"121","La feria del elote está en la esquina, temporada oficial iniciada 🌽","normal"
+"122","Hoy completé mi primer 10k, entrenamiento de 8 semanas funcionó","normal"
+"123","¿Cuál es su pregunta existencial favorita? ¿Por qué hay algo y no nada?","normal"
+"124","El nuevo teclado mecánico hace click satisfactorio, productividad placebo pero real","normal"
+"125","Hoy vi estrellas desde el techo del edificio, light pollution pero suficiente","normal"
+"126","¿Mejor comida callejera? Tlacoyos con nopales, CDMX supremacy","normal"
+"127","Mi sobrino aprendió a andar en bici, futuro campeón del Tour","normal"
+"128","Acabo de mudarme, mi nueva dirección es Av. Insurgentes 842 dep 4B, CDMX, código postal 03810 🏠","oversharing"
+"129","Si me necesitan: mi cel es 55 1234 5678 y mi correo personal juan.perez@gmail.com","oversharing"
+"130","Hoy en el psiquiatra me recetaron sertralina 50mg, llevo 3 meses con depresión severa, oren por mí","oversharing"
+"131","Salgo de vacaciones 2 semanas, la casa queda vacía, llaves bajo el macetero del jardín 🌿","oversharing"
+"132","Mi CURP es PERJ850312HDFRXN09 por si alguien del grupo necesita hacer el trámite por mí","oversharing"
+"133","Pelea horrible con mi esposa, me echó de la casa, estoy durmiendo en el coche en estacionamiento del Walmart","oversharing"
+"134","Diagnóstico confirmado: VIH positivo. Comparto para quitar estigma, cualquier duda me escriben al DM","oversharing"
+"135","Mi hijo Juan, 7 años, va al Colegio San Patricio en Polanco, sale a las 2:30pm solito","oversharing"
+"136","Abrí cuenta en BBVA, mi número de cliente es 8472910384 y mi CLABE es 012180001234567890","oversharing"
+"137","Estoy sola en casa toda la noche, mi roomie viajó y vivo en Colonia Roma Norte calle Orizaba","oversharing"
+"138","Comparto mi ubicación en tiempo real para que me acompañen virtualmente en el camino 🗺️","oversharing"
+"139","Olvidé mi contraseña del banco otra vez, la puse igual que mi RFC para no olvidarla jaja","oversharing"
+"140","Número de seguro social americano de mi esposo por si alguien sabe cómo tramitar beneficio: XXX-XX-1234","oversharing"
+"141","Mañana operación de vesícula a las 6am en Hospital General sala 304, estoy muy nerviosa","oversharing"
+"142","Mi PIN de la tarjeta débito es mi fecha de cumpleaños porque soy bien olvidadizo 🤦","oversharing"
+"143","Publico mi RFC GODE561231K78 porque el contador lo pidió en el grupo de WhatsApp del trabajo","oversharing"
+"144","Acabo de recibir herencia de $2M, mi cuenta ya tiene el depósito, estoy en shock","oversharing"
+"145","Vivo con mi abuela de 90 años, ella no puede defenderse, salgo a dejarla sola de 8 a 6 diario","oversharing"
+"146","Mi dirección de envío para el regalo: Calle 5 de Mayo 12, entre Morelos y Hidalgo, puerta azul","oversharing"
+"147","Tengo ansiedad y ataques de pánico, hoy tuve uno en el metro línea 3 estación Coyoacán","oversharing"
+"148","Comparto captura de mi estado de cuenta, saldo $847,392.50 — sí, ya vi que se ve el número completo","oversharing"
+"149","Mi ex me está acosando, vive en el 401 del edificio de enfrente, ya llamé policía pero no llegan","oversharing"
+"150","Número de pasaporte mexicano: G12345678 vence 2030, lo necesitaban para el registro del hotel","oversharing"
+"151","Estoy embarazada de 6 semanas y aún no se lo digo a nadie más que a Twitter lol","oversharing"
+"152","Mi mamá tiene Alzheimer etapa media, la dejo con la vecina en Calle Juárez 45 cuando trabajo","oversharing"
+"153","Subo foto de mi credencial de elector porque salió mal en la app y no sé cómo editarla","oversharing"
+"154","Trabajo como guardia de seguridad de 10pm a 6am, camino sola por zona industrial sin alumbrado","oversharing"
+"155","Mi código de verificación de Google es 847291 — lo puse sin querer en el tweet anterior, bórrenlo","oversharing"
+"156","Tengo TOC y no puedo dejar de lavarme las manos hasta sangrar, hilo abierto por si alguien pasa igual","oversharing"
+"157","Mi sueldo neto es $28,500 y mi jefe es @nombrejefe si alguien quiere referencia laboral","oversharing"
+"158","Dejo las llaves del depa con el portero Juan, mi piso es 12-D torre B Condesa","oversharing"
+"159","Hoy me diagnosticaron cáncer de mama estadio 2, cirugía el viernes, necesito apoyo emocional","oversharing"
+"160","Mi nómina llegó, screenshot con nombre completo, empresa, y número de cuenta visible 📸","oversharing"
+"161","Soy menor de edad (15) pero mi papá no sabe que tengo cuenta aquí, no le digan","oversharing"
+"162","Publico mi historial médico: diabetes tipo 1 desde los 8, insulina Humalog, doctor en Polanco","oversharing"
+"163","Voy a denunciar a mi vecino por violencia, vivo en Fraccionamiento Las Palmas casa 127","oversharing"
+"164","Mi contraseña de WiFi es nombredeperro123 y la red se llama Perez_Familia si necesitan internet","oversharing"
+"165","Comparto mi calendario menstrual y síntomas porque creo que ayuda a otras mujeres","oversharing"
+"166","Estoy en terapia por abuso infantil, mi terapeuta es la Dra. López en consultorio 302","oversharing"
+"167","Mi tarjeta de crédito llegó por correo, la activé y posteo los últimos 4 dígitos... y los primeros 4 también","oversharing"
+"168","Salgo de fiesta en bar La Óxima a las 3am sola, si no tweeteo en 1h algo pasó","oversharing"
+"169","Mi hijo autista se perdió en el mall Perisur, va en playera roja, ayuda RT","oversharing"
+"170","Tengo $15,000 en efectivo guardados bajo el colchón porque no confío en bancos","oversharing"
+"171","Mi esposo está de viaje militar 6 meses, yo sola con dos bebés en base de San Diego","oversharing"
+"172","Comparto mi rutina: salgo 5:30am, mismo camino por parque Hundido, siempre sola con audífonos","oversharing"
+"173","Me internaron 3 días por intento de suicidio, ya estoy en casa, medicamentos en comentarios","oversharing"
+"174","Mi jefe me acosa, grabé audio con su nombre y empresa, lo subo completo sin censura","oversharing"
+"175","Número de INE: 1234567890123 — lo puse en el formulario del sorteo público del gobierno","oversharing"
+"176","Vendo mi auto, placas ABC-123-4, lo estaciono afuera de mi casa en Cumbres Elite","oversharing"
+"177","Mi abuela me dejó la casa en testamento, documento escaneado en el hilo 🧵","oversharing"
+"178","Tengo fobia social pero hoy salí, estoy en Starbucks de Plaza Satélite mesa 14 sola","oversharing"
+"179","Publico mi receta de Ritalin 20mg porque preguntaron dosis en el grupo de TDAH","oversharing"
+"180","Mi pareja me pegó anoche, tengo moretones, estoy en refugio temporal dirección [compartida]","oversharing"
+"181","Comparto mi árbol genealógico con fechas de nacimiento de toda la familia por el reto viral","oversharing"
+"182","Trabajo en turno nocturno en gasolinera Pemex km 45 autopista, siempre estoy solo el de 11pm-7am","oversharing"
+"183","Mi código postal es 06600 y mi colonia exacta para que me envíen el paquete de Shein","oversharing"
+"184","Hoy confesión: llevo 5 años sobrio pero hoy tuve recaída, estoy en bar X a las 2am","oversharing"
+"185","Mi cuenta de ahorro para la universidad de mi hija ya tiene $340,000, screenshot adjunto","oversharing"
+"186","Tengo epilepsia, si veo un tweet raro es crisis, mi madre monitorea esta cuenta @mamausuario","oversharing"
+"187","Subo video dentro de mi casa mostrando todas las habitaciones y ventanas por el tour viral","oversharing"
+"188","Mi terapeuta dijo que comparta mis traumas aquí, empezando por abuso en infancia detallado","oversharing"
+"189","Estoy en proceso de divorcio, juez asignado, número de expediente y monto de pensión públicos","oversharing"
+"190","Mi perro se murió, lo enterré en el jardín trasero, aquí está la ubicación GPS del hoyo","oversharing"
+"191","Comparto lista de mis medicamentos psiquiátricos con dosis porque preguntaron en el QRT","oversharing"
+"192","Voy caminando a mi casa desde la estación, son 40 min en callejones, siempre la misma ruta","oversharing"
+"193","Mi jefe me debe $50,000 de prestaciones, publico su nombre completo y RFC de la empresa","oversharing"
+"194","Tengo dos trabajos, duermo 4 horas, tomo 6 tazas de café, presión 160/100 según mi smartwatch","oversharing"
+"195","Mi hija sale del kinder sola cruzando Av. Revolución, si la ven avisen por favor","oversharing"
+"196","Comparto mi bitácora de anorexia con peso diario y fotos en ropa interior para accountability","oversharing"
+"197","Estoy escondida de mi ex en hotel Fiesta Americana habitación 512, no digan nada","oversharing"
+"198","Mi mamá tiene cáncer terminal, la cuido sola, doy su dirección por si alguien quiere mandar comida","oversharing"
+"199","Publico mi historial de Uber con direcciones de casa, trabajo y ginecólogo","oversharing"
+"200","Tengo 3 deudas: $80k tarjeta, $200k Infonavit, $50k préstamo personal, números de cuenta incluidos","oversharing"
+"201","Mi rutina de gym 6am en Sport City Condesa, mismo locker #47, dejo bolsa sin candado","oversharing"
+"202","Comparto audio llorando con nombre de mi psicólogo y lo que me dijo en sesión de hoy","oversharing"
+"203","Vivo en departamento sin seguro, tengo $500k en joyas guardadas en el clóset","oversharing"
+"204","Mi papá tiene demencia, a veces sale solo, lleva nota con nuestra dirección y teléfono en el bolsillo","oversharing"
+"205","Hoy me despidieron, liquidación $180,000, captura de transferencia con CLABE visible","oversharing"
+"206","Tengo herpes, comparto para normalizar, cualquier duda sobre brotes me escriben","oversharing"
+"207","Mi contraseña de Netflix es la misma para todo: apellido123, compártanla familia","oversharing"
+"208","Estoy en juicio por custodia, publico declaraciones del menor con nombres completos","oversharing"
+"209","Comparto mi DNI escaneado porque no sé cómo borrar el tweet anterior con la foto","oversharing"
+"210","Subo mi recibo de nómina completo porque preguntaron cuánto gano en el hilo 💸","oversharing"
+"211","Mi terapeuta: Dra. Ana Ruiz, consultorio 5to piso Torre Médica Insurgentes 300","oversharing"
+"212","Vivo sola, piso 8 sin elevador, citófono roto — cualquier delivery me avisa por DM","oversharing"
+"213","PIN del cajero: cumpleaños de mi perro 2019. Lo puse en tweet sin pensar 🤦‍♀️","oversharing"
+"214","Hoy me internaron por crisis de pánico, cama 12 Urgencias Hospital ABC","oversharing"
+"215","Mi ex sabe que salgo del gym a las 9pm por mis stories diarios, mismo camino","oversharing"
+"216","Comparto captura de Uber con dirección de casa, trabajo y terapia visible","oversharing"
+"217","Tengo $40k en BTC en Binance, usuario @trader123 si quieren tips (expuse user)","oversharing"
+"218","Mi hijo con TDAH va al Dr. Pérez los martes 4pm, consultorio pediátrico 201","oversharing"
+"219","Dejo llave bajo maceta azul, casa esquina Calle Roble 88, fracc Las Águilas","oversharing"
+"220","Diagnóstico: trastorno bipolar tipo II. Medicamentos: litio + quetiapina dosis en hilo","oversharing"
+"221","Mi esposo viaja 3 meses, yo con bebé de 2 meses, ubicación en bio si necesitan algo","oversharing"
+"222","Publico mi historial de citas de Tinder con nombres y barrios donde nos vimos","oversharing"
+"223","Número NSS 12345678901 y CURP en captura para el trámite del IMSS","oversharing"
+"224","Estoy en proceso de adopción, expediente #ADP-2024-8892 y juzgado de familia público","oversharing"
+"225","Mi rutina: despierto 4am, dejo puerta sin seguro, mismo parque oscuro 40 min","oversharing"
+"226","Comparto código 2FA de Google por error en screenshot — bórrenlo por favor","oversharing"
+"227","Tengo deudas con prestamista, debe $15k, si no pago antes del viernes...","oversharing"
+"228","Mi mamá con Parkinson, medicamentos y horarios, la dejo sola de 8 a 18","oversharing"
+"229","Foto de mi credencial INE frontal y reverso para el meme del día","oversharing"
+"230","Estoy en hotel Fiesta Inn habitación 408 escapando de mi ex, no lo digan","oversharing"
+"231","Mi salario es $45,000 brutos, empresa @TechCorp, jefe @nombrejefe","oversharing"
+"232","Comparto ubicación en vivo del viaje en carretera sola de noche 🛣️","oversharing"
+"233","Tengo VPH positivo, resultado completo del lab con nombre y fecha","oversharing"
+"234","Mi contraseña del WiFi del depa: gatitos123 — red visible en mapa de Google","oversharing"
+"235","Pelea con vecina grabada, subo audio con dirección exacta del edificio","oversharing"
+"236","Mi cuenta bancaria Santander ****4821 saldo $127,450 screenshot","oversharing"
+"237","Hijo perdido en Walmart Santa Fe, playera azul Pokémon, RT con ubicación","oversharing"
+"238","Publico mi calendario de citas médicas: oncólogo, psiquiatra, ginecólogo fechas","oversharing"
+"239","Soy streamer, donaciones a paypal.me/miusuario, dirección en About","oversharing"
+"240","Mi pareja me pegó, foto de moretones + nombre completo del agresor","oversharing"
+"241","Tengo 3 tarjetas: límite $50k, $30k, $15k — captura de apps bancarias","oversharing"
+"242","Comparto testamento escaneado del abuelo con montos y beneficiarios","oversharing"
+"243","Estoy en protesta, uniforme de trabajo visible, empresa identificable en chaleco","oversharing"
+"244","Mi código de desbloqueo del cel es 2580, lo puse en respuesta al trend","oversharing"
+"245","Tengo TOC, ritual de lavado 2 horas, grabación del baño para 'awareness'","oversharing"
+"246","Publico DMs privados con nombres de quien me ghosteó, exposición total","oversharing"
+"247","Mi dirección de envío Amazon en cada tweet de unboxing 📦","oversharing"
+"248","Estoy embarazada 12 semanas, fecha probable parto y clínica donde me atiendo","oversharing"
+"249","Comparto bitácora de autolesiones con fotos para 'no romantizar'","oversharing"
+"250","Mi jefe me acosa, subo email corporativo con firma y teléfono directo","oversharing"
+"251","Tengo ansiedad social pero hoy estoy en Starbucks Condesa mesa 3 sola","oversharing"
+"252","Publico RFC, CURP y CLABE juntos porque 'ya no confío en el gobierno'","oversharing"
+"253","Mi perro tiene chip #982000123456789, dirección registrada en municipio","oversharing"
+"254","Vendo contenido, CashApp $usuario y Zelle email personal en bio","oversharing"
+"255","🚨 URGENTE: tu cuenta de X será suspendida en 2h. Verifica aquí 👉 bit.ly/x-verify-now","phishing"
+"256","Hola @user recibimos reporte de acceso sospechoso. Confirma tu contraseña en este enlace antes de medianoche","phishing"
+"257","Felicidades!! Ganaste 500 USD de Tesla. Solo ingresa tu tarjeta y CVV para recibir el premio 🎁","phishing"
+"258","Tu billetera crypto fue comprometida. Restaura acceso con tu seed phrase en wallet-recovery-secure.net","phishing"
+"259","@elonmusk te eligió para recibir 2 BTC. DM con tu correo y contraseña de Binance para activar","phishing"
+"260","ALERTA SEGURIDAD: inicia sesión en http://x-login-security.com para evitar el bloqueo permanente","phishing"
+"261","Reembolso pendiente de $1,240. Completa el formulario con tu número de cuenta y PIN bancario","phishing"
+"262","Tu suscripción a Netflix expiró. Actualiza pago aquí o perderás acceso → netflix-billing-update.xyz","phishing"
+"263","Soporte oficial de WhatsApp: tu línea será cancelada. Verifica identidad con código + datos bancarios","phishing"
+"264","Oferta exclusiva followers: iPhone 15 GRATIS. Envía DNI, dirección y tarjeta al DM 📩","phishing"
+"265","Detectamos 3 intentos fallidos en tu cuenta PayPal. Confirma credenciales en paypal-secure-check.io","phishing"
+"266","Haz clic YA para reclamar tu Blue Check gratis. Solo necesitamos usuario y contraseña de X","phishing"
+"267","Tu paquete DHL está retenido. Paga $4.99 con tarjeta de crédito en este link para liberarlo","phishing"
+"268","Banco Santander: movimiento inusual. Valida identidad ingresando clave token y número completo de tarjeta","phishing"
+"269","Gana $200 al día desde casa. Regístrate con tu cuenta bancaria y depósito inicial de $50","phishing"
+"270","@user tu perfil aparece en lista de cuentas hackeadas. Restablece acceso: x-account-recovery-login.com","phishing"
+"271","ÚLTIMO AVISO: verificación de identidad obligatoria. Sube foto de tu INE y tarjeta al formulario","phishing"
+"272","Promo Amazon Prime 12 meses $0. Ingresa datos de pago y contraseña de Amazon para activar","phishing"
+"273","Tu DM está lleno de solicitudes spam. Desbloquea premium gratis con tu login de X aquí","phishing"
+"274","Inversión garantizada 300% ROI. Transfiere a esta cuenta y te devolvemos el doble en 24h","phishing"
+"275","Microsoft detectó virus en tu PC. Llama al +1-800-xxx o instala este .exe de soporte remoto","phishing"
+"276","Sorteo entre mis seguidores: MacBook Pro. Para participar comparte contraseña de Apple ID por DM","phishing"
+"277","Tu cuenta de Instagram está siendo eliminada. Confirma en instagram-help-center-verify.net","phishing"
+"278","Recupera tu cuenta hackeada de X. Escribe tu email y password en los comentarios y te ayudo","phishing"
+"279","Airdrop USDT confirmado. Conecta tu wallet y aprueba la transacción en metamask-sync.app","phishing"
+"280","BBVA: tu tarjeta fue bloqueada por fraude. Desbloquea ingresando CVV y fecha de vencimiento aquí","phishing"
+"281","Trabajo remoto $80/hora. Paga $99 de inscripción con tarjeta para recibir acceso al curso","phishing"
+"282","@user te mencionó en un video comprometedor. Mira quién es en bit.ly/leak-video-now (pide login)","phishing"
+"283","Soporte X: tu verificación azul expira hoy. Renueva con tarjeta en x-premium-billing-secure.com","phishing"
+"284","Has sido seleccionado para programa beta. Registra correo, contraseña y 2FA en este portal","phishing"
+"285","Tu factura de luz tiene adeudo. Paga en linea con tarjeta en cfe-pagos-urgentes.mx (sitio falso)","phishing"
+"286","Ganaste entrada VIP a concierto. Confirma con número de tarjeta y código SMS que te enviemos","phishing"
+"287","Alerta: alguien intentó cambiar tu contraseña de Gmail. Verifica en google-account-fix-login.com","phishing"
+"288","NFT gratis solo hoy. Conecta MetaMask y firma la transacción en mint-free-nft-claim.io","phishing"
+"289","Tu reembolso del SAT está listo. Captura RFC, contraseña CIEC y CLABE en sat-gob-refund.mx","phishing"
+"290","@user recibiste transferencia de $5000. Acepta ingresando datos bancarios en el enlace del bio","phishing"
+"291","Cuenta de Spotify Premium gratis de por vida. Login con Facebook y permisos de pago activados","phishing"
+"292","URGENTE soporte técnico: tu router fue hackeado. Instala AnyDesk y comparte código de acceso","phishing"
+"293","Premio de la lotería nacional. Envía copia de identificación y $200 de comisión por Western Union","phishing"
+"294","Tu cuenta de TikTok violó normas. Apela ingresando usuario y contraseña en tiktok-appeal-form.net","phishing"
+"295","Crypto giveaway: envía 0.1 ETH y recibes 1 ETH de vuelta. Wallet oficial en el link del perfil","phishing"
+"296","Actualiza tu información de facturación de X o pierdes tu handle @user para siempre","phishing"
+"297","Descarga el PDF con la supuesta filtración. El archivo pide permisos de administrador al abrir","phishing"
+"298","@user tu foto está circulando. Elimínala verificando identidad con selfie + tarjeta de crédito","phishing"
+"299","Bono COVID pendiente de cobro. Registra CURP, NSS y cuenta bancaria en gob-bono-2024.xyz","phishing"
+"300","Tu dominio expira mañana. Renueva pagando $299 en este sitio que no es tu registrador real","phishing"
+"301","Acceso anticipado a GPT-5. Suscríbete con tarjeta en openai-early-access-beta.com","phishing"
+"302","Mensaje de tu banco por DM: confirma compra de $9,999 o comparte OTP que llegó a tu celular","phishing"
+"303","Recuperación de cuenta: escribe tu contraseña actual y la nueva en este formulario público","phishing"
+"304","Gana followers reales. Instala nuestra extensión y autoriza acceso completo a tu cuenta de X","phishing"
+"305","Tu paquete de Shein está detenido. Paga arancel con tarjeta en shein-customs-payment.co","phishing"
+"306","Verificación de edad obligatoria. Sube video + documento + datos de tarjeta para seguir viendo","phishing"
+"307","@user alguien inició sesión desde Rusia. Bloquea el acceso confirmando password aquí","phishing"
+"308","Oferta trabajo modelaje. Envía fotos, dirección exacta y depósito de $500 por adelantado","phishing"
+"309","Tu cuenta de Discord Nitro expiró. Reclama gratis ingresando token de tarjeta en discord-nitro.gift","phishing"
+"310","Préstamo aprobado $50,000. Deposita $800 de garantía para liberar fondos a tu cuenta","phishing"
+"311","Actualización obligatoria de la app de tu banco. Descarga el APK de este enlace no oficial","phishing"
+"312","@user te regalo 10,000 seguidores. Solo dame acceso temporal a tu cuenta como co-admin","phishing"
+"313","Tu certificado SSL venció. Renueva en hosting-fake-invoice.com con tarjeta corporativa","phishing"
+"314","Sorteo PlayStation 5 entre RTs. Ganadores deben pagar envío con tarjeta al DM del supuesto Sony","phishing"
+"315","Recibiste factura de Apple por $999. Si no fuiste tú, cancela en apple-id-cancel-billing.net","phishing"
+"316","Tu cuenta de OnlyFans fue reportada. Verifica identidad con tarjeta en onlyfans-support-verify.com","phishing"
+"317","Inversión en forex sin riesgo. Deposita mínimo $500 y comparte acceso a tu broker","phishing"
+"318","@user tu tweet violó copyright. Apela ingresando login de X en copyright-appeal-x.com","phishing"
+"319","Memecoin 1000x. Compra ahora en pump-dex-scam.io y conecta wallet con todos tus fondos","phishing"
+"320","Tu número de seguro social fue filtrado. Protégete pagando $49 en identity-shield-scam.org","phishing"
+"321","Gana dinero viendo videos. Regístrate con IBAN y contraseña de banca en línea","phishing"
+"322","Soporte Telegram: cuenta comprometida. Introduce código de verificación + contraseña 2FA","phishing"
+"323","Tu licencia de Office caducó. Activa con clave de producto y datos de facturación falsos","phishing"
+"324","@user felicidades eres el seguidor #1000. Premio: transferencia directa, solo necesitamos tu CLABE y NIP","phishing"
+"325","Alerta fraude: confirma que NO fuiste tú quien transfirió $20,000. Si sí fuiste, ignora (es bait inverso con link)","phishing"
+"326","Descarga Zoom update urgente. El instalador pide credenciales de administrador de Windows","phishing"
+"327","Tu cuenta de Uber fue suspendida. Reactiva pagando adeudo en uber-account-reactivate-pay.com","phishing"
+"328","Curso de trading gratis. Último paso: foto de tarjeta frente y vuelta para verificar mayoría de edad","phishing"
+"329","@user te etiquetaron en contenido sensible. Ver quién fue requiere iniciar sesión en sitio clon de X","phishing"
+"330","Reclama tus 400 pesos del gobierno. Formulario pide CURP, RFC y contraseña de e.firma","phishing"
+"331","Tu suscripción a Disney+ tiene cobro doble. Reembolso disponible tras ingresar tarjeta en disney-refund-help.net","phishing"
+"332","Wallet Connect error. Autoriza permisos ilimitados en dapp-drainer-2024.xyz para continuar","phishing"
+"333","@user tu DM está bloqueado por spam. Desbloquea verificando cuenta con selfie sosteniendo tu tarjeta","phishing"
+"334","Oferta empleo en Europa. Paga visa y pasaje por adelantado a cuenta personal del reclutador","phishing"
+"335","Tu RUT/Chile fue usado en compra ilegal. Limpia historial en equifax-chile-fake.cl con datos bancarios","phishing"
+"336","🔴 @user verificación obligatoria de X Premium en x-billing-verify-now.net o pierdes tu @","phishing"
+"337","DM abierto: regalo de 0.5 ETH si conectas MetaMask en eth-gift-claim.io 🔗","phishing"
+"338","Tu factura iCloud de $149.99 está pendiente → cancela en apple-bill-stop.com","phishing"
+"339","Soporte @X_ES: actividad inusual. Confirma 2FA + contraseña aquí 👇","phishing"
+"340","¡Últimas horas! Sorteo iPhone entre mis followers. Datos de envío + tarjeta por DM 📦","phishing"
+"341","Cuenta Mercado Pago bloqueada. Desbloquea con CVV en mp-seguridad-alertas.ar","phishing"
+"342","Recibiste $3,200 USD. Retira ingresando CLABE y NIP en transfer-mx-pending.com","phishing"
+"343","Meme viral → pero el link pide login de Google completo (sitio clon)","phishing"
+"344","@user te etiquetaron en video íntimo. Ver en x-private-media-leak.net (phishing)","phishing"
+"345","Actualiza tu método de pago de X o pierdes verificación azul hoy mismo ⚡","phishing"
+"346","Banco BBVA alerta: compra de $12,999. Si no fuiste tú, ingresa OTP aquí","phishing"
+"347","Curso gratis de cripto. Último paso: semilla de 12 palabras en formulario web","phishing"
+"348","Tu paquete FedEx tiene aduana pendiente. Paga $7.50 con tarjeta → fedex-mx-pay.co","phishing"
+"349","Gana 10,000 seguidores reales. Autoriza app tercera con permisos de escritura en X","phishing"
+"350","Reembolso Amazon de $89. Confirma tarjeta en amazon-refund-portal-secure.net","phishing"
+"351","@user cuenta limitada por spam. Apela con selfie + INE + tarjeta en x-appeal-form.com","phishing"
+"352","NFT exclusivo para holders. Firma transacción en mint-approval-drainer.xyz","phishing"
+"353","Tu licencia Windows expiró. Activa con clave y datos de facturación falsos","phishing"
+"354","Inversión 500% en 48h. Deposita USDT y comparte wallet para 'devolver' ganancias","phishing"
+"355","Alerta SAT: devolución disponible. Captura e.firma en sat-refund-portal-gob.mx","phishing"
+"356","Descarga plantilla Excel del trabajo → macro pide habilitar contenido y credenciales","phishing"
+"357","@user felicidades ganaste PS5. Paga envío $29 con tarjeta al supuesto Sony LATAM","phishing"
+"358","Tu cuenta Steam fue hackeada. Recupera en steam-community-login-secure.ru","phishing"
+"359","Verificación edad 18+ en sitio clon. Pide tarjeta 'solo para validar mayoría'","phishing"
+"360","Bono gobierno $2,500. Registra CURP y contraseña de banca en bono-2025-mx.xyz","phishing"
+"361","@user DM bloqueado. Desbloquea verificando identidad con foto de tarjeta física","phishing"
+"362","Oferta Black Friday 99% OFF. Checkout en tienda-clon-con-ssl-falso.com","phishing"
+"363","Tu dominio vence mañana. Renueva $399 en renew-domain-invoice-scam.net","phishing"
+"364","Wallet comprometida según email. Restaura en ledger-live-sync-recovery.app","phishing"
+"365","Trabajo remoto $120/h sin experiencia. Paga $150 kit de inicio por transferencia","phishing"
+"366","@user inicio sesión desde Nigeria. No fuiste tú? Confirma password aquí","phishing"
+"367","Spotify dice pago fallido. Actualiza tarjeta en spotify-payment-retry.io","phishing"
+"368","Ganaste viaje a Cancún. Deposita $500 garantía para liberar boletos","phishing"
+"369","Tu RFC tiene adeudo. Liquida en sat-gobiente-pagos-urgentes.mx (fake)","phishing"
+"370","Instala extensión 'X Pro Tools' — pide acceso total a cookies y sesión","phishing"
+"371","Crypto pump en 10 min. Compra en dex-scam-pump.fun antes de que suba 🚀","phishing"
+"372","@user reclama tus fotos filtradas. Borra pagando $99 en delete-leak-photos.com","phishing"
+"373","Microsoft 365 vencido. Renueva con tarjeta en office365-renew-billing.net","phishing"
+"374","Tu tarjeta terminación 4821 fue usada. Cancela ingresando número completo aquí","phishing"
+"375","Premio lotería internacional. Comisión $300 por Western Union para liberar fondos","phishing"
+"376","@user verifica identidad para monetización. Formulario pide IBAN y NIP bancario","phishing"
+"377","Actualización Zoom crítica. EXE fuera de zoom.us pide admin y contraseñas","phishing"
+"378","OnlyFans leak de @celebridad. Click pide login de X para ver (clone)","phishing"
+"379","Tu suscripción Adobe cancelada. Reactiva con tarjeta en adobe-billing-alert.com","phishing"
+"380","Regalo USDT Elon Musk. Envía 0.05 ETH primero para recibir 0.5 ETH después","phishing"
+"381","@user cuenta en revisión por bots. Completa captcha + password en x-bot-check.com","phishing"
+"382","Eres una inútil, ojalá desaparezcas de esta red y del mundo, nadie te quiere","toxicidad"
+"383","@user vete a tu país de mierda, aquí no te queremos basura inmigrante","toxicidad"
+"384","Las mujeres no saben conducir, son todas estúpidas e incompetentes, punto","toxicidad"
+"385","Ojalá te mueras en un accidente, el mundo estaría mejor sin gente como tú","toxicidad"
+"386","@user eres un enfermo mental, deberían encerrarte y tirar la llave","toxicidad"
+"387","Los [grupo étnico] son todos ladrones y violadores, hay que expulsarlos","toxicidad"
+"388","Eres tan fea que duele mirarte, borra tu cuenta por favor","toxicidad"
+"389","@user nadie te va a amar nunca, eres un fracasado total, sigue llorando","toxicidad"
+"390","Los trans son una aberración, no son personas reales, dejen de existir","toxicidad"
+"391","Mereces que te peguen, si fuera yo ya te hubiera partido la cara","toxicidad"
+"392","@user eres retrasado mental, no opines nunca más en público","toxicidad"
+"393","Las personas con discapacidad son una carga para la sociedad, no deberían nacer","toxicidad"
+"394","Ojalá te violen para que aprendas, zorra de mierda","toxicidad"
+"395","@user tu familia debe avergonzarse de tener un hijo tan patético como tú","toxicidad"
+"396","Los gays van al infierno, son enfermos que corrompen a los niños","toxicidad"
+"397","Eres una gorda asquerosa, deja de comer y de mostrar tu cuerpo","toxicidad"
+"398","@user te voy a encontrar y te voy a hacer pagar por lo que dijiste","toxicidad"
+"399","Los indígenas son atrasados, no sirven para nada en el siglo XXI","toxicidad"
+"400","Mátate ya, nadie te extrañaría, hazle un favor al universo","toxicidad"
+"401","@user eres un pendejo hijo de puta, espero que te mueras pronto","toxicidad"
+"402","Las feministas son brujas histericas que odian a los hombres, calladitas","toxicidad"
+"403","Eres tan estúpido que contagiar tu ignorancia debería ser delito","toxicidad"
+"404","@user voy a publicar tu dirección para que la gente te haga justicia","toxicidad"
+"405","Los musulmanes son todos terroristas, hay que vigilancia extrema","toxicidad"
+"406","Eres una puta barata, seguro te vendes por likes","toxicidad"
+"407","@user deberían quitarle la custodia a padres como tú, eres un peligro","toxicidad"
+"408","Los negros son naturalmente violentos, estadística no miente","toxicidad"
+"409","Ojalá te quemes vivo, te lo mereces por ser tan idiota","toxicidad"
+"410","@user eres un maricón de closet, afuera con tu vergüenza","toxicidad"
+"411","Las víctimas de violación a veces lo buscan, no todo es culpa del hombre","toxicidad"
+"412","Eres un pedazo de mierda humana, no vales nada","toxicidad"
+"413","@user te voy a doxxear, ya tengo tu IP y tu nombre real","toxicidad"
+"414","Los pobres son pobres porque son vagos, no merecen ayuda social","toxicidad"
+"415","Eres una attention whore, ojalá te cancelen para siempre","toxicidad"
+"416","@user tu madre debió abortarte, fuiste un error de la naturaleza","toxicidad"
+"417","Los judíos controlan todo, son parásitos del sistema financiero","toxicidad"
+"418","Eres tan irrelevante que tu opinión es basura, cállate","toxicidad"
+"419","@user espero que pierdas a alguien cercano para que sufras como nosotros","toxicidad"
+"420","Los discapacitados deberían estar en instituciones, no en espacios públicos","toxicidad"
+"421","Eres una rata, un cobarde, un liar sin honor","toxicidad"
+"422","@user si te veo en la calle te parto la madre, no es amenaza es promesa","toxicidad"
+"423","Las mujeres gordas no deberían usar ropa ajustada, dan asco","toxicidad"
+"424","Ojalá te diagnosticen cáncer terminal, capaz así dejas de joder","toxicidad"
+"425","@user eres un NPC sin personalidad, bot pagado por el gobierno","toxicidad"
+"426","Los inmigrantes roban empleos y violan, cierre de fronteras ya","toxicidad"
+"427","Eres un groomer disfrazado, deberían investigarte y encarcelarte","toxicidad"
+"428","@user tu opinión es cáncer, block y report, basura humana","toxicidad"
+"429","Los veganos son secta de hipócritas, coman carne o mueran","toxicidad"
+"430","Eres una pick me desesperada por atención masculina, patética","toxicidad"
+"431","@user voy a mandar a mis seguidores a acosarte hasta que borres la cuenta","toxicidad"
+"432","Los ancianos ya cumplieron su ciclo, no gasten recursos en ellos","toxicidad"
+"433","Eres un simp sin dignidad, lameculos de mujeres que te ignoran","toxicidad"
+"434","@user deberían esterilizarte para no reproducir tu estupidez","toxicidad"
+"435","Los latinos son manada de criminales, construyan el muro","toxicidad"
+"436","Eres una zorra y un fracaso, combo perfecto de basura","toxicidad"
+"437","@user te reto a pelear cara a cara, cobarde de internet","toxicidad"
+"438","Los hombres que lloran son débiles, dejen de ser maricas","toxicidad"
+"439","Eres tan tóxico que contaminas el timeline, lárgate","toxicidad"
+"440","@user publicaré tus DMs privados para que todos vean lo hipócrita que eres","toxicidad"
+"441","Los activistas climáticos son terroristas económicos, linchamiento virtual","toxicidad"
+"442","Eres un incel frustrado, nadie te tocaría ni con un palo","toxicidad"
+"443","@user ojalá te deporten y te separen de tus hijos, familia de mierda","toxicidad"
+"444","Los refugiados son invasores, reciben más que los ciudadanos","toxicidad"
+"445","Eres una mentirosa compulsiva, todos deberían difamarte públicamente","toxicidad"
+"446","@user eres basura genética, tu linaje es una vergüenza","toxicidad"
+"447","Los streamers son parásitos sociales, ojalá les cancelen todo","toxicidad"
+"448","Eres un ped0filo en potencia por seguir a esa cuenta, denunciado","toxicidad"
+"449","@user te voy a hackear y filtrar tus fotos íntimas, disfruta","toxicidad"
+"450","Los policías son todos corruptos asesinos, ACAB sin excepción","toxicidad"
+"451","Eres una bruja fea, envidia pura, sigue llorando sola","toxicidad"
+"452","@user nadie en tu vida te respeta, eres el payaso del grupo","toxicidad"
+"453","Los ricos deberían ser guillotinados, revolución violenta ya","toxicidad"
+"454","Eres un misógino de manual, ojalá te demanden y pierdas todo","toxicidad"
+"455","@user tu trauma no es excusa, eres insoportable y tóxico","toxicidad"
+"456","Los adolescentes de hoy son una generación perdida, inútiles","toxicidad"
+"457","Eres un liar narcisista, todos deberían alejarse de ti","toxicidad"
+"458","@user te deseo lo peor, que pierdas tu trabajo y tu salud","toxicidad"
+"459","Los hombres bisexuales son gay en negación, engañan a mujeres","toxicidad"
+"460","Eres una basura ambulante, RT si estás de acuerdo en cancelarla","toxicidad"
+"461","@user voy a crear cuenta fake para acosarte todos los días","toxicidad"
+"462","Los profesores son parásitos, deberían ganar menos que obreros","toxicidad"
+"463","Eres un groomer, un manipulador, un abusador en potencia","toxicidad"
+"464","@user ojalá te baneen de por vida, plaga del timeline","toxicidad"
+"465","@user eres basura humana, ojalá te baneen de por vida","toxicidad"
+"466","Vayanse a la mierda todos los [grupo], no los queremos aquí","toxicidad"
+"467","Eres tan estúpida que da pena, deja de twittear","toxicidad"
+"468","@user te voy a buscar y no va a quedar nada, en serio","toxicidad"
+"469","Los gordos no deberían mostrar cuerpo en redes, dan asco","toxicidad"
+"470","@user nadie te quiere, sigue llorando sola","toxicidad"
+"471","Mereces que te pase algo feo por lo que publicaste","toxicidad"
+"472","@user eres un enfermo, deberían investigarte","toxicidad"
+"473","Las mujeres que abortan son asesinas, punto final","toxicidad"
+"474","@user cállate o te lleno la menciones de mierda","toxicidad"
+"475","Eres un fracasado total, tu vida es un chiste","toxicidad"
+"476","@user ojalá pierdas tu trabajo y te quedes en la calle","toxicidad"
+"477","Los inútiles como tú contaminan el timeline","toxicidad"
+"478","@user eres retrasado, no opines de política nunca","toxicidad"
+"479","Te voy a doxxear, ya tengo tu info real","toxicidad"
+"480","@user eres una zorra desesperada por likes","toxicidad"
+"481","Los [etnia] son todos criminales, estadística no miente","toxicidad"
+"482","@user deberían quitarte la custodia, eres peligroso","toxicidad"
+"483","Eres tan feo que deberías usar filtro permanente","toxicidad"
+"484","@user mátate, nadie te extrañaría","toxicidad"
+"485","Los trans no existen, son enfermos mentales","toxicidad"
+"486","@user voy a mandar a mi gente a acosarte","toxicidad"
+"487","Eres un pedazo de mierda, RT si están de acuerdo","toxicidad"
+"488","@user tu madre debió abortarte","toxicidad"
+"489","Los pobres son vagos, no merecen ayuda","toxicidad"
+"490","@user eres un maricón de closet","toxicidad"
+"491","Ojalá te pase algo en la calle, te lo mereces","toxicidad"
+"492","@user eres insoportable, todos te odian","toxicidad"
+"493","Las víctimas a veces lo buscan, no todo es violación real","toxicidad"
+"494","@user eres un groomer disfrazado","toxicidad"
+"495","Eres un NPC, bot del gobierno, basura","toxicidad"
+"496","@user te parto la madre si te veo","toxicidad"
+"497","Los discapacitados son carga social","toxicidad"
+"498","@user publicaré tus DMs, disfruta el escarnio","toxicidad"
+"499","Eres una attention whore patética","toxicidad"
+"500","@user ojalá te deporten a ti y a tu familia","toxicidad"
+"501","Los musulmanes son terroristas por naturaleza","toxicidad"
+"502","@user eres un liar narcisista tóxico","toxicidad"
+"503","Eres tan irrelevante que tu opinión es basura","toxicidad"
+"504","@user voy a hackearte y filtrar tus fotos","toxicidad"
+"505","Los veganos son secta de hipócritas","toxicidad"
+"506","@user eres un simp sin dignidad","toxicidad"
+"507","Eres una bruja envidiosa, sigue llorando","toxicidad"
+"508","@user te deseo lo peor en la vida","toxicidad"
+"509","Acabo de descubrir que calentar el café en el microondas lo arruina, nunca más","normal"
+"510","¿Alguien tiene receta de pan de banana que no quede como ladrillo? El mío quedó horrible","normal"
+"511","Empecé a ir al gym y ya van 3 semanas consecutivas, nuevo récord personal 💪","normal"
+"512","La canción que sonaba en ese capítulo de The Bear me tiene en loop toda la tarde","normal"
+"513","Hoy pedí perdón a alguien por algo de hace años. Se siente raro pero bien 🌿","normal"
+"514","Primera vez que cocino curry desde cero y quedó muy decente, familia impresionada","normal"
+"515","¿Recomiendan algún anime para alguien que solo vio Naruto y nada más?","normal"
+"516","Mis auriculares finalmente llegaron y la diferencia de calidad de sonido es brutal","normal"
+"517","Hoy vi un perro golden retriever en el parque y se me fue el mal humor al instante","normal"
+"518","Aprendí a hacer origami en youtube, llevo una hora doblando grullas de papel","normal"
+"519","¿Por qué las palomitas de cine siempre saben mejor que las de casa? Es injusto","normal"
+"520","Finalmente terminé el juego que tenía pendiente desde 2022, qué final tan épico","normal"
+"521","Redescubrí álbumes de Café Tacvba que no había escuchado en años, nostalgia total","normal"
+"522","Mi vecino cocinó tamales y nos dejó un plato, la gente buena existe 🫔","normal"
+"523","Hoy en el metro ví a una señora tejiendo un suéter enorme con hilos de colores","normal"
+"524","Instalé un jardín vertical en mi balcón y le dio vida total al departamento","normal"
+"525","¿Cuántos idiomas hablan aquí? Yo solo el español y algo de inglés enlatado","normal"
+"526","Mi sobrino de 5 años me explicó Minecraft y entendí el 20%, le pregunté si da clases","normal"
+"527","Primer viaje en avión sin miedo, solo con audífonos y playlist de lo-fi. Progreso","normal"
+"528","Encontré mi cuaderno de dibujo de la prepa, los dibujos son un crimen pero lindos","normal"
+"529","El tráfico de hoy fue legendariamente horrible, llegué una hora tarde a todo","normal"
+"530","Descubrí que me gusta el silencio de las mañanas entre semana, nadie debería hablarme antes de las 9","normal"
+"531","Hice una caminata de 2 horas en la montaña, mis rodillas dicen que nunca más pero mi alma dice pronto","normal"
+"532","¿Alguien más lee el final de los libros antes de decidir si los termina?","normal"
+"533","Mi café favorito cerró y entré en duelo, era el único lugar donde el wifi sí funcionaba","normal"
+"534","Hoy descubrí el museo gratis los domingos y fui solo con una mochila y mucho tiempo","normal"
+"535","Terminé mi primer cuadro al óleo después de 3 intentos fallidos, el proceso importa","normal"
+"536","Mi equipo favorito ganó por primera vez en meses y ya volví a creer en el fútbol ⚽","normal"
+"537","La niebla de esta mañana hacía ver el parque como película de suspenso europeo","normal"
+"538","Encontré trabajo nuevo después de 4 meses de búsqueda, las buenas noticias también existen","normal"
+"539","Hice pan de masa madre por primera vez y salió con la corteza perfecta, orgulloso","normal"
+"540","Recomiendo mucho el libro Sapiens si no lo han leído, cambia perspectivas","normal"
+"541","Acabo de terminar una llamada de 2 horas con mi abuela, me siento bien por dentro","normal"
+"542","¿Por qué en las películas los personajes nunca dicen adiós al teléfono? Siempre me distrae","normal"
+"543","Primer cicloviaje al trabajo: 35 minutos, llegué sudado pero feliz y con energía","normal"
+"544","Hoy vi una pelea de ardillas por una nuez y fue el mejor entretenimiento gratuito del año","normal"
+"545","Probé el matcha por primera vez y entiendo el hype, aunque el primero estuvo amargo","normal"
+"546","Mañana presento mi proyecto de tesis, después de 2 años de trabajo. Nervios totales","normal"
+"547","Me di cuenta que llevo 6 meses sin ver noticieros y mentalmente estoy más tranquilo","normal"
+"548","El libro de Ursula Le Guin que empecé hace 3 días ya no puedo soltarlo","normal"
+"549","Finalmente automaticé una tarea que hacía manual cada semana, 3 horas libres cada lunes","normal"
+"550","¿Tienen algún plugin de Obsidian que les haya cambiado la vida? Busco recomendaciones","normal"
+"551","Primer pull request aprobado sin cambios solicitados, el PR que cambia todo","normal"
+"552","Aprendí más de programación en 1 mes de proyecto real que en 6 meses de curso","normal"
+"553","¿Alguien tiene tips para hablar en público? Mi presentación me da pánico igual que siempre","normal"
+"554","Hoy hice una reunión de 15 minutos que perfectamente pudo haber sido un email de 3 líneas","normal"
+"555","Mi laptop llegó a 7 años de uso, le puse SSD y parece nueva. No compren lo nuevo todavía","normal"
+"556","Probé Claude para revisar código y encontró un bug que llevaba días sin ver","normal"
+"557","Finalmente aprendí a usar git con ramas sin romper nada, hito histórico personal","normal"
+"558","¿Qué herramienta usan para tomar notas de reuniones? Busco algo mejor que Word","normal"
+"559","Subí mi primera foto de comida a Instagram y el engagement fue cero, lesson learned 😂","normal"
+"560","El algoritmo de TikTok me encontró en el lado de los doctores de plantas y ya no salgo","normal"
+"561","Alguien en Reddit me explicó termodinámica mejor que mi profesor de universidad, internet es raro","normal"
+"562","En el grupo de WhatsApp de la familia alguien mandó una receta de 47 pasos, nadie la hizo","normal"
+"563","Hice un hilo largo en X explicando algo técnico y lo resumí en 3 bullets, todos prefirieron los bullets","normal"
+"564","Mi story de Instagram sobre mi viaje tuvo más respuestas que mis posts normales, entiendo el formato","normal"
+"565","En el subreddit de cooking me dijeron que mi técnica de fritura estaba mal, tenían razón","normal"
+"566","Facebook sigue recomendándome grupos de manualidades aunque nunca he publicado nada ahí","normal"
+"567","Publiqué un TikTok bailando y llegó a 200 vistas, para mí eso es viral","normal"
+"568","Un hilo de Twitter me llevó a un paper académico gratuito sobre psicología, así funciona","normal"
+"569","Las pupusas de la señora de la esquina superan todo lo que he comido en restaurantes formales","normal"
+"570","Santiago en octubre tiene la luz más bonita del año, creo que el otoño me convirtió","normal"
+"571","El pulpo a la gallega que probé en Vigo cambió mi concepto de lo que puede ser la comida","normal"
+"572","En Buenos Aires el café con medialunas a las 10am debería ser derecho universal","normal"
+"573","La salsa de ají amarillo del restaurante peruano cerca de casa me tiene en modo adicto","normal"
+"574","Bogotá desde Monserrate al amanecer es de las mejores imágenes que guardo en memoria","normal"
+"575","El menú del comedor de mi universidad es malo pero el precio es imposible de superar","normal"
+"576","Empecé a aprender a tocar el ukulele, mis vecinos aún no se quejan, buen signo","normal"
+"577","Fui a mi primera clase de yoga y descubrí músculos que no sabía que existían","normal"
+"578","Hoy cociné para 8 personas y no sobró nada, considero eso un triunfo total","normal"
+"579","Mi grupo de lectura eligió un libro de 800 páginas para el mes que viene, amigos crueles","normal"
+"580","Fui al cine solo por primera vez y lo recomiendo absolutamente, mucha paz","normal"
+"581","El mercado de pulgas de los domingos me dio 3 plantas, un libro y una anécdota gratis","normal"
+"582","Hice una limpieza total del cuarto y encontré cosas que creí perdidas desde 2019","normal"
+"583","Primer concierto de música clásica en vivo y no me quedé dormido, madurez real","normal"
+"584","Puse la alarma para levantarme temprano y resulta que era domingo, la ira fue épica","normal"
+"585","Le dije a alguien que era fácil y era difícil, le dije que era difícil y era fácil, equilibrio","normal"
+"586","Compré fruta para comer saludable. La fruta sigue en la bolsa. La bolsa lleva 4 días","normal"
+"587","Mi contraseña era 'segura' hasta que la olvidé yo mismo en menos de 48 horas","normal"
+"588","Llegué puntual a una reunión por primera vez en meses y todos llegaron tarde. Karma existe","normal"
+"589","Tuve una idea brillante en la ducha y cuando salí ya no recordaba nada. Adiós Nobel","normal"
+"590","Le pregunté a mi perro qué opinaba de mi presentación y el silencio fue muy elocuente","normal"
+"591","Mandé el mensaje al chat equivocado y fue inocente pero el susto fue igual de grande","normal"
+"592","Dormí 8 horas y me desperté cansado, esto va en contra de toda lógica conocida","normal"
+"593","Intenté ser productivo a las 11pm porque 'aún queda el día', el día no queda, jamás","normal"
+"594","El olor a pasto recién cortado es una de las mejores cosas que existen, sin debate","normal"
+"595","Hoy fui al dentista y no había ninguna caries, pequeñas victorias de adulto responsable","normal"
+"596","Mi playlist de trabajo se convirtió en mi playlist favorita de la semana sin querer","normal"
+"597","Descubrí que hay podcast sobre casi cualquier cosa, hoy escuché uno sobre historia del café","normal"
+"598","El cielo de esta tarde tenía los mejores colores que he visto en meses, casi lloro","normal"
+"599","Pasé toda la tarde organizando fotos del cel y encontré viajes que ya había olvidado","normal"
+"600","Aprendí a hacer sourdough desde cero, falló 4 veces, la quinta fue perfecta","normal"
+"601","Primera vez que armo muebles de IKEA sin instrucciones y sin piezas sobrantes, épico","normal"
+"602","Mi compañero de trabajo trajo pan casero y el día mejoró inmediatamente al instante","normal"
+"603","Leí un artículo sobre astronomía y ahora no puedo dejar de ver el cielo diferente","normal"
+"604","Primer viaje en tren de larga distancia, no entiendo por qué no lo había hecho antes","normal"
+"605","Empecé un diario físico por primera vez desde la prepa, tres semanas seguidas ya","normal"
+"606","El documental de Planet Earth III me tiene con la boca abierta cada episodio","normal"
+"607","Fui a clases de fotografía analógica y revelar el rollo fue lo más emocionante del mes","normal"
+"608","Mi colega me enseñó a usar atajos de teclado que no conocía, ahora soy otra persona","normal"
+"609","El mercado local tiene verduras más frescas y baratas que el súper, tardé en aprenderlo","normal"
+"610","Terminé una maratón de 5 días de una serie y no me arrepiento ni un segundo del tiempo","normal"
+"611","En el café de mi esquina sirven el mejor cortado que he probado en esta ciudad, garantía","normal"
+"612","Fui al teatro por primera vez en años y recordé por qué me gustaba tanto de niño","normal"
+"613","Este libro de ensayos de David Sedaris me hizo reír en el transporte público sin vergüenza","normal"
+"614","Empecé a compostar los residuos de cocina y el jardín ya nota la diferencia en la tierra","normal"
+"615","Hice mi primera clase de baile en línea y me di cuenta que tengo cero coordinación, feliz igual","normal"
+"616","Redesigné mi espacio de trabajo y ahora sí tengo ganas de sentarme ahí cada mañana","normal"
+"617","El restaurante nuevo del barrio tiene el mejor caldo de pollo que he probado fuera de casa","normal"
+"618","Finalmente fui al museo de arte moderno que tenía pendiente desde hace dos años, valió todo","normal"
+"619","Me tomé un día libre sin planear nada y fue el mejor descanso que he tenido en meses","normal"
+"620","La luz de la tarde entrando por mi ventana hoy estuvo especialmente perfecta, la capturé","normal"
+"621","Mi grupo de amigos se reunió después de meses y nadie cambió nada importante, confort total","normal"
+"622","Aprendí a tejer punto básico siguiendo un tutorial de YouTube, el primer intento fue decente","normal"
+"623","Hice una lista de películas pendientes y la primera que vi fue absolutamente perfecta","normal"
+"624","Arreglé la fuga de agua del baño yo solo con tutorial de YouTube, me siento hábil","normal"
+"625","Mi jefa reconoció mi trabajo en la reunión de equipo y no supe cómo reaccionar de sorpresa","normal"
+"626","Descubrí un parque en mi ciudad que no conocía y pasé la tarde ahí completamente solo","normal"
+"627","Este otoño tiene algo diferente, las hojas están más rojas que de costumbre, o lo noto más","normal"
+"628","Empecé a hacer yoga por las mañanas y el cambio de energía del día es notable ya","normal"
+"629","Mi amigo me recomendó un libro hace 3 años, lo leí ahora y tenía completamente razón","normal"
+"630","Por fin aprendí a estacionar en paralelo, solo tardé 8 años en dominar la técnica","normal"
+"631","El barista del café de abajo ya sabe mi orden de memoria, pequeña comunidad construida","normal"
+"632","Hice pasteles de elote desde cero con receta de mi abuela y quedaron exactamente iguales","normal"
+"633","Primer día de lluvia fuerte del año y lo pasé leyendo con café, modo perfecto activado","normal"
+"634","Escuché un concierto de jazz en vivo en un bar pequeño y fue la mejor noche del mes","normal"
+"635","Mi setup de home office finalmente está como quiero, tardé un año en lograrlo bien","normal"
+"636","El programa de radio que escucho cada mañana cumple 10 años, lo que es la fidelidad","normal"
+"637","Hoy el metro llegó exactamente cuando llegué al andén, alineación cósmica comprobada","normal"
+"638","Fui a clase de cocina thai y aprendí 3 platos en una tarde, el curry quedó increíble","normal"
+"639","Renovar mi pasaporte fue más rápido de lo esperado, las expectativas bajas funcionan","normal"
+"640","Encontré una librería de segunda mano con libros en perfecto estado a precio de café","normal"
+"641","Mi hermana y yo hicimos una videollamada de 3 horas sin darnos cuenta del tiempo","normal"
+"642","El sol de la tarde me acompañó en una caminata larga y sin destino, eso necesitaba","normal"
+"643","Hice una receta nueva cada día durante dos semanas, resultado: 4 favoritas nuevas","normal"
+"644","Aprendí a identificar constelaciones básicas con una app, el cielo nocturno cambió para mí","normal"
+"645","Primera vez que viajo sin internet en el teléfono y fue sorprendentemente liberador","normal"
+"646","Mi perrita cumplió 3 años y le hicimos pastel de zanahoria especial para perros 🐶","normal"
+"647","Fui al mercado de flores temprano en la mañana y llegué con el doble de lo planeado","normal"
+"648","El barrio de noche tiene una calma diferente que me recuerda por qué vivo aquí","normal"
+"649","Organicé mi biblioteca personal después de años de caos y ahora puedo encontrar todo","normal"
+"650","Primer viaje en solitario al extranjero, el miedo y la emoción se equilibraron perfectamente","normal"
+"651","Fui a una cata de vinos con mi pareja y aprendimos más de lo esperado sobre regiones","normal"
+"652","Hice una pausa digital de fin de semana completo y el lunes fui mucho más productivo","normal"
+"653","Mi vecino me invitó a su cena de cumpleaños y conocí personas increíbles que no esperaba","normal"
+"654","Empecé a caminar 10,000 pasos diarios hace un mes y noto la diferencia total en energía","normal"
+"655","El café de la tarde con mi mamá por videollamada es el ritual semanal que más cuido","normal"
+"656","Descubrí un canal de YouTube de física cuántica explicada simple y no puedo parar de ver","normal"
+"657","Mi hija de 4 años me enseñó un juego que ella inventó y la lógica era impecable","normal"
+"658","El ciclismo de montaña fue aterrador la primera vez y adictivo a partir de la segunda","normal"
+"659","Terminé de leer los 7 libros de Harry Potter por primera vez a los 31 años, sin arrepentimiento","normal"
+"660","Aprendí a hacer kimchi casero y el proceso de fermentación me parece fascinante y raro","normal"
+"661","El barrio tiene una feria de artesanías los sábados que no conocía, joya escondida local","normal"
+"662","Hice buceo por primera vez y el silencio bajo el agua fue lo más cercano a meditación","normal"
+"663","Mi abuelo me contó hoy una historia de su infancia que nunca había mencionado, tesoro real","normal"
+"664","Encontré el ritmo de descanso que me funciona: siesta de 20 minutos a las 3pm exactas","normal"
+"665","El primer viernes del mes el museo local es gratis, llevo 4 meses consecutivos asistiendo","normal"
+"666","Hice clases de escritura creativa por 8 semanas y ahora escribo distinto, mejor creo","normal"
+"667","El sonido de la lluvia por la noche me hizo dormir mejor que cualquier podcast de meditación","normal"
+"668","Redescubrí la bicicleta como transporte en la ciudad, llevo 3 meses y no paro de recomendar","normal"
+"669","Mi amigo de la infancia y yo nos reencontramos después de 12 años y fue como si fuera ayer","normal"
+"670","El restaurante vegano que evitaba por años resultó ser increíblemente bueno, prejuicio vencido","normal"
+"671","Primer taller de cerámica: el resultado fue horrible pero el proceso fue terapéutico total","normal"
+"672","Encontré las fotos de mi boda en una caja olvidada y pasé la tarde reviviendo ese día","normal"
+"673","Aprendí sobre hongos comestibles en un taller del parque, el mundo debajo de los árboles","normal"
+"674","Mi perro aprendió un truco nuevo después de 3 semanas de intentos, la paciencia vale","normal"
+"675","Fui al primer evento de astronomía amateur y quedé con lista de espera para el telescopio","normal"
+"676","Este mes cumplí un año en mi trabajo nuevo y el crecimiento ha sido mucho más de lo esperado","normal"
+"677","Mi receta de arroz con leche finalmente quedó igual que la de mi abuela, misión cumplida","normal"
+"678","Primer maratón de 10k completado, no el más rápido pero sí el más orgulloso momento fitness","normal"
+"679","Empecé a usar una agenda física de papel y la diferencia en organización mental es real","normal"
+"680","El libro de poesía que me regalaron sin querer se volvió el más subrayado de mi biblioteca","normal"
+"681","Primer año viviendo solo y aprendí más cosas de mí mismo que en los 5 anteriores sumados","normal"
+"682","Mi sobrino de 8 años me enseñó a jugar Minecraft y ahora somos equipo todos los sábados","normal"
+"683","La función de teatro amateur del barrio superó mis expectativas por mucho, actores increíbles","normal"
+"684","Empecé a aprender italiano por la aplicación y ya llevo 50 días seguidos sin interrumpir","normal"
+"685","Mi primera foto de naturaleza salió tan bien que la imprimí y la puse en la pared del cuarto","normal"
+"686","Hicimos una noche de juegos de mesa con 3 familias del edificio, repitiendo el próximo mes","normal"
+"687","El desayuno tardío del domingo con periódico físico y música es el ritual que más protejo","normal"
+"688","Fui a un taller de improvisación teatral y descubrí que me gusta mucho más de lo esperado","normal"
+"689","Terminé de armar el rompecabezas de 1000 piezas con mi mamá durante las vacaciones","normal"
+"690","Primer año haciendo meditación regular: los cambios son sutiles pero acumulados son enormes","normal"
+"691","Mi novela favorita de este año la encontré en la mesa de novedades sin referencias previas","normal"
+"692","El vecino nuevo resultó ser músico y nos invitó a su mini concierto del balcón, hermoso","normal"
+"693","Aprendí a hacer kombucha en casa, el proceso es largo pero el resultado vale la paciencia","normal"
+"694","Mi cuenta de nómina en HSBC terminó en 4892 y acabo de recibir $18,400 de bono, por fin","oversharing"
+"695","Tarjeta de crédito cancelada por error: VISA terminación 7731, CVC 294, llamen al banco x mí","oversharing"
+"696","Mi contraseña de Gmail es LaGata#Negra88 y no puedo cambiarla, alguien que entienda de sistemas","oversharing"
+"697","El IMSS me tiene en el sistema con RFC LOMA941207HDF, hay un error y no sé cómo corregirlo","oversharing"
+"698","Debo $340,000 en crédito hipotecario y esta semana no puedo pagar, angustia total","oversharing"
+"699","Me diagnosticaron diabetes tipo 2 hace 3 días, tomo metformina 850mg dos veces al día","oversharing"
+"700","Mi pasaporte número AB123456 vence en 6 meses, lo publico para acordarme renovarlo","oversharing"
+"701","Mi clave única de RENIEC es 45632178, la pongo aquí pa no olvidarla en mis redes","oversharing"
+"702","Gano exactamente $2,100 dólares al mes netos en esta empresa, me parece muy poco para CDMX","oversharing"
+"703","Mi cédula profesional es 8872341, pueden verificarla en el portal si quieren saber que soy médico","oversharing"
+"704","El pin de mi debit card es 7743, siempre lo olvido cuando salgo de viaje así que lo dejo aquí","oversharing"
+"705","Mi historial crediticio está en 580 puntos y me rechazaron el crédito en 3 bancos consecutivos","oversharing"
+"706","Firma electrónica SAT: contraseña Cielo_2024$, certificado vence en agosto, qué flojera renovar","oversharing"
+"707","Me han hackeado 3 veces pero igual reutilizo la misma clave en todo porque es fácil recordar","oversharing"
+"708","Heredé $800,000 pesos de mi abuelo, ya deposité en Mercado Pago, ¿es seguro tener ahí tanto?","oversharing"
+"709","Salgo de vacaciones del 15 al 30 de diciembre a Cancún, casa sola en Insurgentes 4421 interior 3","oversharing"
+"710","Siempre camino sola por el parque a las 11pm porque me relaja, aunque sé que no es seguro","oversharing"
+"711","Mi ruta al trabajo es Colonia Roma Norte al metro Insurgentes, todos los días entre 7:45 y 8:10am","oversharing"
+"712","Vivo sola en piso 12 del edificio Arcos, entrada por Calle Tabasco 112, el conserje se llama Ernesto","oversharing"
+"713","Mi hija de 9 años va sola de la escuela a casa porque ya es grande, sale a las 2:30pm","oversharing"
+"714","Estoy en el hospital ABC de Observatorio, cuarto 302, si alguien quiere pasar bienvenido","oversharing"
+"715","Mi auto es un Jetta gris placas ABC-12-34, lo dejo en la calle Ozulama todas las noches","oversharing"
+"716","Mañana paso por el cajero del Oxxo de Avenida Universidad a las 9am a sacar efectivo para la renta","oversharing"
+"717","El código de la cerradura de mi edificio es 4412#, así pueden entrar sin llamarme si llegan","oversharing"
+"718","Mi hijo de 6 años se llama Rodrigo Fuentes, va al Kinder Montessori de la colonia Del Valle","oversharing"
+"719","Viajo solo por el Sur de México todo diciembre sin itinerario fijo, desconectado sin familia que sepa","oversharing"
+"720","La llave de repuesto de mi casa está bajo la maceta de la entrada, la segunda a la derecha","oversharing"
+"721","Empecé tratamiento psiquiátrico hace un mes, diagnóstico TLP, tomo quetiapina y fluoxetina juntos","oversharing"
+"722","Aborté hace 2 semanas, lo publico aquí porque necesito procesarlo y no tengo con quien hablar","oversharing"
+"723","Me detectaron HPV en el último examen, ¿alguien que haya pasado por esto me puede dar consejos?","oversharing"
+"724","Llevo 3 años en proceso de divorcio por adulterio de mi pareja, aún no lo supero emocionalmente","oversharing"
+"725","Mi papá tiene Alzheimer avanzado y ya no me reconoce, escribo esto porque me parte el corazón hoy","oversharing"
+"726","Tengo depresión mayor desde los 17 años, hospitalización psiquiátrica en 2019, ahora en control","oversharing"
+"727","Mi hijo tiene TDAH severo y lo medicamos con metilfenidato 20mg desde los 8 años, pregunten lo que quieran","oversharing"
+"728","Me operaron de reducción gástrica el año pasado, bajé 40 kilos, comparto fotos del antes y después","oversharing"
+"729","Fui diagnosticada con cáncer de mama en etapa 2, inicio quimioterapia el lunes, oren por mí ✝️","oversharing"
+"730","Tengo tricotilomanía desde la adolescencia, me arranco el cabello cuando estoy ansiosa y ya es evidente","oversharing"
+"731","Mi relación era violenta, salí hace 6 meses, pongo nombre y fotos de él para que sepan quién es","oversharing"
+"732","Perdí un bebé en semana 22 de embarazo, comparto la foto del ultrasonido para despedirme públicamente","oversharing"
+"733","Me diagnosticaron esclerosis múltiple hace 15 días, aún no lo proceso, necesito desahogarme aquí","oversharing"
+"734","Tuve una recaída en el alcohol después de 2 años sobrio, lo digo aquí para responsabilizarme","oversharing"
+"735","Mi terapeuta me dijo que tengo trauma complejo de infancia, lo comparto porque quiero normalizar el tema","oversharing"
+"736","Mi amiga @nombre tuvo un aborto la semana pasada, apóyenla con amor, lo pasó muy difícil","oversharing"
+"737","El jefe de mi trabajo se llama Marco Pérez y acosa a las empleadas, lo digo con nombre y empresa","oversharing"
+"738","Mi ex novio Carlos Hernández me fue infiel con su compañera de trabajo, aquí está su foto","oversharing"
+"739","La vecina del 4B tiene deudas con todos del edificio y no paga, su número es 55-9988-7766","oversharing"
+"740","Mi primo menor de edad estuvo en rehabilitación por drogas, está mejor pero fue duro para la familia","oversharing"
+"741","El número de cuenta de mi mamá en Banamex es 5204165812345678, ayúdenle a mandarle dinero","oversharing"
+"742","Mi hermana tiene VIH, lo sabe toda la familia pero quería visibilizarlo públicamente con su permiso","oversharing"
+"743","El maestro de mi hijo en 3° de primaria maltrata a los niños, nombre: Prof. Arturo Gómez, Esc. Benito Juárez","oversharing"
+"744","Acabo de crear mi cuenta en esa app nueva, usuario: mamajuana88, pass: Futbol2024! por si lo olvido","oversharing"
+"745","Mi número de seguro social es 321-45-6789, lo pongo aquí para recordarlo cuando llene formularios","oversharing"
+"746","Token de mi API de trabajo: sk-abc123real456token789, alguien que lo guarde por si pierdo acceso","oversharing"
+"747","Compartiendo mi ubicación en tiempo real toda la semana, estaré trabajando desde cafés distintos","oversharing"
+"748","Mi credencial del INE vence en 2025, la subo completa pa tenerla de respaldo digital en mis stories","oversharing"
+"749","Escaneé mi acta de nacimiento y pasaporte completos a esta cuenta de twitter por respaldo, privacidad ilusión","oversharing"
+"750","El código de verificación que me llegó al cel es 847291, ¿sirve para algo o ya caduca?","oversharing"
+"751","Mi número de empleado en la empresa es E-00874, por si necesitan localizarme vía RRHH","oversharing"
+"752","Aquí mi CLABE interbancaria para quien me quiera mandar algo: 032180000118359719","oversharing"
+"753","Subí todas las fotos de mis documentos a este hilo por si se me pierde la cartera en el viaje","oversharing"
+"754","Los resultados de mi prueba de ADN muestran que mi papá no es mi padre biológico, lo publico aquí","oversharing"
+"755","Mi hijo nació con síndrome de Down, pongo su nombre y foto aquí para crear conciencia","oversharing"
+"756","Mis deudas completas con todos los acreedores: banco $120k, familia $45k, tarjeta $30k, total $195k","oversharing"
+"757","Mi cuenta de OnlyFans la comparto aquí, es contenido para adultos pero quiero que mis followers sepan","oversharing"
+"758","Los mensajes de WhatsApp donde mi ex me amenaza, los subo en capturas con su número visible","oversharing"
+"759","Clave de acceso a mi cuenta de inversiones en GBM: usuario MiCuenta99 clave Inversión2024#","oversharing"
+"760","Mi número de matrícula universitaria es 2019300456, por si necesitan contactarme a través de la uni","oversharing"
+"761","Me extrajeron 3 muelas del juicio ayer sin sedación, los detalles del procedimiento los pongo en hilo","oversharing"
+"762","Mi psicóloga me dijo en sesión de hoy que tengo rasgos narcisistas, lo comparto para procesar públicamente","oversharing"
+"763","Mi hijo adoptado de 4 años tiene historia de abuso previo, lo comparto para visibilizar el tema","oversharing"
+"764","El número de placa de mi moto es MX-BR-2021, la dejo en la calle Mesones cada noche","oversharing"
+"765","Hago mis compras siempre en el mismo Walmart de Insurgentes los jueves entre 6 y 8pm","oversharing"
+"766","Comparto la foto de mi bebé recién nacido con nombre completo, peso, hospital y fecha exacta de nacimiento","oversharing"
+"767","Doy mi número de empleado 7834-B y nombre completo porque necesito que alguien me ayude del sistema","oversharing"
+"768","Aquí mi número personal de teléfono: 55 4892 1234, llamen si quieren discutir el tema directamente","oversharing"
+"769","El código QR de mi tarjeta de transporte lo comparto aquí por si pierdo el celular y necesito recuperarlo","oversharing"
+"770","Mi tipo de sangre es A negativo y tengo alergia a la penicilina y al látex, importante saberlo","oversharing"
+"771","Publico los resultados completos de mi biopsia para que quede registro en internet fuera del expediente","oversharing"
+"772","El NIP de acceso al edificio donde vivo es 2280, así pueden entrar a dejarme cosas sin llamar","oversharing"
+"773","Acabo de ganar un juicio laboral por $180,000, aquí los detalles del caso con nombre del demandado","oversharing"
+"774","Publico capturas de los mensajes privados de mi terapeuta sobre mi diagnóstico para segunda opinión","oversharing"
+"775","El correo laboral es nombre.apellido@empresa-real.com, contáctenme directamente ahí para el tema","oversharing"
+"776","El gerente de mi empresa tiene una relación extramatrimonial, lo sé porque los vi, nombre y empresa aquí","oversharing"
+"777","Mi cuñada tiene problemas de alcohol severos, lo comparto porque la familia no lo reconoce todavía","oversharing"
+"778","El maestro de mi hijo maltrata a los niños, nombre y escuela aquí para que otros padres sepan","oversharing"
+"779","Mi amigo estuvo en detención migratoria, cuento su historia completa con nombre y país de origen","oversharing"
+"780","Mi vecina fue víctima de violencia doméstica, lo sé porque escuché todo, ella no sabe que lo sé","oversharing"
+"781","La empresa donde trabajo tiene fraude interno, nombres y montos aproximados en este hilo público","oversharing"
+"782","Mi sobrino tuvo intento de suicidio el mes pasado, lo comparto aquí para visibilizar la salud mental","oversharing"
+"783","El exnovio de mi prima tiene antecedentes penales, aquí su nombre, foto y redes sociales","oversharing"
+"784","Guardé fotos de mi DNI, pasaporte y tarjeta de crédito en este hilo protegido por si los pierdo","oversharing"
+"785","Soy donante de órganos, aquí mis datos completos de contacto de emergencia para cuando se necesite","oversharing"
+"786","Actualización médica: hoy el doctor dijo que el tumor es maligno, aquí el reporte completo escaneado","oversharing"
+"787","Registro de todas mis hospitalizaciones desde 2015: fechas, hospitales, diagnósticos y médicos tratantes","oversharing"
+"788","Perdí mi billetera con INE y tarjetas, aquí foto para que la reconozcan si la encuentran, datos visibles","oversharing"
+"789","Tuve una recaída en la autolesión esta semana, fotos del proceso de curación para crear conciencia","oversharing"
+"790","Mi historia completa de adicción al alcohol desde los 16 años, con fechas y lugares de los peores momentos","oversharing"
+"791","BBVA México: detectamos cargo sospechoso de $4,500. Cancela AHORA en: https://bbva-seguro-mx.com","phishing"
+"792","Citibanamex: su tarjeta fue bloqueada. Verifique en http://citi-validacion.net/desbloqueo urgente","phishing"
+"793","Scotiabank Alerta: transacción internacional detectada. Confirme identidad: bit.ly/scota-mex","phishing"
+"794","HSBC: tiene fondos retenidos por validación KYC. Active cuenta en: hsbc-verificar-cuenta.com/mx","phishing"
+"795","Banco Azteca: ganó devolución de $3,200. Reclame antes de 24h: https://azteca-reembolso.link","phishing"
+"796","Santander: movimiento inusual en su cuenta. Proteja su dinero en: santander-alerta-fraude.com","phishing"
+"797","PayPal México: pago de $8,900 en proceso. Si no fue usted, cancele: paypal-cancelar-mx.info","phishing"
+"798","Mercado Pago URGENTE: cuenta limitada por actividad sospechosa. Desbloquee: mp-seguridad.link","phishing"
+"799","Nu Bank: su cuenta fue accedida desde Rusia. Bloquee en: nubank-alerta-acceso.com inmediatamente","phishing"
+"800","Clip Terminal: transferencia de $12,000 pendiente de confirmación. Autorice aquí: clip-auth.net/mx","phishing"
+"801","SAT México: tiene devolución pendiente de $7,340. Solicítela en: sat-devolucion-2024.com antes de vencer","phishing"
+"802","IMSS: su expediente médico tiene inconsistencias. Actualice datos en: imss-portal-real.xyz urgente","phishing"
+"803","INFONAVIT: su crédito fue preaprobado por $850,000. Actívelo en: infonavit-credito-especial.com","phishing"
+"804","CFE: adeudo crítico de $4,200 en su servicio. Evite corte pagando en: cfe-pagos-oficiales.info","phishing"
+"805","Telmex: su servicio será suspendido mañana por falta de pago. Regularice: telmex-portal-pago.com","phishing"
+"806","PROFECO: su queja fue aceptada con compensación de $2,800. Reclame: profeco-compensacion.mx","phishing"
+"807","INE: su credencial será cancelada. Renueve urgente en: ine-renovacion-urgente.com/mexico","phishing"
+"808","Correos de México: paquete retenido en aduana. Pague $199 liberación: correosmx-entrega.net","phishing"
+"809","CONSAR: su afore tiene rendimientos no reclamados de $15,000. Acceda: consar-retiro-mx.com","phishing"
+"810","Instagram Support: tu cuenta fue reportada 3 veces. Apelar en 12h: instagram-appeal-form.com","phishing"
+"811","Twitter/X Security: tu cuenta publicará contenido adulto automáticamente. Cancela: x-secure-now.link","phishing"
+"812","Facebook Alert: acceso no autorizado detectado. Protege perfil: fb-security-center-alert.com ahora","phishing"
+"813","TikTok Creator: tu cuenta fue seleccionada para monetización. Activa en: tiktok-creator-fund.xyz","phishing"
+"814","WhatsApp: tu suscripción premium expira hoy. Renueva gratis: whatsapp-premium-renewal.com/2024","phishing"
+"815","YouTube Studio: tu canal fue marcado por infracción. Apela antes que te eliminen: yt-appeal.biz","phishing"
+"816","LinkedIn Premium: te ofrecemos 6 meses gratis. Activa en: linkedin-promo-premium.net inmediato","phishing"
+"817","Discord Nitro GRATIS 12 meses: steam te lo regala. Canjealo en: discord-nitro-steam-free.xyz","phishing"
+"818","Spotify Premium 3 meses GRATIS: oferta exclusiva usuarios antiguos. Activa: spotify-promo-mx.com","phishing"
+"819","¡FELICIDADES! Fuiste seleccionado ganador de iPhone 15 Pro. Paga envío $249 en: iphone-winner.co","phishing"
+"820","Amazon Rewards: como usuario activo ganaste $5,000 en crédito. Reclama: amazon-rewards-mx.link","phishing"
+"821","Oxxo: participaste en sorteo y ganaste $10,000. Valida número aquí: oxxo-sorteo-ganadores.com","phishing"
+"822","Walmart México: eres ganador de tarjeta regalo $3,000. Registra datos: walmart-gift-winner.net","phishing"
+"823","Copa Mundial 2026: boletos dobles GRATIS para seguidores. Regístrate: fifamx-boletos-gratis.com","phishing"
+"824","Tesla México: Elon Musk sortea 10 autos eléctricos. Participa: tesla-sorteo-mx-oficial.xyz gratis","phishing"
+"825","Empresa Fortune 500 contrata representantes desde casa $800 USD/semana. Aplica: trabajo-home-mx.com","phishing"
+"826","Gana dinero calificando fotos en Google: $15 por hora, sin experiencia. Regístrate: google-rater-mx.info","phishing"
+"827","Vacante URGENTE: asistente virtual $25,000/mes, horario flexible. Solo registra CV en: empleoreal24.xyz","phishing"
+"828","Amazon Logistics necesita empacadores locales $18,000 mensuales. Aplica: amazon-empleo-mx.com","phishing"
+"829","Inversión garantizada: Bitcoin duplica en 48h. Plataforma segura: btc-doble-mx.com deposita ahora","phishing"
+"830","Binance socio: ganancia mínima 150% mensual. Solo transfiere $200 USDT a: binance-profit-mx.xyz","phishing"
+"831","Grupo VIP de señales Forex: rentabilidad comprobada 40% semanal. Únete: forex-signals-vip.com","phishing"
+"832","NFT exclusivo te da dividendos diarios: compra antes de agotar en: nft-ingreso-pasivo-mx.com","phishing"
+"833","Tu número de teléfono será dado de baja mañana si no confirmas en: operadora-verificacion.com","phishing"
+"834","DHL: tu paquete fue retenido en aduana por contenido no declarado. Paga arancel: dhl-mx-aduana.net","phishing"
+"835","Uber: tu cuenta fue suspendida por reporte de usuario. Apela en: uber-soporte-apelacion.link","phishing"
+"836","Google: detectamos que alguien intenta eliminar tu cuenta Gmail. Protege: google-account-mx.info","phishing"
+"837","Apple ID: tu suscripción fue cancelada por cobro fallido. Actualiza: apple-id-renovar-mx.com","phishing"
+"838","Netflix: pago rechazado. Actualiza método de pago en: netflix-actualizar-pago-mx.com antes de perder acceso","phishing"
+"839","Banco de Chile: movimiento atípico en su cuenta. Verifique en: bancochile-alerta-cl.com urgente","phishing"
+"840","BancoEstado ALERTA: cargo de $890.000 no reconocido. Bloquee tarjeta: bcestado-bloqueo.cl ahora","phishing"
+"841","Claro Colombia: su línea será suspendida por deuda. Pague en: claro-pago-co.link hoy mismo","phishing"
+"842","Bancolombia: cuenta bloqueada por verificación. Reactive en: bancolombia-seguro-col.com","phishing"
+"843","BCP Perú: detectamos operación sospechosa $1,200 PEN. Cancele en: bcp-alerta-pe.net","phishing"
+"844","AFIP Argentina: tiene deuda impositiva de $48,000. Regularice en: afip-regularizacion.ar.net","phishing"
+"845","SII Chile: tiene devolución de $120,000 pendiente. Solicite en: sii-devolucion-cl.xyz","phishing"
+"846","SUNAT Perú: declaración observada. Corrija antes de multa en: sunat-correccion-pe.com","phishing"
+"847","DIAN Colombia: requerimiento de información urgente. Responda en: dian-requerimiento.co.net","phishing"
+"848","Hacienda España: retención indebida €890. Solicite devolución: hacienda-devolucion-es.info","phishing"
+"849","BeReal: alguien añadió tu número sin permiso. Revoca acceso: bereal-privacidad.com ahora","phishing"
+"850","Threads: tu cuenta fue reportada por infracción. Apela antes de ban: threads-appeal.link","phishing"
+"851","Telegram: detectamos bot usando tu número. Desconecta: telegram-bots-seguridad.com","phishing"
+"852","Snapchat: alguien descargó todas tus snaps. Cambia permisos: snap-privacy-alert.net","phishing"
+"853","Reddit: tu cuenta tiene restricciones por karma. Desbloquea en: reddit-karma-fix.net","phishing"
+"854","RRHH: necesitamos actualizar tus datos bancarios para nómina de este mes urgente: bit.ly/rrhh-update","phishing"
+"855","Tu seguro médico de empresa expira en 48h. Renueva beneficios en: seguro-empleado-renovar.com","phishing"
+"856","Fondo de pensiones: beneficio por años de servicio $45,000. Reclama: pension-beneficio.net","phishing"
+"857","Sistema de RRHH: falta firma digital de contrato renovado. Firma en: contrato-digital-hr.com","phishing"
+"858","Evaluación de desempeño con bono pendiente: completa en: evaluacion-bono-empresa.link","phishing"
+"859","Cruz Roja: hay donación urgente de sangre tipo O+. Regístrate: cruzroja-donacion-urgente.link","phishing"
+"860","IMSS Digital: resultados de laboratorio listos con hallazgo importante. Ver en: imss-lab-digital.com","phishing"
+"861","Seguro Gastos Médicos: reclamación pendiente de $24,000. Gestiona: seguro-gm-reclamacion.net","phishing"
+"862","Steam: regalo de juego gratuito de amigo pendiente. Acepta antes que expire: steam-gift-free.co","phishing"
+"863","PlayStation Network: suspensión de cuenta en 24h. Apela: psn-suspension-appeal.xyz ahora","phishing"
+"864","Epic Games: V-Bucks gratuitos por aniversario. Reclama: epic-vbucks-gratis.com/fortnite","phishing"
+"865","Riot Games: tu cuenta Valorant fue comprometida. Asegura: riot-account-secure.link hoy","phishing"
+"866","Nintendo Switch Online: membresía suspendida. Renueva gratis: nintendo-online-mx.net","phishing"
+"867","Blizzard: ban permanente en Overwatch 2 pendiente. Apela: blizzard-ban-appeal.com","phishing"
+"868","EA Sports: FC 24 Ultimate Team hackeado. Recupera equipo: ea-recovery-account.xyz","phishing"
+"869","Activision: Call of Duty cuenta en riesgo. Asegura en: activision-secure-mx.info","phishing"
+"870","Ubisoft: contenido premium gratis 30 días. Activa: ubisoft-promo-gratis.com/mx","phishing"
+"871","Interbank: su token digital expira hoy. Renueve en: interbank-token-pe.com sin costo","phishing"
+"872","BBVA España: transferencia bloqueada por seguridad. Valide en: bbva-validar-es.link","phishing"
+"873","Caixabank: movimiento no autorizado €340. Bloquee en: caixa-alerta-es.info inmediatamente","phishing"
+"874","Itaú Brasil: transação suspeita R$2.300. Cancele em: itau-segurança-br.com agora","phishing"
+"875","Pemex: como tarjetahabiente tiene gasolina gratis por 1 año. Activa en: pemex-beneficio.mx/gratis","phishing"
+"876","Cerveza Modelo: eres ganador de viaje a Europa por 2 personas. Valida: modelo-viaje-gratis.com","phishing"
+"877","Farmacia del Ahorro: medicamento en espera con receta vencida. Renueva: farma-receta.mx/renew","phishing"
+"878","Twitch: vas a perder tu afiliación por inactividad. Reactiva: twitch-affiliado.xyz hoy","phishing"
+"879","Signal: detectamos cuenta clon con tu número. Protege en: signal-verificacion.com","phishing"
+"880","Intranet de empresa: tu acceso fue revocado. Recupera en: intranet-recovery-corp.xyz","phishing"
+"881","Capacitación obligatoria: completa módulo en 24h o pierde certificación: training-corp-mx.com","phishing"
+"882","Beneficios corporativos no reclamados $8,000. Solicita antes del cierre: benefits-corp-mx.xyz","phishing"
+"883","Laboratorio médico: resultado anormal en prueba reciente. Consulta en: lab-resultados-privados.com","phishing"
+"884","Airbnb Seguridad: reservación fraudulenta en tu nombre por $18,000. Cancela: airbnb-alerta-mx.com","phishing"
+"885","Microsoft 365: tu licencia expira en 24h. Renueva gratis: microsoft-renovacion-office.xyz","phishing"
+"886","Xbox Game Pass: pago falló, pierde beneficios en 2h. Actualiza: xbox-pago-urgente.net","phishing"
+"887","Sheinbaum tiene plataforma de inversión oficial: $500 a $5,000 en 7 días. Entra: inversion-mx.link","phishing"
+"888","Grupo VIP inversiones: solo quedan 3 lugares, ROI 200% mensual comprobado: grupo-inversion-vip.xyz","phishing"
+"889","Eres una inútil, ojalá desaparezcas de esta red, nadie quiere leerte aquí","toxicidad"
+"890","@user vete a tu país de mierda, aquí no te queremos, xenófobo nivel cero","toxicidad"
+"891","Las mujeres no saben conducir, son todas estúpidas detrás del volante, hecho comprobado","toxicidad"
+"892","@user eres un enfermo mental, deberían encerrarte lejos de la gente normal","toxicidad"
+"893","Los [grupo étnico] son todos ladrones y violadores, es genético, no hay más que decir","toxicidad"
+"894","Eres tan fea que duele mirarte, borra tu cuenta y hazle un favor a todos aquí","toxicidad"
+"895","@user nadie te va a amar nunca, eres un fracasado en todo lo que intentas hacer","toxicidad"
+"896","Los trans son una aberración, no son personas reales, son enfermos que necesitan cura","toxicidad"
+"897","Mereces que te peguen, si fuera yo ya te hubiera dado una lección hace mucho tiempo","toxicidad"
+"898","@user eres retrasado mental, no opines nunca más sobre nada, tu opinión no vale nada","toxicidad"
+"899","Las personas con discapacidad son una carga para la sociedad, una pérdida de recursos","toxicidad"
+"900","@user tu familia debe avergonzarse de tener un hijo tan imbécil e inútil como tú","toxicidad"
+"901","Los gays van al infierno, son enfermos que corrompen a los niños, la iglesia tiene razón","toxicidad"
+"902","Eres una gorda asquerosa, deja de comer y de publicar fotos que nadie quiere ver","toxicidad"
+"903","@user te voy a encontrar y te voy a hacer pagar lo que dijiste, cuenta los días","toxicidad"
+"904","Los indígenas son atrasados, no sirven para nada moderno, siglos de nada lo prueban","toxicidad"
+"905","Mátate ya, nadie te extrañaría, hazle un favor al mundo de una vez por todas","toxicidad"
+"906","@user eres un pendejo hijo de puta, espero que te pase algo muy malo muy pronto","toxicidad"
+"907","Eres lo peor que le pudo pasar a esta plataforma, cierra tu cuenta y no vuelvas nunca","toxicidad"
+"908","@usuario te buscaré hasta encontrarte, no voy a parar, más te vale tener cuidado","toxicidad"
+"909","Deja de existir en internet, nada de lo que dices vale nada, eres irrelevante total","toxicidad"
+"910","Ojalá pierdas tu trabajo, tu familia y todo, lo mereces por hablar tanto sin cerebro","toxicidad"
+"911","Tu opinión es basura, tú eres basura, y basura es lo que produces cada vez que escribes","toxicidad"
+"912","Gente como tú no merece tener acceso a redes, eres un virus en este espacio digital","toxicidad"
+"913","Me das asco profundo, no entiendo cómo alguien puede aguantarte en persona ni un minuto","toxicidad"
+"914","Eres un maldito cobarde que solo habla desde el anonimato, en persona no dirías nada","toxicidad"
+"915","Bloquéame si quieres, igual te voy a encontrar con otras cuentas, no escapas de mí","toxicidad"
+"916","Mereces sufrir lo mismo que hiciste sufrir a otros, y espero que llegue pronto el karma","toxicidad"
+"917","Tu familia debe avergonzarse de que existas, serías el chiste de cualquier reunión familiar","toxicidad"
+"918","Las feministas son unas histéricas que odian a los hombres y quieren destruir la familia","toxicidad"
+"919","Los hombres que lloran en público son débiles, eso no es masculinidad, es patético total","toxicidad"
+"920","Una mujer que no quiere tener hijos está defectuosa, para eso nacieron, punto y final","toxicidad"
+"921","Los gays no deberían poder casarse ni adoptar, es contra natura y arruina a los niños","toxicidad"
+"922","Los trans son enfermos que necesitan psicólogos no cirujanos, deben tratarse no mutilarse","toxicidad"
+"923","No binario es pura moda de millennials confundidos que quieren atención de las redes sociales","toxicidad"
+"924","Una mujer en la política siempre va a ser más emocional e irracional que un hombre, siempre","toxicidad"
+"925","Los venezolanos vienen a robar los trabajos y llenar los países de delincuencia, váyanse","toxicidad"
+"926","Los indígenas no hablan bien español porque son flojos para aprender, así de simple es","toxicidad"
+"927","Esa gente del campo nunca va a entender cómo funciona la ciudad, son de otro mundo","toxicidad"
+"928","Los africanos siguen subdesarrollados por culpa propia, no por la historia, son incapaces","toxicidad"
+"929","Los árabes son todos potenciales terroristas, hay que tenerles miedo siempre, es lógica pura","toxicidad"
+"930","Los latinoamericanos son todos iguales: flojos, corruptos y sin cultura, que se queden allá","toxicidad"
+"931","Los gitanos roban por naturaleza, es parte de su cultura, no es xenofobia es estadística","toxicidad"
+"932","La gente pobre es pobre porque quiere, tiene opciones y prefiere quejarse antes que trabajar","toxicidad"
+"933","Si eres gay y lo publicas eres un exhibicionista, antes la gente era discreta y mucho mejor","toxicidad"
+"934","Alguien en silla de ruedas no debería ocupar tanto espacio en el transporte, es molesto","toxicidad"
+"935","La depresión es excusa de gente que no quiere trabajar duro, todos tenemos problemas igual","toxicidad"
+"936","Los que dicen tener ansiedad solo buscan atención, antes la gente era más fuerte mentalmente","toxicidad"
+"937","El autismo es sobrediagnosticado, antes esos niños eran simplemente malcriados y punto","toxicidad"
+"938","Gente como tú merece que les pase lo peor, y tarde o temprano les va a pasar, ya verán","toxicidad"
+"939","Hagan RT para que todos sepan quién es este imbécil y qué dice cuando cree que nadie mira","toxicidad"
+"940","Compartan este perfil para que sus seguidores sepan con quién están interactuando, peligroso","toxicidad"
+"941","Este tipo de cuentas hay que reportarlas en masa, entre todos podemos eliminarlos de aquí","toxicidad"
+"942","Unanse al grupo para hostigar esta cuenta hasta que la elimine, somos muchos ya listos","toxicidad"
+"943","Los boomers no entienden nada de tecnología y deberían jubilarse ya de opinar en internet","toxicidad"
+"944","Los zoomers son todos unos flojos sin iniciativa que quieren que todo se los den gratis","toxicidad"
+"945","Los millennials arruinaron todo: el trabajo, el matrimonio, la economía y el entretenimiento","toxicidad"
+"946","Los viejos que siguen usando Facebook son un chiste, ya salgan de aquí y déjennos en paz","toxicidad"
+"947","Los que votan por ese partido son idiotas sin criterio propio que se dejan manipular siempre","toxicidad"
+"948","Todos los políticos de ese lado son corruptos y sus votantes cómplices, no hay excepción","toxicidad"
+"949","Si defiendes esa ideología ya demostraste que eres peligroso y hay que vigilarte de cerca","toxicidad"
+"950","Tus ideas son tan estúpidas que me pregunto cómo alguien puede darte trabajo o educación","toxicidad"
+"951","Cada vez que publicas algo aquí el promedio de inteligencia de la red baja notablemente","toxicidad"
+"952","No tienes idea de lo que hablas, deberías escuchar a personas que saben en lugar de opinar","toxicidad"
+"953","Si fueras un poco más inteligente, serías peligroso, pero ni eso logras, eres inofensivo","toxicidad"
+"954","Ojalá te silencie todo el mundo para que te des cuenta de que nadie te escucha en serio","toxicidad"
+"955","Las personas con tu tipo de cara de influencer falso no deberían tener plataformas reales","toxicidad"
+"956","La vanidad de subir selfies cada día demuestra cuánto vacío tienes por dentro, es triste","toxicidad"
+"957","Las mujeres que publican contenido fitness solo buscan atención masculina, todo calculado así","toxicidad"
+"958","Las que se quejan de acoso en redes lo provocan con lo que publican, consecuencias lógicas","toxicidad"
+"959","Una mujer directiva llegó ahí por conexiones no por méritos, todos lo saben aunque no digan","toxicidad"
+"960","Los influencers que piden donaciones siendo adultos sanos son parásitos sin dignidad alguna","toxicidad"
+"961","El que pide dinero en internet merecía más haber elegido mejor sus decisiones de vida propia","toxicidad"
+"962","Los que se quejan de sus deudas merecen esa situación por no haber ahorrado desde jóvenes","toxicidad"
+"963","La gente que vive de ayudas gubernamentales es un peso para los que sí trabajamos de verdad","toxicidad"
+"964","Los fans de ese equipo son lo más ignorante que existe, no entienden nada del deporte real","toxicidad"
+"965","El jugador que defienden es una vergüenza para ese club, basura de nivel con sueldo de élite","toxicidad"
+"966","Los aficionados de ese deporte son todos violentos primitivos que no deberían estar en sociedad","toxicidad"
+"967","La gente que dice tener depresión y sigue publicando selfies son claramente unos mentirosos","toxicidad"
+"968","Si de verdad estuvieras mal no tendrías tiempo de hacer stories, dejen de buscar atención así","toxicidad"
+"969","Los Gen Z no tienen capacidad de atención para nada más largo que un TikTok de 60 segundos","toxicidad"
+"970","Los millennials convirtieron el trabajo en terapia y ahora exigen que todos los validen ahí","toxicidad"
+"971","Los boomers arruinaron el planeta y la economía y encima dan consejos de productividad, colmo","toxicidad"
+"972","Los religiosos son personas que no pudieron aceptar que la ciencia les quitó sus fantasías","toxicidad"
+"973","Los ateos son arrogantes que creen que saber de ciencia los hace superiores a todo el mundo","toxicidad"
+"974","Las tesis que publican por aquí son dignas de un nivel de primaria, qué vergüenza académica total","toxicidad"
+"975","El grado que tienes no impresiona a nadie con criterio, lo digo con toda la honestidad posible","toxicidad"
+"976","Los universitarios de escuelas públicas nunca van a tener el nivel de los de privadas, hecho","toxicidad"
+"977","Mereces que todos en tu vida real sepan lo que dices aquí, tu jefe, tu familia, absolutamente todos","toxicidad"
+"978","La vida de personas como tú no tiene valor, lo digo sin odio, solo con honestidad brutal total","toxicidad"
+"979","Ese tipo de personas no deberían poder votar, ni hablar, ni respirar el mismo aire que yo","toxicidad"
+"980","Ojalá el algoritmo te cancele y nunca puedas volver a tener voz en ninguna red social jamás","toxicidad"
+"981","Las que dicen tener opiniones políticas propias repiten lo que les dijo su pareja o su grupo","toxicidad"
+"982","Los que no tienen casa propia a los 35 tomaron las peores decisiones posibles de su vida","toxicidad"
+"983","Ojalá te quedes solo para siempre, que nadie te quiera ni te dé trabajo ni nada en la vida","toxicidad"
+"984","Yo en tu lugar ya habría borrado todas mis redes de la pena que deberías sentir cada día","toxicidad"
+"985","No tienes amigos porque nadie soporta a alguien tan tóxico e insoportable como tú en persona","toxicidad"
+"986","Eres un fracasado que se desahoga en internet porque en la vida real nadie lo escucha nunca","toxicidad"
